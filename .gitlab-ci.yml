@@ -16,13 +16,13 @@ development:
     script:
         - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
     only:
-        - develop
+        - master
 
 on_development_failure:
   stage: message_on_slack
   script:
     - . ./ci-scripts/slack_alert.sh development
   only:
-    - develop
+    - master
   when: 
     on_failure        
