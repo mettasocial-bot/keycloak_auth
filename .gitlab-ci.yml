@@ -1,0 +1,27 @@
+image: ruby:latest
+
+before_script:
+    - gem install dpl
+
+stages:
+    - development
+
+development:
+    variables:
+      APP_NAME: "dev-meraklis-auth"
+    type: deploy
+    stage: development
+    image: ruby:latest
+    script:
+        - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
+    only:
+        - develop
+
+on_development_failure:
+  stage: message_on_slack
+  script:
+    - . ./ci-scripts/slack_alert.sh development
+  only:
+    - develop
+  when: 
+    on_failure        
