@@ -5,6 +5,7 @@ before_script:
 
 stages:
     - development
+    - message_on_slack
 
 development:
     variables:
