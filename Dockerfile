@@ -8,8 +8,10 @@ ENV DB_ADDR postgres
 ENV KEYCLOAK_USER admin
 ENV KEYCLOAK_PASSWORD admin
 ENV PORT 8080
+EXPOSE 8080
 COPY standalone.xml /opt/jboss/keycloak/standalone/standalone.xml
 COPY standalone.xml /opt/jboss/keycloak/standalone/configuration/standalone.xml
+COPY meraklis /opt/jboss/keycloak/themes/meraklis
 COPY docker-entrypoint.sh /opt/jboss/tools
 ENTRYPOINT [ "/opt/jboss/tools/docker-entrypoint.sh" ]
 CMD ["-b", "0.0.0.0"]
