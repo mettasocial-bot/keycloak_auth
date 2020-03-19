@@ -9,7 +9,7 @@ stages:
 
 development:
     variables:
-      APP_NAME: "dev-meraklis-auth"
+      APP_NAME: "non-prod-meraklis-auth"
     type: deploy
     stage: development
     image: ruby:latest
