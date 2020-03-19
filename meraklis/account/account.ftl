@@ -57,29 +57,6 @@
         </div>
 
         <div class="form-group">
-            <div class="${properties.kcLabelWrapperClass!}">
-                <label for="user.attributes.mobile" class="${properties.kcLabelClass!}">Mobile number</label>
-            </div>
-            <div class="${properties.kcInputWrapperClass!}">
-                <input type="text" pattern="/\d*/" minLength="10" maxLength="10" class="${properties.kcInputClass!}" id="user.attributes.mobile" name="user.attributes.mobile" value="${(register.formData['user.attributes.mobile']!'')}"/>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="${properties.kcLabelWrapperClass!}">
-                <label for="user.attributes.type" class="${properties.kcLabelClass!}">I am a</label>
-            </div>
-            <div class="${properties.kcInputWrapperClass!}">
-                <select type="text" class="${properties.kcInputClass!}" id="user.attributes.type" name="user.attributes.type" value="${(register.formData['user.attributes.type']!'')}">
-                <option value="1">NGO</option>
-                <option value="2">Normal User</option>
-                <option value="3">Corporate</option>
-                <option value="4">HNI</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="form-group">
             <div id="kc-form-buttons" class="col-md-offset-2 col-md-10 submit">
                 <div class="">
                     <#if url.referrerURI??><a href="${url.referrerURI}">${kcSanitize(msg("backToApplication")?no_esc)}</a></#if>
