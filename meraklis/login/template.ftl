@@ -35,7 +35,7 @@
   <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
-        <img src="//cdn.meraklis.in/meraklis-platform/meraklis-logo.svg" />
+        <img src="//cdn.meraklis.in/meraklis-platform/meraklis-white-logo-with-name.svg" />
       </div>
     </div>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
