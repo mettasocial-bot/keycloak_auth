@@ -28,7 +28,6 @@ alert_on_development_failure:
     on_failure
 
 alert_on_development_success:
-  stage: development
   script:
     - . ./ci-scripts/slack_alert.sh non-prod 1
   only:
@@ -57,7 +56,6 @@ alert_on_production_failure:
     on_failure
 
 alert_on_development_success:
-  stage: production
   script:
     - . ./ci-scripts/slack_alert.sh production 1
   only:
