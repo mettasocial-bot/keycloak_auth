@@ -4,22 +4,22 @@ before_script:
     - gem install dpl
 
 stages:
-    - development
-    - production
+    - deploy
+    - alert
 
-development:
+deploy development:
     variables:
       APP_NAME: "non-prod-meraklis-auth"
     type: deploy
-    stage: development
+    stage: deploy
     image: ruby:latest
     script:
         - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
     only:
         - master
 
-alert_on_development_failure:
-  stage: development
+on development failure:
+  stage: alert
   script:
     - . ./ci-scripts/slack_alert.sh non-prod 0
   only:
@@ -27,7 +27,8 @@ alert_on_development_failure:
   when: 
     on_failure
 
-alert_on_development_success:
+on development success:
+  stage: alert
   script:
     - . ./ci-scripts/slack_alert.sh non-prod 1
   only:
@@ -35,19 +36,19 @@ alert_on_development_success:
   when: 
     on_success
 
-production:
+deploy production:
     variables:
       APP_NAME: "prod-meraklis-auth"
     type: deploy
-    stage: development
+    stage: deploy
     image: ruby:latest
     script:
         - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
     only:
         - /^production-.*$/
 
-alert_on_production_failure:
-  stage: production
+on production failure:
+  stage: alert
   script:
     - . ./ci-scripts/slack_alert.sh production 0
   only:
@@ -55,7 +56,8 @@ alert_on_production_failure:
   when: 
     on_failure
 
-alert_on_development_success:
+on production success:
+  stage: alert
   script:
     - . ./ci-scripts/slack_alert.sh production 1
   only:
