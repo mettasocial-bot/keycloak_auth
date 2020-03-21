@@ -5,7 +5,7 @@ before_script:
 
 stages:
     - development
-    - message_on_slack
+    - production
 
 development:
     variables:
@@ -18,11 +18,49 @@ development:
     only:
         - master
 
-on_development_failure:
-  stage: message_on_slack
+alert_on_development_failure:
+  stage: development
   script:
-    - . ./ci-scripts/slack_alert.sh development
+    - . ./ci-scripts/slack_alert.sh non-prod 0
   only:
     - master
   when: 
-    on_failure        
+    on_failure
+
+alert_on_development_success:
+  stage: development
+  script:
+    - . ./ci-scripts/slack_alert.sh non-prod 1
+  only:
+    - master
+  when: 
+    on_success
+
+production:
+    variables:
+      APP_NAME: "prod-meraklis-auth"
+    type: deploy
+    stage: development
+    image: ruby:latest
+    script:
+        - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
+    only:
+        - /^production-.*$/
+
+alert_on_production_failure:
+  stage: production
+  script:
+    - . ./ci-scripts/slack_alert.sh production 0
+  only:
+    - /^production-.*$/
+  when: 
+    on_failure
+
+alert_on_development_success:
+  stage: production
+  script:
+    - . ./ci-scripts/slack_alert.sh production 1
+  only:
+    - /^production-.*$/
+  when: 
+    on_success
