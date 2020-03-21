@@ -78,10 +78,12 @@
                <div class="${properties.kcInputWrapperClass!}">
                    <select type="text" class="${properties.kcInputClass!}" id="user.attributes.type" name="user.attributes.type" value="${(register.formData['user.attributes.type']!'')}">
                     <option value="1">NGO</option>
-                    <option value="2">Normal User</option>
+                    <option value="2">Citizen</option>
                     <option value="3">Corporate</option>
                     <option value="4">HNI</option>
+                    <option value="5">Service Provider</option>
                    </select>
+                   <span>Please note that, <b>We are currently supporting only NGO registration.</b></span>
                </div>
             </div>
 
