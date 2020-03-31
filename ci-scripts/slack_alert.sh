@@ -7,7 +7,8 @@ if [[ $2 -eq 0 ]]
         message="Build succeeded on project <${CI_PROJECT_URL}|${CI_PROJECT_TITLE}> and $1 Environment. Cheers to ${GITLAB_USER_NAME}. You did great job."
     fi
 fi
-message="${message}. Last commit message says: *${CI_COMMIT_MESSAGE}*."
+COMMIT_MESSAGE="$(echo $CI_COMMIT_MESSAGE | xargs)"
+message="${message}. Last commit message says: *${COMMIT_MESSAGE}*."
 finalMessage="{
 	'blocks': [
 		{

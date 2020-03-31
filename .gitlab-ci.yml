@@ -7,7 +7,7 @@ stages:
     - deploy
     - alert
 
-deploy development:
+non-production:
     variables:
       APP_NAME: "non-prod-meraklis-auth"
     type: deploy
@@ -18,7 +18,7 @@ deploy development:
     only:
         - master
 
-on development failure:
+on non-production failure:
   stage: alert
   script:
     - . ./ci-scripts/slack_alert.sh non-prod 0
@@ -27,7 +27,7 @@ on development failure:
   when: 
     on_failure
 
-on development success:
+on non-production success:
   stage: alert
   script:
     - . ./ci-scripts/slack_alert.sh non-prod 1
@@ -36,7 +36,7 @@ on development success:
   when: 
     on_success
 
-deploy production:
+production:
     variables:
       APP_NAME: "prod-meraklis-auth"
     type: deploy
