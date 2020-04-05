@@ -21,4 +21,4 @@ finalMessage="{
 	]
 }"
 echo ${finalMessage}
-curl -X POST -H 'Content-type: application/json' --data "${finalMessage}" https://hooks.slack.com/services/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
+curl -X POST -H 'Content-type: application/json' --data "${finalMessage}" $SLACK_WEBHOOK_URL
