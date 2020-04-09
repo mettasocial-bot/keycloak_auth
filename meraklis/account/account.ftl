@@ -58,7 +58,7 @@
 
         <div class="form-group">
             <div class="col-sm-2 col-md-2">
-                <label for="user.attributes.contactNumber" class="control-label">Contact number</label>
+                <label for="user.attributes.contactNumber" class="control-label">Contact number</label> <span class="required">*</span>
             </div>
 
             <div class="col-sm-10 col-md-10">

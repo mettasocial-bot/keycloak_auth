@@ -67,7 +67,7 @@
                    <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact number</label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
-                   <input type="tel" pattern="[0-9]{10}" required class="${properties.kcInputClass!}" id="user.attributes.contactNumber" name="user.attributes.contactNumber" value="${(register.formData['user.attributes.contactNumber']!'')}"/>
+                   <input type="tel" required pattern="[0-9]{10}" required class="${properties.kcInputClass!}" id="user.attributes.contactNumber" name="user.attributes.contactNumber" value="${(register.formData['user.attributes.contactNumber']!'')}"/>
                </div>
             </div>
 
