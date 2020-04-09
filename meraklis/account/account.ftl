@@ -57,6 +57,16 @@
         </div>
 
         <div class="form-group">
+            <div class="col-sm-2 col-md-2">
+                <label for="user.attributes.contactNumber" class="control-label">Contact number</label>
+            </div>
+
+            <div class="col-sm-10 col-md-10">
+                <input type="text" class="form-control" id="user.attributes.contactNumber" name="user.attributes.contactNumber" value="${(account.attributes.contactNumber!'')}"/>
+            </div>
+        </div>
+
+        <div class="form-group">
             <div id="kc-form-buttons" class="col-md-offset-2 col-md-10 submit">
                 <div class="">
                     <#if url.referrerURI??><a href="${url.referrerURI}">${kcSanitize(msg("backToApplication")?no_esc)}</a></#if>
