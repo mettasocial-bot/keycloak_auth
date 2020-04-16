@@ -12,7 +12,7 @@ if [[ $2 -eq 0 ]]
 					'fields': [
 						{
 							'title': 'Last commit by',
-							'value': '${GITLAB_USER_NAME} demo',
+							'value': '${GITLAB_USER_NAME}',
 							'short': true
 						},
 						{
@@ -22,12 +22,12 @@ if [[ $2 -eq 0 ]]
 						},
 						{
 							'title': 'Check the pipeline link below for more details',
-							'value': '${CI_PIPELINE_URL} demo',
+							'value': '${CI_PIPELINE_URL}',
 							'short': false
 						},
 						{
 							'title': 'Last commit message Says',
-							'value': '$(echo ${CI_COMMIT_MESSAGE} | xargs) demo',
+							'value': '$(echo ${CI_COMMIT_MESSAGE} | xargs)',
 							'short': false
 						}
 					],
