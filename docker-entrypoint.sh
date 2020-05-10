@@ -189,5 +189,5 @@ fi
 ##################
 echo "_________________starting keycloak"
 echo $PORT
-exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Dkeycloak.profile=preview
+exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT -Dkeycloak.profile=preview
 exit $?
