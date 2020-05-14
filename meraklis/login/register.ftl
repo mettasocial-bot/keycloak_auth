@@ -77,13 +77,13 @@
                </div>
                <div class="${properties.kcInputWrapperClass!}">
                    <select class="${properties.kcInputClass!}" id="user.attributes.type" name="user.attributes.type" value="${(register.formData['user.attributes.type']!'')}">
-                    <option value="2">NGO</option>
-                    <option value="4">Corporate</option>
-                    <option value="8" disabled>Citizen</option>
-                    <option value="16" disabled>HNI</option>
-                    <option value="32" disabled>Service Provider</option>
+                        <option value="2">NGO</option>
+                        <option value="4">Corporate</option>
+                        <option value="8" disabled>Citizen</option>
+                        <option value="16" disabled>HNI</option>
+                        <option value="32" disabled>Service Provider</option>
                    </select>
-                   <span>Please note that, <b>We are currently supporting only NGO registrations.</b></span>
+                   <span>Please note that, <b>We are currently supporting only NGO & Corporate registrations.</b></span>
                </div>
             </div>
 

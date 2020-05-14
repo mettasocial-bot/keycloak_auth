@@ -61,8 +61,8 @@
                         <option value="8" disabled>Citizen</option>
                         <option value="16" disabled>HNI</option>
                         <option value="32" disabled>Service Provider</option>
-                    </select>
-                    <span>Please note that, <b>We are currently supporting only NGO registrations.</b></span>
+                   </select>
+                   <span>Please note that, <b>We are currently supporting only NGO & Corporate registrations.</b></span>
                 </div>
             </div>
 
