@@ -58,7 +58,7 @@
                     <select type="text" class="${properties.kcInputClass!}" id="user.attributes.type" name="user.attributes.type" value="${(user.attributes.type!'')}">
                         <option value="2">NGO</option>
                         <option value="4">Corporate</option>
-                        <option value="8" disabled>Citizen</option>
+                        <option value="8">Citizen</option>
                         <option value="16" disabled>HNI</option>
                         <option value="32" disabled>Service Provider</option>
                    </select>

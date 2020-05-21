@@ -49,6 +49,8 @@ production:
 
 on production failure:
   stage: alert
+  before_script:
+    - echo "Sending message on slack"
   script:
     - . ./ci-scripts/slack_alert.sh production 0
   only:
@@ -58,6 +60,8 @@ on production failure:
 
 on production success:
   stage: alert
+  before_script:
+    - echo "Sending message on slack"
   script:
     - . ./ci-scripts/slack_alert.sh production 1
   only:
