@@ -55,7 +55,7 @@
                    <label for="user.attributes.type" class="${properties.kcLabelClass!}">I am a</label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
-                   <select class="${properties.kcInputClass!}" id="user.attributes.type" name="user.attributes.type" value="${(register.formData['user.attributes.type']!'')}">
+                    <select type="text" class="${properties.kcInputClass!}" id="user.attributes.type" name="user.attributes.type" value="${(user.attributes.type!'')}">
                         <#if client?? && client.clientId?? && client.clientId = "local-meraklis">
                             <option value="2">NGO</option>
                             <option value="4">Corporate</option>
