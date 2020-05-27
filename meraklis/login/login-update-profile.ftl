@@ -50,20 +50,26 @@
                 </div>
             </div>
 
-            <div class="${properties.kcFormGroupClass!}">
-                <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="user.attributes.type" class="${properties.kcLabelClass!}">Type</label>
-                </div>
-                <div class="${properties.kcInputWrapperClass!}">
-                    <select type="text" class="${properties.kcInputClass!}" id="user.attributes.type" name="user.attributes.type" value="${(user.attributes.type!'')}">
-                        <option value="2">NGO</option>
-                        <option value="4">Corporate</option>
-                        <option value="8">Citizen</option>
-                        <option value="16" disabled>HNI</option>
-                        <option value="32" disabled>Service Provider</option>
+            <div class="form-group hidden-xs hidden-sm hidden-md hidden-lg">
+               <div class="${properties.kcLabelWrapperClass!}">
+                   <label for="user.attributes.type" class="${properties.kcLabelClass!}">I am a</label>
+               </div>
+               <div class="${properties.kcInputWrapperClass!}">
+                   <select class="${properties.kcInputClass!}" id="user.attributes.type" name="user.attributes.type" value="${(register.formData['user.attributes.type']!'')}">
+                        <#if client?? && client.clientId?? && client.clientId = "local-meraklis">
+                            <option value="2">NGO</option>
+                            <option value="4">Corporate</option>
+                            <option value="8">Citizen</option>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-meraklis-npo" || client.clientId = "staging-meraklis-npo" || client.clientId = "meraklis-npo")>
+                            <option value="2" selected>NGO</option>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-meraklis-corp" || client.clientId = "staging-meraklis-corp" || client.clientId = "meraklis-corp")>
+                            <option value="4" selected>Corporate</option>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-meraklis-citizen" || client.clientId = "staging-meraklis-citizen" || client.clientId = "meraklis-citizen" || client.clientId = "android-meraklis")>
+                            <option value="8" selected>Citizen</option>
+                        </#if>
                    </select>
                    <span>Please note that, <b>We are currently supporting only NGO & Corporate registrations.</b></span>
-                </div>
+               </div>
             </div>
 
             <div class="${properties.kcFormGroupClass!}">
