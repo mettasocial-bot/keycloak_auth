@@ -50,7 +50,11 @@
                 </div>
             </div>
 
-            <div class="form-group hidden-xs hidden-sm hidden-md hidden-lg">
+            <#if client?? && client.clientId?? && client.clientId = "local-meraklis">
+                <div class="form-group">
+            <#else>
+                <div class="form-group hidden-xs hidden-sm hidden-md hidden-lg">
+            </#if>
                <div class="${properties.kcLabelWrapperClass!}">
                    <label for="user.attributes.type" class="${properties.kcLabelClass!}">I am a</label>
                </div>
