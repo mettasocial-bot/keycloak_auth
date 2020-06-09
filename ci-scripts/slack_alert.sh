@@ -32,7 +32,7 @@ if [[ $2 -eq 0 ]]
 						}
 					],
 					'footer': 'Meraklis Technologies Pvt. Ltd.',
-					'footer_icon': 'https://cdn.meraklis.in/meraklis-platform/meraklis-colored-logo.png',
+					'footer_icon': 'https://cdn.meraklis.in/meraklis-platform/logos/meraklis-colored-logo.png',
 					'ts': '$EPOCHSECONDS'
 				}
 			]
@@ -70,7 +70,7 @@ if [[ $2 -eq 0 ]]
 						}
 					],
 					'footer': 'Meraklis Technologies Pvt. Ltd.',
-					'footer_icon': 'https://cdn.meraklis.in/meraklis-platform/meraklis-colored-logo.png',
+					'footer_icon': 'https://cdn.meraklis.in/meraklis-platform/logos/meraklis-colored-logo.png',
 					'ts': '$EPOCHSECONDS'
 				}
 			]
