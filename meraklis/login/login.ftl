@@ -62,7 +62,7 @@
         </#if>
       </div>
     <#elseif section = "info" >
-        <#if realm.password && realm.registrationAllowed && !usernameEditDisabled?? && client?? && client.clientId?? && (client.clientId != "dev-meraklis" || client.clientId != "staging-meraklis" || client.clientId != "meraklis")>
+        <#if realm.password && realm.registrationAllowed && !usernameEditDisabled?? && client?? && client.clientId?? && (client.clientId != "dev-meraklis" && client.clientId != "staging-meraklis" && client.clientId != "meraklis")>
             <div id="kc-registration">
                 <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
             </div>
