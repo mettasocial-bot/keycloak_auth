@@ -7,36 +7,7 @@ stages:
     - deploy
     - alert
 
-non-production:
-    variables:
-      APP_NAME: "non-prod-meraklis-auth"
-    type: deploy
-    stage: deploy
-    image: ruby:latest
-    script:
-        - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
-    only:
-        - master
-
-on non-production failure:
-  stage: alert
-  script:
-    - . ./ci-scripts/slack_alert.sh non-prod 0
-  only:
-    - master
-  when: 
-    on_failure
-
-on non-production success:
-  stage: alert
-  script:
-    - . ./ci-scripts/slack_alert.sh non-prod 1
-  only:
-    - master
-  when: 
-    on_success
-
-production:
+deploy:
     variables:
       APP_NAME: "prod-meraklis-auth"
     type: deploy
@@ -47,7 +18,7 @@ production:
     only:
         - /^production-.*$/
 
-on production failure:
+on failure:
   stage: alert
   before_script:
     - echo "Sending message on slack"
@@ -58,7 +29,7 @@ on production failure:
   when: 
     on_failure
 
-on production success:
+on success:
   stage: alert
   before_script:
     - echo "Sending message on slack"
