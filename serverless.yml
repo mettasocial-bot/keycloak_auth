@@ -1,32 +1,18 @@
-# Welcome to Serverless!
-#
-# This file is the main config file for your service.
-# It's very minimal at this point and uses default values.
-# You can always add more config options for more control.
-# We've included some commented out config examples here.
-# Just uncomment any of them to get that config option.
-#
-# For full config options, check the docs:
-#    docs.serverless.com
-#
-# Happy Coding!
-
-service: meraklis-auth-functions
-# app and org for use with dashboard.serverless.com
-app: meraklis-auth-functions
+service: meraklis-auth-handlers
+app: meraklis-auth-handlers
 org: meraklistechnologies
-
-# You can pin your service to only deploy with a specific Serverless version
-# Check out our docs for more details
-# frameworkVersion: "=X.X.X"
-
 provider:
   name: aws
   runtime: nodejs12.x
-
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
+  deploymentBucket:
+    name: meraklis.serverless.deploys
+    maxPreviousDeploymentArtifacts: 10
+  apiName: meraklis-auth-handlers
+  stackName: meraklis-auth-handlers
+  memorySize: 512
+  timeout: 10
+  stage: prod
+  region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -56,19 +42,27 @@ provider:
 #  exclude:
 #    - exclude-me.js
 #    - exclude-me-dir/**
+package:
+  individually: true
 
 functions:
-  hello:
-    handler: demo/signup.hello
+  signup:
+    handler: serverless-functions/signup.index
     events:
       - http: 
-          path: hello
+          path: signup
+          method: post
+  logout:
+    handler: serverless-functions/logout.index
+    events:
+      - http: 
+          path: logout
           method: get
-  hello2:
-    handler: demo/logout.hello
+  authorize:
+    handler: serverless-functions/authorize.index
     events:
       - http: 
-          path: hello2
+          path: authorize
           method: get
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
@@ -121,3 +115,7 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+plugins:
+  - serverless-ignore
+  - serverless-plugin-include-dependencies
+  - serverless-bundle

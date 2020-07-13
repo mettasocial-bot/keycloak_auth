@@ -1,0 +1,25 @@
+{
+  "name": "meraklis-auth",
+  "version": "1.0.0",
+  "description": "Contains all serverless functions for apis that do operations on keycloak authentication server",
+  "main": "handler.js",
+  "dependencies": {
+    "jwt-decode": "^2.2.0"
+  },
+  "devDependencies": {
+    "serverless": "^1.74.1",
+    "serverless-bundle": "^1.9.0",
+    "serverless-ignore": "^0.1.5",
+    "serverless-plugin-include-dependencies": "^4.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com-meraklis:meraklis1/meraklis-auth.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

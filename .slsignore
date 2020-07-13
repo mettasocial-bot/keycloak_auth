@@ -1,0 +1,14 @@
+keycloak-custom-theme/**/*
+ci-scripts/**/*
+node_modules/**/*
+.git/**/*
+heroku.yml
+Dockerfile
+docker-entrypoint.sh
+README.md
+.slsignore
+.gitignore
+package.json
+package-lock.json
+serverless.yml
+.gitlab-ci.yml
