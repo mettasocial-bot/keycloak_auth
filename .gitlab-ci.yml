@@ -17,6 +17,8 @@ dry-run:
       - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
     only:
       - master
+    exclude:
+      - serverless-functions/**/*
 
 
 production:
@@ -29,6 +31,8 @@ production:
         - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
     only:
         - /^production-.*$/
+    exclude:
+      - serverless-functions/**/*
 
 on failure:
   stage: alert
