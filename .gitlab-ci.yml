@@ -7,7 +7,24 @@ stages:
     - deploy
     - alert
 
-deploy:
+dry-run:
+    variables:
+      APP_NAME: "non-prod-meraklis-auth"
+    type: deploy
+    stage: deploy
+    image: ruby:latest
+    script:
+      - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
+    only:
+      - master
+    except:
+      changes:
+        - serverless.yml
+        - README.md
+        - serverless-functions/**/*
+
+
+production:
     variables:
       APP_NAME: "prod-meraklis-auth"
     type: deploy
