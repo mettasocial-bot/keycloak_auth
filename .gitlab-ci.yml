@@ -17,6 +17,11 @@ deploy:
         - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
     only:
         - /^production-.*$/
+    except:
+      changes:
+        - serverless.yml
+        - README.md
+        - serverless-functions/**/*
 
 on failure:
   stage: alert
@@ -28,6 +33,11 @@ on failure:
     - /^production-.*$/
   when: 
     on_failure
+  except:
+    changes:
+      - serverless.yml
+      - README.md
+      - serverless-functions/**/*
 
 on success:
   stage: alert
@@ -39,3 +49,8 @@ on success:
     - /^production-.*$/
   when: 
     on_success
+  except:
+    changes:
+      - serverless.yml
+      - README.md
+      - serverless-functions/**/*
