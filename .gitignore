@@ -11,3 +11,4 @@ Dockerfile
 docker-entrypoint.sh
 .gitlab-ci.yml
 .gitignore
+.webpack

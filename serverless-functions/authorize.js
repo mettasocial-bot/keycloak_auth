@@ -23,7 +23,6 @@ function getRedirectBaseUrl(APP_ENV, USER_TYPE) {
 }
 
 export async function index(event) {
-    console.log(event);
     let response = {};
     let redirect_path = event.path.replace('/authorize', '');
     let authorization_code = event.queryStringParameters.code;
@@ -57,14 +56,11 @@ export async function index(event) {
                 APP_ENV = origin.replace("www.meraklis.in", "");
             }
         }
-
-        console.log(APP_ENV, "APP_ENV");
         let token_data = await getToken({
             authorization_code,
             APP_ENV,
             redirect_path
         });
-        console.log(token_data);
         const USER_TYPE = jwt_decode(token_data.access_token).user_type;
         response = {
             statusCode: 302,
@@ -73,7 +69,8 @@ export async function index(event) {
             }
         };
     } catch (e) {
-        console.log(JSON.stringify(e));
+        console.log("error", JSON.stringify(e));
+        console.log("error", event);
         response = {
             statusCode: 302,
             headers: {

@@ -4,7 +4,8 @@
   "description": "Contains all serverless functions for apis that do operations on keycloak authentication server",
   "main": "handler.js",
   "dependencies": {
-    "jwt-decode": "^2.2.0"
+    "jwt-decode": "^2.2.0",
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
     "serverless": "^1.74.1",
