@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "meraklis-auth",
   "version": "1.0.0",
   "description": "Contains all serverless functions for apis that do operations on keycloak authentication server",

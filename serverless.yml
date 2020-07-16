@@ -6,7 +6,7 @@ provider:
   runtime: nodejs12.x
   deploymentBucket:
     name: meraklis.serverless.deploys
-    maxPreviousDeploymentArtifacts: 10
+    maxPreviousDeploymentArtifacts: 20
   apiName: meraklis-auth-handlers
   stackName: meraklis-auth-handlers
   memorySize: 512
