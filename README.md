@@ -1,11 +1,27 @@
-# Deploy Keycloak to Heroku
+# This is a graphql project that uses [Hasura](https://www.hasura.io) and [serverless](https://www.serverless.com)
 
-This repository deploys the [Keycloak](https://www.keycloak.org) Identity and Access Manangement Solution 
-to Heroku.  It is based of Keycloak's official docker image with some slight modifications to use the
-Heroku variable for `PORT` and `DATABASE_URL` properly.
+Table of Contents
+1. [To run serverless functions on local machine](#to-run-serverless-functions-on-local-machine)
+1. [Docker sanitization Best practices](#docker-sanitization-best-practices)
 
-The deployment will be made with a single Performance-M dyno (it won't run very well in smaller dynos
-due to Java's memory hunger) with a free Postgres database attached.
+## To run serverless functions on local machine
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+#### Requirements
+1. [Serverless Cli](https://www.serverless.com/framework/docs/getting-started#install-as-a-standalone-binary)
+2. [AWS cli](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+3. Nodejs (>=12.X) 
+    - As a best practice install node [via nvm](https://github.com/nvm-sh/nvm#installing-and-updating) 
+    - if you dont want nvm use [official site here](https://nodejs.org/en/download/)
 
+#### How to run
+1. `npm install`
+1. `npm run watch:serverless` This will start all apis on http://localhost:4000
+
+## Docker sanitization Best practices
+Run following command once in a while 
+```
+docker stop $(docker ps -a -q) 
+docker rmi -f $(docker images --filter "dangling=true" -a -q) 
+docker container prune -f 
+docker volume prune
+```
