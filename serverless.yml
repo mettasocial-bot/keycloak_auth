@@ -3,8 +3,6 @@ app: meraklis-auth-handlers
 provider:
   name: aws
   runtime: nodejs12.x
-  environment:
-    APP_ENV: ${env:APP_ENV}
   deploymentBucket:
     name: meraklis.serverless.deploys
     maxPreviousDeploymentArtifacts: 20
@@ -12,7 +10,7 @@ provider:
   stackName: meraklis-auth-handlers
   memorySize: 512
   timeout: 10
-  stage: ${env:APP_ENV}
+  stage: prod
   region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here

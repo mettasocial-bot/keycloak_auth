@@ -7,10 +7,10 @@
   "dependencies": {
     "jwt-decode": "^2.2.0",
     "node-fetch": "^2.6.0",
-    "serverless-api-gateway-throttling": "^1.0.1",
     "serverless": "^1.74.1",
-    "serverless-ignore": "^0.1.5",
+    "serverless-api-gateway-throttling": "^1.0.1",
     "serverless-bundle": "^1.9.0",
+    "serverless-ignore": "^0.1.5",
     "serverless-plugin-include-dependencies": "^4.1.0"
   },
   "devDependencies": {
@@ -37,7 +37,7 @@
   },
   "scripts": {
     "watch:serverless": "npm-watch start:serverless",
-    "start:serverless": "npx dotenv npx serverless offline"
+    "start:serverless": "npx serverless offline"
   },
   "repository": {
     "type": "git",
