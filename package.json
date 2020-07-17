@@ -6,16 +6,38 @@
   "main": "handler.js",
   "dependencies": {
     "jwt-decode": "^2.2.0",
-    "node-fetch": "^2.6.0"
-  },
-  "devDependencies": {
+    "node-fetch": "^2.6.0",
+    "serverless-api-gateway-throttling": "^1.0.1",
     "serverless": "^1.74.1",
-    "serverless-bundle": "^1.9.0",
     "serverless-ignore": "^0.1.5",
+    "serverless-bundle": "^1.9.0",
     "serverless-plugin-include-dependencies": "^4.1.0"
   },
+  "devDependencies": {
+    "serverless-offline": "^6.4.0",
+    "eslint": "^7.4.0",
+    "eslint-plugin-import": "^2.22.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "npm-watch": "^0.6.0",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged -p true"
+    }
+  },
+  "watch": {
+    "start:serverless": {
+      "patterns": [
+        "serverless-functions/**",
+        "serverless.yml"
+      ]
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch:serverless": "npm-watch start:serverless",
+    "start:serverless": "npx dotenv npx serverless offline"
   },
   "repository": {
     "type": "git",

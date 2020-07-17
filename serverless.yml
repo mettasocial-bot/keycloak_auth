@@ -1,9 +1,10 @@
 service: meraklis-auth-handlers
 app: meraklis-auth-handlers
-org: meraklistechnologies
 provider:
   name: aws
   runtime: nodejs12.x
+  environment:
+    APP_ENV: ${env:APP_ENV}
   deploymentBucket:
     name: meraklis.serverless.deploys
     maxPreviousDeploymentArtifacts: 20
@@ -11,7 +12,7 @@ provider:
   stackName: meraklis-auth-handlers
   memorySize: 512
   timeout: 10
-  stage: prod
+  stage: ${env:APP_ENV}
   region: us-east-1
 
 # you can add statements to the Lambda function's IAM Role here
@@ -119,3 +120,16 @@ plugins:
   - serverless-ignore
   - serverless-plugin-include-dependencies
   - serverless-bundle
+  - serverless-api-gateway-throttling
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 4000
+    lambdaPort: 4002
+    printOutput: true
+    useWorkerThreads: true
+    useChildProcesses: true
+  apiGatewayThrottling:
+    maxRequestsPerSecond: 100
+    maxConcurrentRequests: 50
