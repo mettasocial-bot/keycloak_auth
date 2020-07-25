@@ -121,6 +121,15 @@ plugins:
   - serverless-api-gateway-throttling
   - serverless-offline
 
+usagePlan: # Optional usage plan configuration
+  quota:
+    limit: 5000
+    offset: 2
+    period: MONTH
+  throttle:
+    burstLimit: 200
+    rateLimit: 100
+
 custom:
   serverless-offline:
     httpPort: 4000
