@@ -24,7 +24,7 @@ dry-run-keycloak:
         - Dockerfile
         - heroku.yml
         - .gitlab-ci.yml
-
+        - ci-scripts/**/*
 
 keycloak:
     variables:
@@ -43,6 +43,7 @@ keycloak:
         - Dockerfile
         - heroku.yml
         - .gitlab-ci.yml
+        - ci-scripts/**/*
 
 serverless:
   image: node:latest
@@ -58,6 +59,7 @@ serverless:
       - serverless-functions/**/*
       - serverless.yml
       - .gitlab-ci.yml
+      - ci-scripts/**/*
 
 on failure:
   stage: alert
@@ -76,6 +78,7 @@ on failure:
       - Dockerfile
       - heroku.yml
       - .gitlab-ci.yml
+      - ci-scripts/**/*
   when: 
     on_failure
 
@@ -96,5 +99,6 @@ on success:
       - Dockerfile
       - heroku.yml
       - .gitlab-ci.yml
+      - ci-scripts/**/*
   when: 
     on_success
