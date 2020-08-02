@@ -7,7 +7,7 @@ stages:
     - deploy
     - alert
 
-dry-run:
+dry-run-keycloak:
     variables:
       APP_NAME: "non-prod-meraklis-auth"
     type: deploy
@@ -16,13 +16,17 @@ dry-run:
     script:
       - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
     only:
-      - master
-    except:
+      refs:
+        - master
       changes:
-        - serverless-functions/**/*
+        - keycloak-custom-theme/**/*
+        - docker-entrypoint.sh
+        - Dockerfile
+        - heroku.yml
+        - .gitlab-ci.yml
 
 
-production:
+keycloak:
     variables:
       APP_NAME: "prod-meraklis-auth"
     type: deploy
@@ -31,10 +35,29 @@ production:
     script:
         - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
     only:
+      refs:
         - /^production-.*$/
-    except:
       changes:
-        - serverless-functions/**/*
+        - keycloak-custom-theme/**/*
+        - docker-entrypoint.sh
+        - Dockerfile
+        - heroku.yml
+        - .gitlab-ci.yml
+
+serverless:
+  image: node:latest
+  before_script:
+    - . ./ci-scripts/do_npm_install.sh
+  stage: deploy
+  script:
+      - npx serverless deploy
+  only:
+    refs:
+      - /^production-.*$/
+    changes:
+      - serverless-functions/**/*
+      - serverless.yml
+      - .gitlab-ci.yml
 
 on failure:
   stage: alert
@@ -43,7 +66,16 @@ on failure:
   script:
     - . ./ci-scripts/slack_alert.sh production 0
   only:
-    - /^production-.*$/
+    refs: 
+      - /^production-.*$/
+    changes:
+      - serverless-functions/**/*
+      - serverless.yml
+      - keycloak-custom-theme/**/*
+      - docker-entrypoint.sh
+      - Dockerfile
+      - heroku.yml
+      - .gitlab-ci.yml
   when: 
     on_failure
 
@@ -54,6 +86,15 @@ on success:
   script:
     - . ./ci-scripts/slack_alert.sh production 1
   only:
-    - /^production-.*$/
+    refs:
+      - /^production-.*$/
+    changes:
+      - serverless-functions/**/*
+      - serverless.yml
+      - keycloak-custom-theme/**/*
+      - docker-entrypoint.sh
+      - Dockerfile
+      - heroku.yml
+      - .gitlab-ci.yml
   when: 
     on_success
