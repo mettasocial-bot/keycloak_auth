@@ -68,7 +68,6 @@
                             <option value="8" selected>Citizen</option>
                         </#if>
                    </select>
-                   <span>Please note that, <b>We are currently supporting only NGO & Corporate registrations.</b></span>
                </div>
             </div>
 
