@@ -107,6 +107,10 @@ div.kc-logo-text span {
     white-space: nowrap;
 }
 
+#kc-header img {
+    height: 40px;
+}
+
 #kc-header-wrapper {
     font-size: 29px;
     text-transform: uppercase;
