@@ -12,6 +12,9 @@ provider:
   timeout: 10
   stage: prod
   region: us-east-1
+  environment:
+    KEYCLOAK_ADMIN_USERNAME: ${env:KEYCLOAK_ADMIN_USERNAME}
+    KEYCLOAK_ADMIN_PASSWORD: ${env:KEYCLOAK_ADMIN_PASSWORD}
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:

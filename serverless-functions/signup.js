@@ -19,22 +19,8 @@ function logoutAdmin(access_token) {
 export async function index(event) {
   try {
     const requestData = JSON.parse(event.body);
-    const {
-      username,
-      firstName,
-      lastName,
-      contactNumber,
-      password,
-      email,
-    } = requestData;
-    if (
-      !email ||
-      !password ||
-      !contactNumber ||
-      !lastName ||
-      !firstName ||
-      !username
-    ) {
+    const { firstName, lastName, contactNumber, password, email } = requestData;
+    if (!email || !password || !contactNumber || !lastName || !firstName) {
       throw new Error("Bad request data");
     }
     let res = await fetch(
@@ -51,7 +37,7 @@ export async function index(event) {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: `client_id=admin-cli&grant_type=password&scope=openid&username=realmusermanager&password=(m4{6k~D6Eh{`,
+          body: `client_id=admin-cli&grant_type=password&scope=openid&username=${process.env.KEYCLOAK_ADMIN_USERNAME}&password=${process.env.KEYCLOAK_ADMIN_PASSWORD}`,
           method: "POST",
         }
       );
@@ -64,7 +50,6 @@ export async function index(event) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            username: username,
             firstName: firstName,
             lastName: lastName,
             attributes: {
@@ -85,6 +70,7 @@ export async function index(event) {
         }
       );
       if (+res.status !== 201) {
+        console.log(res);
         const userCreationResponse = await res.json();
         throw new Error(userCreationResponse.errorMessage);
       }
