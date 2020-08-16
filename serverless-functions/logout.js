@@ -34,7 +34,7 @@ export async function index(event) {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: `client_id=admin-cli&grant_type=password&scope=openid&username=realmusermanager&password=(m4{6k~D6Eh{`,
+        body: `client_id=admin-cli&grant_type=password&scope=openid&username=${process.env.KEYCLOAK_ADMIN_USERNAME}&password=${process.env.KEYCLOAK_ADMIN_PASSWORD}`,
         method: "POST",
       }
     );
