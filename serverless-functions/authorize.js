@@ -25,7 +25,6 @@ export async function index(event) {
   let response = {};
   let redirect_path = event.path.replace("/authorize", "");
   let authorization_code = event.queryStringParameters.code;
-
   if (
     !event.headers ||
     !(event.headers.Referer || event.headers.referer) ||
@@ -106,7 +105,6 @@ function getToken({ authorization_code, APP_ENV, redirect_path }) {
           data += chunk;
         });
         res.on("end", () => {
-          console.log(data, "token");
           resolve(JSON.parse(data));
         });
       })
