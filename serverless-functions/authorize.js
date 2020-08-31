@@ -90,7 +90,7 @@ function getToken({ authorization_code, APP_ENV, redirect_path }) {
     const data = `code=${authorization_code}&grant_type=authorization_code&client_id=${APP_ENV}meraklis&redirect_uri=https://authz.meraklis.in/authorize${redirect_path}`;
     console.log(data);
     const options = {
-      hostname: `${APP_ENV}auth.meraklis.in`,
+      hostname: `auth.meraklis.in`,
       port: 443,
       path: "/auth/realms/meraklis-platform/protocol/openid-connect/token",
       method: "POST",
@@ -106,6 +106,7 @@ function getToken({ authorization_code, APP_ENV, redirect_path }) {
           data += chunk;
         });
         res.on("end", () => {
+          console.log(data, "token");
           resolve(JSON.parse(data));
         });
       })
