@@ -8,14 +8,8 @@ body {
 }
 
 .login-pf body {
-    background: linear-gradient(to bottom, #2764AF, #4FAC73);
-    background-size: cover;
+    background: url("//cdn.meraklis.in/meraklis-platform/meraklis-auth-bg-main.png"), linear-gradient(to bottom right, #155374 20%, #378173);
     padding-bottom: 50px;
-}
-
-.login-pf-page {
-    background: url("//cdn.meraklis.in/meraklis-platform/meraklis-auth-bg-main.png") repeat-y;
-    background-size: cover;
 }
 
 .alert-error {
