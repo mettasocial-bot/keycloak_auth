@@ -1,10 +1,20 @@
-.login-pf {
-    height: auto;
-    background: none;
+.login-pf,
+body {
+    min-height: 100%;
+}
+
+.form-control {
+    border-radius: 4px;
 }
 
 .login-pf body {
-    background: #666 url("//cdn.meraklis.in/meraklis-platform/logos/meraklis-auth-bg-main.jpg");
+    background: linear-gradient(to bottom, #2764AF, #4FAC73);
+    background-size: cover;
+    padding-bottom: 50px;
+}
+
+.login-pf-page {
+    background: url("//cdn.meraklis.in/meraklis-platform/meraklis-auth-bg-main.png") repeat-y;
     background-size: cover;
 }
 
@@ -59,10 +69,6 @@ a#kc-current-locale-link {
     display: block;
     padding: 0 5px;
 }
-
-/* a#kc-current-locale-link:hover {
-    background-color: rgba(0,0,0,0.2);
-} */
 
 a#kc-current-locale-link::after {
     content: "\2c5";
@@ -124,24 +130,15 @@ div.kc-logo-text span {
     width: 100%;
 }
 
-#kc-attempted-username{
+#kc-attempted-username {
     font-size: 20px;
-    font-family:inherit;
+    font-family: inherit;
     font-weight: normal;
-    padding-right:10px;
+    padding-right: 10px;
 }
 
-#kc-username{
+#kc-username {
     text-align: center;
-}
-
-/* #kc-content-wrapper {
-    overflow-y: hidden;
-} */
-
-#kc-info {
-    padding-bottom: 200px;
-    margin-bottom: -200px;
 }
 
 #kc-info-wrapper {
@@ -154,7 +151,6 @@ div.kc-logo-text span {
 
 #kc-form-options .checkbox {
     margin-top: 0;
-    color: #72767b;
 }
 
 #kc-terms-text {
@@ -183,12 +179,12 @@ ol#kc-totp-settings {
 }
 
 ul#kc-totp-supported-apps {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #kc-totp-secret-qr-code {
-    max-width:150px;
-    max-height:150px;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 #kc-totp-secret-key {
@@ -245,33 +241,33 @@ ul#kc-totp-supported-apps {
     margin-top: 0;
 }
 
-.kc-login-tooltip{
-    position:relative;
+.kc-login-tooltip {
+    position: relative;
     display: inline-block;
 }
 
-.kc-login-tooltip .kc-tooltip-text{
-    top:-3px;
-    left:160%;
+.kc-login-tooltip .kc-tooltip-text {
+    top: -3px;
+    left: 160%;
     background-color: black;
     visibility: hidden;
     color: #fff;
 
-    min-width:130px;
+    min-width: 130px;
     text-align: center;
     border-radius: 2px;
-    box-shadow:0 1px 8px rgba(0,0,0,0.6);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
     padding: 5px;
 
     position: absolute;
-    opacity:0;
-    transition:opacity 0.5s;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
 /* Show tooltip */
 .kc-login-tooltip:hover .kc-tooltip-text {
     visibility: visible;
-    opacity:0.7;
+    opacity: 0.7;
 }
 
 /* Arrow for tooltip */
@@ -287,7 +283,7 @@ ul#kc-totp-supported-apps {
 }
 
 .zocial,
-a.zocial  {
+a.zocial {
     width: 100%;
     font-weight: normal;
     font-size: 14px;
@@ -298,14 +294,17 @@ a.zocial  {
     border-radius: 0;
     white-space: normal;
 }
+
 .zocial:before {
-  border-right: 0;
-  margin-right: 0;
+    border-right: 0;
+    margin-right: 0;
 }
+
 .zocial span:before {
     padding: 7px 10px;
     font-size: 14px;
 }
+
 .zocial:hover {
     background: #ededed !important;
 }
@@ -325,8 +324,13 @@ a.zocial  {
 }
 
 /* Copy of zocial windows classes to be used for microsoft's social provider button */
-.zocial.microsoft:before{ content: "\f15d"; }
-.zocial.stackoverflow:before{ color: inherit; }
+.zocial.microsoft:before {
+    content: "\f15d";
+}
+
+.zocial.stackoverflow:before {
+    color: inherit;
+}
 
 
 @media (min-width: 768px) {
@@ -356,12 +360,12 @@ a.zocial  {
     }
 
     #kc-header-wrapper {
-      font-size: 16px;
-      font-weight: bold;
-      padding: 20px 0 50px;
-      text-align: center;
-      color: #72767b;
-      letter-spacing: 0;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 20px 0 50px;
+        text-align: center;
+        color: #72767b;
+        letter-spacing: 0;
     }
 
     div.kc-logo-text {
@@ -430,78 +434,88 @@ a.zocial  {
 }
 
 #kc-form-buttons {
-  margin-top: 40px;
+    margin-top: 40px;
+}
+
+#kc-form-buttons .btn {
+    border-radius: 99em;
 }
 
 .login-pf-page .login-pf-brand {
-  margin-top: 20px;
-  max-width: 360px;
-  width: 40%;
+    margin-top: 20px;
+    max-width: 360px;
+    width: 40%;
 }
 
 .card-pf {
-  background: #fff;
-  margin: 0 auto;
-  padding: 0 20px;
-  max-width: 500px;
-  border-top: 0;
-  box-shadow: 0 0 0;
+    background: #fff;
+    margin: 0 auto;
+    padding: 0 20px;
+    max-width: 500px;
+    border-top: 0;
+    box-shadow: 0 0 0;
 }
 
 /*tablet*/
 @media (max-width: 840px) {
-    .login-pf-page .card-pf{
-      max-width: 60%;
-      margin-left: 20px;
-      margin-right: 20px;
-      padding: 20px 20px 30px 20px;
+    .login-pf-page .card-pf {
+        max-width: 60%;
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 20px 20px 30px 20px;
     }
 }
+
 @media (max-width: 767px) {
-    .login-pf-page .card-pf{
-      max-width: none;
-      margin-left: 0;
-      margin-right: 0;
-      padding-top: 0;
+    .login-pf-page .card-pf {
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+        padding-top: 0;
     }
-    .card-pf.login-pf-accounts{
-      max-width: none;
+
+    .card-pf.login-pf-accounts {
+        max-width: none;
     }
 }
 
 .login-pf-page .login-pf-signup {
-  font-size: 15px;
-  color: #72767b;
+    font-size: 15px;
+    color: #72767b;
 }
+
 #kc-content-wrapper .row {
-  margin-left: 0;
-  margin-right: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 @media (min-width: 768px) {
-  .login-pf-page .login-pf-social-section:first-of-type {
-    padding-right: 39px;
-    border-right: 1px solid #d1d1d1;
-    margin-right: -1px;
-  }
-  .login-pf-page .login-pf-social-section:last-of-type {
-    padding-left: 40px;
-  }
-  .login-pf-page .login-pf-social-section .login-pf-social-link:last-of-type {
-    margin-bottom: 0;
-  }
+    .login-pf-page .login-pf-social-section:first-of-type {
+        padding-right: 39px;
+        border-right: 1px solid #d1d1d1;
+        margin-right: -1px;
+    }
+
+    .login-pf-page .login-pf-social-section:last-of-type {
+        padding-left: 40px;
+    }
+
+    .login-pf-page .login-pf-social-section .login-pf-social-link:last-of-type {
+        margin-bottom: 0;
+    }
 }
 
 .login-pf-page .login-pf-social-link {
-  margin-bottom: 25px;
+    margin-bottom: 25px;
 }
+
 .login-pf-page .login-pf-social-link a {
-  padding: 2px 0;
+    padding: 2px 0;
 }
 
 .login-pf-page.login-pf-page-accounts {
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .login-pf-page .btn-primary {
@@ -516,9 +530,9 @@ a.zocial  {
     width: 100%;
 }
 
-.login-pf-page .card-pf{
-  margin-bottom: 10px;
-  margin: 0 auto;
+.login-pf-page .card-pf {
+    margin-bottom: 10px;
+    margin: 0 auto;
 }
 
 #kc-form-login div.form-group:last-of-type,
@@ -536,19 +550,16 @@ form#kc-select-back-form div.login-pf-social-section {
     border-left: 0px;
 }
 
-
-.login-pf, body  {
-    height: 100%;
+.btn-success {
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 99em;
 }
 
-/* .login-pf-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
+.btn-success:focus {
+    outline: none;
 }
 
-.card-pf {
-    flex: 0 0 100;
-    min-width: 50%;
-} */
+.btn-success:active {
+    transform: scale(0.85);
+}
