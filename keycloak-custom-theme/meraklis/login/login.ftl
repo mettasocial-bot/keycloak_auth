@@ -28,9 +28,9 @@
                             <div class="checkbox">
                                 <label>
                                     <#if login.rememberMe??>
-                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" checked> ${msg("rememberMe")}
+                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox" checked> Stay Signed In
                                     <#else>
-                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox"> ${msg("rememberMe")}
+                                        <input tabindex="3" id="rememberMe" name="rememberMe" type="checkbox"> Stay Signed In
                                     </#if>
                                 </label>
                             </div>

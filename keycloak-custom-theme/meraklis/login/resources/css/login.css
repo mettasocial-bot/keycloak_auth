@@ -145,6 +145,8 @@ div.kc-logo-text span {
 
 #kc-form-options .checkbox {
     margin-top: 0;
+    vertical-align: middle;
+    line-height: 1;
 }
 
 #kc-terms-text {
