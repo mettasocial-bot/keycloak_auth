@@ -38,5 +38,5 @@ module.exports = {
     globalThis: true,
   },
   plugins: ["import"],
-  ignorePatterns: ["node_modules/"],
+  ignorePatterns: ["node_modules/", "keycloak-scripts/"],
 };
