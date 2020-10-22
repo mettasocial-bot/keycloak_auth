@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "meraklis-auth",
+  "name": "mettasocial-auth",
   "version": "1.0.0",
   "description": "Contains all serverless functions for apis that do operations on keycloak authentication server",
   "main": "handler.js",
@@ -41,7 +41,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.com-meraklis:meraklis1/meraklis-auth.git"
+    "url": "git@gitlab.com:metta-social/mettasocial-auth.git"
   },
   "keywords": [],
   "author": "",

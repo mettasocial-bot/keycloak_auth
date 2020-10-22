@@ -31,8 +31,8 @@ if [[ $2 -eq 0 ]]
 							'short': false
 						}
 					],
-					'footer': 'Meraklis Technologies Pvt. Ltd.',
-					'footer_icon': 'https://cdn.meraklis.in/meraklis-platform/logos/meraklis-colored-logo.png',
+					'footer': 'Metta Social Solutions Pvt. Ltd.',
+					'footer_icon': 'https://cdn.mettasocial.com/mettasocial-platform/logos/mettasocial-colored-logo.png',
 					'ts': '$EPOCHSECONDS'
 				}
 			]
@@ -69,8 +69,8 @@ if [[ $2 -eq 0 ]]
 							'short': false
 						}
 					],
-					'footer': 'Meraklis Technologies Pvt. Ltd.',
-					'footer_icon': 'https://cdn.meraklis.in/meraklis-platform/logos/meraklis-colored-logo.png',
+					'footer': 'Metta Social Solutions Pvt. Ltd.',
+					'footer_icon': 'https://cdn.mettasocial.com/mettasocial-platform/logos/mettasocial-colored-logo.png',
 					'ts': '$EPOCHSECONDS'
 				}
 			]

@@ -1,13 +1,13 @@
-service: meraklis-auth-handlers
-app: meraklis-auth-handlers
+service: mettasocial-auth-handlers
+app: mettasocial-auth-handlers
 provider:
   name: aws
   runtime: nodejs12.x
   deploymentBucket:
-    name: meraklis.serverless.deploys
+    name: mettasocial.serverless.deploys
     maxPreviousDeploymentArtifacts: 20
-  apiName: meraklis-auth-handlers
-  stackName: meraklis-auth-handlers
+  apiName: mettasocial-auth-handlers
+  stackName: mettasocial-auth-handlers
   memorySize: 512
   timeout: 10
   stage: prod

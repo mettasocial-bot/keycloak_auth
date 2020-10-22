@@ -35,10 +35,10 @@ function authenticate(context) {
   referer = httpRequest.getHttpHeaders().getRequestHeader("referer")[0];
   if (
     referer &&
-    (referer.startsWith("https://staging-www.meraklis.in") ||
-      referer.startsWith("https://dev-www.meraklis.in") ||
-      referer.startsWith("https://www.meraklis.in") ||
-      referer.startsWith("https://demo.meraklis.in") ||
+    (referer.startsWith("https://staging-www.mettasocial.com") ||
+      referer.startsWith("https://dev-www.mettasocial.com") ||
+      referer.startsWith("https://www.mettasocial.com") ||
+      referer.startsWith("https://demo.mettasocial.com") ||
       referer.startsWith("http://localhost:3000") ||
       referer.startsWith("http://localhost:8000"))
   ) {

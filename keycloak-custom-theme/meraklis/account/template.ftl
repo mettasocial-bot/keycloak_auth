@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
 
     <title>${msg("accountManagementTitle")}</title>
-    <link rel="icon" href="//cdn.meraklis.in/meraklis-platform/logos/favicon.ico" />
+    <link rel="icon" href="//cdn.mettasocial.com/mettasocial-platform/logos/favicon.ico" />
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
             <link href="${url.resourcesPath}/${style}" rel="stylesheet" />
@@ -25,7 +25,7 @@
         <nav class="navbar" role="navigation">
             <div class="navbar-header">
                 <div class="container">
-                    <h1 class="navbar-title">Meraklis</h1>
+                    <h1 class="navbar-title">Metta Social</h1>
                 </div>
             </div>
             <div class="navbar-collapse navbar-collapse-1">

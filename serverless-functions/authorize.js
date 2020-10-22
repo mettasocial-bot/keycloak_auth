@@ -18,7 +18,7 @@ function getRedirectBaseUrl(APP_ENV, USER_TYPE) {
   if (APP_ENV === "local-") {
     return `http://localhost:${USER_TYPE_ENUM_TO_LOCAL_PORT[USER_TYPE]}`;
   }
-  return `https://${APP_ENV}${USER_TYPE_ENUM_TO_APP_URL_NAME[USER_TYPE]}.meraklis.in`;
+  return `https://${APP_ENV}${USER_TYPE_ENUM_TO_APP_URL_NAME[USER_TYPE]}.mettasocial.com`;
 }
 
 export async function index(event) {
@@ -45,18 +45,18 @@ export async function index(event) {
     if (searchString) {
       const queryString = searchString.replace("?", "");
       let clientId = querystringParser.parse(queryString).client_id;
-      if (!clientId.match(/^(local|dev|staging)?-?meraklis$/)) {
+      if (!clientId.match(/^(local|dev|staging)?-?mettasocial$/)) {
         return {
           statusCode: 400,
           body: JSON.stringify("Bad Request!"),
         };
       }
-      APP_ENV = clientId.replace("meraklis", "");
+      APP_ENV = clientId.replace("mettasocial", "");
     } else {
       if (origin.match(/^localhost/)) {
         APP_ENV = "local-";
-      } else if (origin.match(/^(dev|staging)?-?www.meraklis.in$/)) {
-        APP_ENV = origin.replace("www.meraklis.in", "");
+      } else if (origin.match(/^(dev|staging)?-?www.mettasocial.com$/)) {
+        APP_ENV = origin.replace("www.mettasocial.com", "");
       }
     }
     let token_data = await getToken({
@@ -77,7 +77,7 @@ export async function index(event) {
     response = {
       statusCode: 302,
       headers: {
-        location: "https://www.meraklis.in?error=500",
+        location: "https://www.mettasocial.com?error=500",
       },
     };
   }
@@ -86,12 +86,12 @@ export async function index(event) {
 
 function getToken({ authorization_code, APP_ENV, redirect_path }) {
   return new Promise((resolve, reject) => {
-    const data = `code=${authorization_code}&grant_type=authorization_code&client_id=${APP_ENV}meraklis&redirect_uri=https://authz.meraklis.in/authorize${redirect_path}`;
+    const data = `code=${authorization_code}&grant_type=authorization_code&client_id=${APP_ENV}mettasocial&redirect_uri=https://authz.mettasocial.com/authorize${redirect_path}`;
     console.log(data);
     const options = {
-      hostname: `auth.meraklis.in`,
+      hostname: `auth.mettasocial.com`,
       port: 443,
-      path: "/auth/realms/meraklis-platform/protocol/openid-connect/token",
+      path: "/auth/realms/mettasocial-platform/protocol/openid-connect/token",
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

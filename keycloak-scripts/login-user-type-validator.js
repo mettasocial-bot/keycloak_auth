@@ -30,12 +30,12 @@ function authenticate(context) {
   var userType = user.getAttribute("type") && user.getAttribute("type")[0];
   var client = session.getContext().getClient().getClientId();
   var authShouldFail = true;
-  if (client.match(/(dev-|staging-)?meraklis-npo/) && +userType === 2) {
+  if (client.match(/(dev-|staging-)?mettasocial-npo/) && +userType === 2) {
     authShouldFail = false;
-  } else if (client.match(/(dev-|staging-)?meraklis-corp/) && +userType === 4) {
+  } else if (client.match(/(dev-|staging-)?mettasocial-corp/) && +userType === 4) {
     authShouldFail = false;
   } else if (
-    client.match(/(dev-|staging-)?meraklis-citizen/) &&
+    client.match(/(dev-|staging-)?mettasocial-citizen/) &&
     +userType === 8
   ) {
     authShouldFail = false;

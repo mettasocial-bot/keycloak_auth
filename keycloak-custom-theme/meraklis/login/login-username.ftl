@@ -1,10 +1,10 @@
 <#import "template.ftl" as layout>
-<@layout.registrationLayout displayInfo=social.displayInfo displayWide=(realm.password && social.providers?? && (client.clientId = "local-meraklis" || client.clientId = "dev-meraklis-citizen" || client.clientId = "staging-meraklis-citizen" || client.clientId = "meraklis-citizen")); section>
+<@layout.registrationLayout displayInfo=social.displayInfo displayWide=(realm.password && social.providers?? && (client.clientId = "local-mettasocial" || client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen")); section>
     <#if section = "header">
         ${msg("doLogIn")}
     <#elseif section = "form">
-    <div id="kc-form" <#if realm.password && social.providers?? && (client.clientId = "local-meraklis" || client.clientId = "dev-meraklis-citizen" || client.clientId = "staging-meraklis-citizen" || client.clientId = "meraklis-citizen")>class="${properties.kcContentWrapperClass!}"</#if>>
-      <div id="kc-form-wrapper" <#if realm.password && social.providers?? && (client.clientId = "local-meraklis" || client.clientId = "dev-meraklis-citizen" || client.clientId = "staging-meraklis-citizen" || client.clientId = "meraklis-citizen")>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
+    <div id="kc-form" <#if realm.password && social.providers?? && (client.clientId = "local-mettasocial" || client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen")>class="${properties.kcContentWrapperClass!}"</#if>>
+      <div id="kc-form-wrapper" <#if realm.password && social.providers?? && (client.clientId = "local-mettasocial" || client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen")>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
         <#if realm.password>
             <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                 <div class="${properties.kcFormGroupClass!}">
@@ -39,7 +39,7 @@
             </form>
         </#if>
         </div>
-        <#if realm.password && social.providers?? && (client.clientId = "local-meraklis" || client.clientId = "dev-meraklis-citizen" || client.clientId = "staging-meraklis-citizen" || client.clientId = "meraklis-citizen")>
+        <#if realm.password && social.providers?? && (client.clientId = "local-mettasocial" || client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen")>
             <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
                 <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 4>${properties.kcFormSocialAccountDoubleListClass!}</#if>">
                     <#list social.providers as p>

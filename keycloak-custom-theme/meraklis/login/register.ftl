@@ -70,21 +70,21 @@
                    <input type="tel" required pattern="[0-9]{10}" required class="${properties.kcInputClass!}" id="user.attributes.contactNumber" name="user.attributes.contactNumber" value="${(register.formData['user.attributes.contactNumber']!'')}"/>
                </div>
             </div>
-            <div <#if client?? && client.clientId?? && client.clientId = "local-meraklis">class="form-group"<#else>class="form-group hidden-xs hidden-sm hidden-md hidden-lg"</#if>>
+            <div <#if client?? && client.clientId?? && client.clientId = "local-mettasocial">class="form-group"<#else>class="form-group hidden-xs hidden-sm hidden-md hidden-lg"</#if>>
                <div class="${properties.kcLabelWrapperClass!}">
                    <label for="user.attributes.type" class="${properties.kcLabelClass!}">I am a</label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
                    <select class="${properties.kcInputClass!}" id="user.attributes.type" name="user.attributes.type" value="${(register.formData['user.attributes.type']!'')}">
-                        <#if client?? && client.clientId?? && client.clientId = "local-meraklis">
+                        <#if client?? && client.clientId?? && client.clientId = "local-mettasocial">
                             <option value="2">NGO</option>
                             <option value="4">Corporate</option>
                             <option value="8">Citizen</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-meraklis-npo" || client.clientId = "staging-meraklis-npo" || client.clientId = "meraklis-npo")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo")>
                             <option value="2" selected>NGO</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-meraklis-corp" || client.clientId = "staging-meraklis-corp" || client.clientId = "meraklis-corp")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "mettasocial-corp")>
                             <option value="4" selected>Corporate</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-meraklis-citizen" || client.clientId = "staging-meraklis-citizen" || client.clientId = "meraklis-citizen" || client.clientId = "android-meraklis")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen" || client.clientId = "android-mettasocial")>
                             <option value="8" selected>Citizen</option>
                         </#if>
                    </select>
