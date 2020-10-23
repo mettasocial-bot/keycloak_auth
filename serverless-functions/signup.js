@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 
 function logoutAdmin(access_token) {
   fetch(
-    `https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users/${
+    `https://auth.mettasocial.com/auth/admin/realms/users/${
       jwt_decode(access_token).sub
     }/logout`,
     {
@@ -32,7 +32,7 @@ export async function index(event) {
     }
     try {
       res = await fetch(
-        `https://auth.mettasocial.com/auth/realms/mettasocial-platform/protocol/openid-connect/token`,
+        `https://auth.mettasocial.com/auth/realms/protocol/openid-connect/token`,
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -43,7 +43,7 @@ export async function index(event) {
       );
       const { access_token } = await res.json();
       res = await fetch(
-        "https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users",
+        "https://auth.mettasocial.com/auth/admin/realms/users",
         {
           headers: {
             Authorization: `Bearer ${access_token}`,

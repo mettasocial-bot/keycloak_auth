@@ -13,7 +13,7 @@
         </#list>
     </#if>
     <title>${msg("loginTitle",(realm.displayName!''))}</title>
-    <link rel="icon" href="//cdn.mettasocial.com/mettasocial-platform/logos/favicon.ico" />
+    <link rel="icon" href="//cdn.mettasocial.com/logos/favicon.ico" />
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
             <link href="${url.resourcesPath}/${style}" rel="stylesheet" />
@@ -35,7 +35,7 @@
   <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
-        <img src="//cdn.mettasocial.com/mettasocial-platform/logos/mettasocial-white-logo-with-name.png" />
+        <img src="//cdn.mettasocial.com/logos/mettasocial-white-logo-with-name.png" />
       </div>
     </div>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">

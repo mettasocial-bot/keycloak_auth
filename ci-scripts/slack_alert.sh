@@ -32,7 +32,7 @@ if [[ $2 -eq 0 ]]
 						}
 					],
 					'footer': 'Metta Social Solutions Pvt. Ltd.',
-					'footer_icon': 'https://cdn.mettasocial.com/mettasocial-platform/logos/mettasocial-colored-logo.png',
+					'footer_icon': 'https://cdn.mettasocial.com/logos/64_without_name_color.png',
 					'ts': '$EPOCHSECONDS'
 				}
 			]
@@ -70,7 +70,7 @@ if [[ $2 -eq 0 ]]
 						}
 					],
 					'footer': 'Metta Social Solutions Pvt. Ltd.',
-					'footer_icon': 'https://cdn.mettasocial.com/mettasocial-platform/logos/mettasocial-colored-logo.png',
+					'footer_icon': 'https://cdn.mettasocial.com/logos/64_without_name_color.png',
 					'ts': '$EPOCHSECONDS'
 				}
 			]
