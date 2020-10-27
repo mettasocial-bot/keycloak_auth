@@ -35,7 +35,7 @@
   <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
-        <img src="//cdn.mettasocial.com/logos/640X180_with_name_color.png" />
+        <img src="//cdn.mettasocial.com/logos/640X180_with_name_white.png" />
       </div>
     </div>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
