@@ -46,7 +46,7 @@ keycloak:
         - ci-scripts/**/*
 
 serverless:
-  image: node:latest
+  image: node:lts
   before_script:
     - . ./ci-scripts/do_npm_install.sh
   stage: deploy
