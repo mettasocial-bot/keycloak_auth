@@ -1,8 +1,10 @@
 #!/bin/bash
 
+echo "DB_URL=${DB_URL}"
+echo "PORT=${PORT}"
+
 # Set database config from Heroku DB_URL
-if [ "$HEROKU_POSTGRESQL_PINK_URL" != "" ]; then
-    echo "Found database configuration in DB_URL=$DB_URL"
+if [ "${DB_URL}" != "" ]; then
 
     regex='^postgres://([a-zA-Z0-9_-]+):([a-zA-Z0-9]+)@([a-z0-9.-]+):([[:digit:]]+)/([a-zA-Z0-9_-]+)$'
     if [[ $DB_URL =~ $regex ]]; then
@@ -23,21 +25,21 @@ fi
 # (will allow for "$XYZ_DB_PASSWORD_FILE" to fill in the value of
 #  "$XYZ_DB_PASSWORD" from a file, especially for Docker's secrets feature)
 file_env() {
-	local var="$1"
-	local fileVar="${var}_FILE"
-	local def="${2:-}"
-	if [ "${!var:-}" ] && [ "${!fileVar:-}" ]; then
-		echo >&2 "error: both $var and $fileVar are set (but are exclusive)"
-		exit 1
-	fi
-	local val="$def"
-	if [ "${!var:-}" ]; then
-		val="${!var}"
-	elif [ "${!fileVar:-}" ]; then
-		val="$(< "${!fileVar}")"
-	fi
-	export "$var"="$val"
-	unset "$fileVar"
+    local var="$1"
+    local fileVar="${var}_FILE"
+    local def="${2:-}"
+    if [ "${!var:-}" ] && [ "${!fileVar:-}" ]; then
+        echo >&2 "error: both $var and $fileVar are set (but are exclusive)"
+        exit 1
+    fi
+    local val="$def"
+    if [ "${!var:-}" ]; then
+        val="${!var}"
+    elif [ "${!fileVar:-}" ]; then
+        val="$(<"${!fileVar}")"
+    fi
+    export "$var"="$val"
+    unset "$fileVar"
 }
 
 ##################
@@ -83,8 +85,7 @@ if [ -z "$BIND" ]; then
     BIND=$(hostname -i)
 fi
 if [ -z "$BIND_OPTS" ]; then
-    for BIND_IP in $BIND
-    do
+    for BIND_IP in $BIND; do
         BIND_OPTS+=" -Djboss.bind.address=$BIND_IP -Djboss.bind.address.private=$BIND_IP "
     done
 fi
@@ -107,7 +108,7 @@ file_env 'DB_USER'
 file_env 'DB_PASSWORD'
 
 # Lower case DB_VENDOR
-DB_VENDOR=`echo $DB_VENDOR | tr A-Z a-z`
+DB_VENDOR=$(echo $DB_VENDOR | tr A-Z a-z)
 
 # Detect DB vendor from default host names
 if [ "$DB_VENDOR" == "" ]; then
@@ -138,17 +139,22 @@ fi
 
 # Set DB name
 case "$DB_VENDOR" in
-    postgres)
-        DB_NAME="PostgreSQL";;
-    mysql)
-        DB_NAME="MySQL";;
-    mariadb)
-        DB_NAME="MariaDB";;
-    h2)
-        DB_NAME="Embedded H2";;
-    *)
-        echo "Unknown DB vendor $DB_VENDOR"
-        exit 1
+postgres)
+    DB_NAME="PostgreSQL"
+    ;;
+mysql)
+    DB_NAME="MySQL"
+    ;;
+mariadb)
+    DB_NAME="MariaDB"
+    ;;
+h2)
+    DB_NAME="Embedded H2"
+    ;;
+*)
+    echo "Unknown DB vendor $DB_VENDOR"
+    exit 1
+    ;;
 esac
 
 # Append '?' in the beggining of the string if JDBC_PARAMS value isn't empty
@@ -156,16 +162,16 @@ export JDBC_PARAMS=$(echo ${JDBC_PARAMS} | sed '/^$/! s/^/?/')
 
 # Convert deprecated DB specific variables
 function set_legacy_vars() {
-  local suffixes=(ADDR DATABASE USER PASSWORD PORT)
-  for suffix in "${suffixes[@]}"; do
-    local varname="$1_$suffix"
-    if [ ${!varname} ]; then
-      echo WARNING: $varname variable name is DEPRECATED replace with DB_$suffix
-      export DB_$suffix=${!varname}
-    fi
-  done
+    local suffixes=(ADDR DATABASE USER PASSWORD PORT)
+    for suffix in "${suffixes[@]}"; do
+        local varname="$1_$suffix"
+        if [ ${!varname} ]; then
+            echo WARNING: $varname variable name is DEPRECATED replace with DB_$suffix
+            export DB_$suffix=${!varname}
+        fi
+    done
 }
-set_legacy_vars `echo $DB_VENDOR | tr a-z A-Z`
+set_legacy_vars $(echo $DB_VENDOR | tr a-z A-Z)
 
 # Configure DB
 
@@ -187,7 +193,6 @@ fi
 ##################
 # Start Keycloak #
 ##################
-echo "_________________starting keycloak"
-echo $PORT
+echo "_________________Starting keycloak_________________"
 exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT -Dkeycloak.profile=preview -Dkeycloak.profile.feature.upload_scripts=enabled
 exit $?
