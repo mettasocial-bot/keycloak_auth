@@ -7,43 +7,7 @@ stages:
     - deploy
     - alert
 
-dry-run-keycloak:
-    variables:
-      APP_NAME: "non-prod-meraklis-auth"
-    type: deploy
-    stage: deploy
-    image: ruby:latest
-    script:
-      - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
-    only:
-      refs:
-        - master
-      changes:
-        - keycloak-custom-theme/**/*
-        - docker-entrypoint.sh
-        - Dockerfile
-        - heroku.yml
-        - .gitlab-ci.yml
-        - ci-scripts/**/*
-
-keycloak:
-    variables:
-      APP_NAME: "prod-meraklis-auth"
-    type: deploy
-    stage: deploy
-    image: ruby:latest
-    script:
-        - dpl --provider=heroku --app=$APP_NAME --api-key=$HEROKU_API_KEY
-    only:
-      refs:
-        - /^production-.*$/
-      changes:
-        - keycloak-custom-theme/**/*
-        - docker-entrypoint.sh
-        - Dockerfile
-        - heroku.yml
-        - .gitlab-ci.yml
-        - ci-scripts/**/*
+# TODO automate AWS ECS deployment
 
 serverless:
   image: node:lts
