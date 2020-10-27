@@ -77,4 +77,4 @@ if [[ $2 -eq 0 ]]
 		}"
     fi
 fi
-curl -X POST -H "Content-type: application/json; charset=utf-8;" -H "Authorization: Bearer ${SLACK_BUILDBOT_TOKEN}" --data "${message}" https://slack.com/api/chat.postMessage
+curl -X POST -H "Content-type: application/json; charset=utf-8;" -H "Authorization: Bearer ${SLACK_BUILDBOT_TOKEN}" --data "${message}" $SLACK_WBEHOOK_URL
