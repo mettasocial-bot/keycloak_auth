@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   deploymentBucket:
-    name: mettasocial.serverless.deploys
+    name: mettasocial.serverless.${self:provider.region}.deploys
     maxPreviousDeploymentArtifacts: 20
   apiName: mettasocial-auth-handlers
   stackName: mettasocial-auth-handlers
