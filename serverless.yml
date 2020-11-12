@@ -54,6 +54,12 @@ functions:
       - http: 
           path: signup
           method: post
+  signupwithtype:
+    handler: serverless-functions/signupWithType.index
+    events:
+      - http: 
+          path: signupwithtype
+          method: post
   logout:
     handler: serverless-functions/logout.index
     events:
