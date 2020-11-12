@@ -91,7 +91,7 @@ function getToken({ authorization_code, APP_ENV, redirect_path }) {
     const options = {
       hostname: `auth.mettasocial.com`,
       port: 443,
-      path: "/auth/realms/protocol/openid-connect/token",
+      path: "/auth/realms/mettasocial-platform/protocol/openid-connect/token",
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

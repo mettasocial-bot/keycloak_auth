@@ -3,7 +3,7 @@ import jwt_decode from "jwt-decode";
 
 function logoutAdmin(access_token) {
   fetch(
-    `https://auth.mettasocial.com/auth/admin/realms/users/${
+    `https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users/${
       jwt_decode(access_token).sub
     }/logout`,
     {
@@ -19,7 +19,14 @@ function logoutAdmin(access_token) {
 export async function index(event) {
   try {
     const requestData = JSON.parse(event.body);
-    const { firstName, lastName, contactNumber, password, email, type } = requestData;
+    const {
+      firstName,
+      lastName,
+      contactNumber,
+      password,
+      email,
+      type,
+    } = requestData;
     if (!email || !password || !contactNumber || !lastName || !firstName) {
       throw new Error("Bad request data");
     }
