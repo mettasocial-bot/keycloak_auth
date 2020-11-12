@@ -43,7 +43,7 @@ export async function index(event) {
       );
       const { access_token } = await res.json();
       res = await fetch(
-        "https://auth.mettasocial.com/auth/admin/realms/users",
+        "https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users",
         {
           headers: {
             Authorization: `Bearer ${access_token}`,
