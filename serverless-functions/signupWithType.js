@@ -32,12 +32,12 @@ export async function index(event) {
     }
     try {
       res = await fetch(
-        `https://auth.mettasocial.com/auth/realms/protocol/openid-connect/token`,
+        `https://auth.mettasocial.com/auth/realms/mettasocial-platform/protocol/openid-connect/token`,
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: `client_id=admin-cli&grant_type=password&scope=openid&username=${process.env.KEYCLOAK_ADMIN_USERNAME}&password=${process.env.KEYCLOAK_ADMIN_PASSWORD}`,
+          body: `client_id=admin-cli&grant_type=password&scope=openid&username=${process.env.KEYCLOAK_ADMIN_USERNAME}&  =${process.env.KEYCLOAK_ADMIN_PASSWORD}`,
           method: "POST",
         }
       );
