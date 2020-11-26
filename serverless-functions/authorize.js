@@ -59,6 +59,23 @@ export async function index(event) {
         APP_ENV = origin.replace("www.mettasocial.com", "");
       }
     }
+    console.log(
+      JSON.stringify(
+        {
+          queryStringParameters: event.queryStringParameters,
+          searchString,
+          Referer: event.headers.Referer,
+          referer: event.headers.referer,
+          parsedURL: new URL(event.headers.Referer || event.headers.referer),
+          origin,
+          authorization_code,
+          APP_ENV,
+          redirect_path,
+        },
+        null,
+        2
+      )
+    );
     let token_data = await getToken({
       authorization_code,
       APP_ENV,
@@ -98,6 +115,7 @@ function getToken({ authorization_code, APP_ENV, redirect_path }) {
         "Content-Length": data.length,
       },
     };
+    console.log(JSON.stringify(options, null, 2));
     const req = https
       .request(options, (res) => {
         let data = "";
