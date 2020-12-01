@@ -303,7 +303,7 @@
                                 <tr>
                                     <td class="em_grey" align="left" valign="top"
                                         style="font-family: 'Lato', sans-serif;font-size: 15px;line-height: 26px;padding-left: 40px;padding-right: 58px;letter-spacing: normal;color: #6A6F75;">
-                                        Thank you For registering with us!
+                                        Thank you for registering with us!
                                     </td>
                                 </tr>
                                 <tr>
