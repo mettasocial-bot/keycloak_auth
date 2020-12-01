@@ -1,0 +1,31 @@
+version: "3.6"
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: mettasocial
+      POSTGRES_USER: mettasocial
+      POSTGRES_PASSWORD: mettasocial
+  keycloak:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "postgres"
+    volumes:
+      - ./keycloak-custom-theme/meraklis:/opt/jboss/keycloak/themes/meraklis
+    restart: always
+    environment:
+      DB_URL: postgres://mettasocial:mettasocial@postgres:5432/mettasocial
+      PORT: 8080
+      KEYCLOAK_PASSWORD: demo
+      KEYCLOAK_USER: demo
+volumes:
+  db_data:
