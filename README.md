@@ -33,12 +33,7 @@ docker volume prune
 
 ### Running keycloak locally
 
-```
-
-docker build . -t my-keycloak
-docker run -e DB_URL=<DB_URL> -e KEYCLOAK_PASSWORD=demoadminpassword -e KEYCLOAK_USER=demoadminuser -e PORT=80 -p 8081:80 -v keycloak-custom-theme/meraklis:/opt/jboss/keycloak/themes/meraklis my-keycloak:latest
-
-```
-
-open `http://localhost:8081`
-go to http://localhost:8081/auth/realms/mettasocial-platform/protocol/openid-connect/registrations?client_id=mettasocial-npo&redirect_uri=https%3A%2F%2Fnpo.mettasocial.com&state=4dfa71a3-a257-4812-8d68-83f7b91f0411&response_mode=query&response_type=code&scope=openid&nonce=8d3432f5-259f-45a2-8e28-734c13ead4c3
+1. run `docker-compose up`
+1. add realm and a dummy client
+1. add email settings
+1. Use any client application to test
