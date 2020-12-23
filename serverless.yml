@@ -51,25 +51,31 @@ functions:
   signup:
     handler: serverless-functions/signup.index
     events:
-      - http: 
+      - http:
           path: signup
           method: post
   signupwithtype:
     handler: serverless-functions/signupWithType.index
     events:
-      - http: 
+      - http:
           path: signupwithtype
+          method: post
+  getUserDetailsById:
+    handler: serverless-functions/getUserDetailsById.index
+    events:
+      - http:
+          path: getUserDetailsById
           method: post
   logout:
     handler: serverless-functions/logout.index
     events:
-      - http: 
+      - http:
           path: logout
           method: get
   authorize:
     handler: serverless-functions/authorize.index
     events:
-      - http: 
+      - http:
           path: authorize
           method: get
 #    The following are a few example events you can configure

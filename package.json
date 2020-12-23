@@ -36,7 +36,7 @@
     }
   },
   "scripts": {
-    "watch:serverless": "npm-watch start:serverless",
+    "start": "npm-watch start:serverless",
     "start:serverless": "npx serverless offline"
   },
   "repository": {

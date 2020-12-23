@@ -59,23 +59,6 @@ export async function index(event) {
         APP_ENV = origin.replace("www.mettasocial.com", "");
       }
     }
-    console.log(
-      JSON.stringify(
-        {
-          queryStringParameters: event.queryStringParameters,
-          searchString,
-          Referer: event.headers.Referer,
-          referer: event.headers.referer,
-          parsedURL: new URL(event.headers.Referer || event.headers.referer),
-          origin,
-          authorization_code,
-          APP_ENV,
-          redirect_path,
-        },
-        null,
-        2
-      )
-    );
     let token_data = await getToken({
       authorization_code,
       APP_ENV,
@@ -104,7 +87,6 @@ export async function index(event) {
 function getToken({ authorization_code, APP_ENV, redirect_path }) {
   return new Promise((resolve, reject) => {
     const data = `code=${authorization_code}&grant_type=authorization_code&client_id=${APP_ENV}mettasocial&redirect_uri=https://authz.mettasocial.com/authorize${redirect_path}`;
-    console.log(data);
     const options = {
       hostname: `auth.mettasocial.com`,
       port: 443,
@@ -115,7 +97,6 @@ function getToken({ authorization_code, APP_ENV, redirect_path }) {
         "Content-Length": data.length,
       },
     };
-    console.log(JSON.stringify(options, null, 2));
     const req = https
       .request(options, (res) => {
         let data = "";

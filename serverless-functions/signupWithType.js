@@ -1,21 +1,6 @@
 import fetch from "node-fetch";
-import jwt_decode from "jwt-decode";
+import { getAdminToken, logoutAdmin } from "../utils/admin";
 
-function logoutAdmin(access_token) {
-  fetch(
-    `https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users/${
-      jwt_decode(access_token).sub
-    }/logout`,
-    {
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
-      method: "POST",
-    }
-  );
-}
 export async function index(event) {
   try {
     const requestData = JSON.parse(event.body);
@@ -37,23 +22,14 @@ export async function index(event) {
     if (disposable) {
       throw new Error("Bad Email address");
     }
+    let adminAccessToken = null;
     try {
-      res = await fetch(
-        `https://auth.mettasocial.com/auth/realms/mettasocial-platform/protocol/openid-connect/token`,
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: `client_id=admin-cli&grant_type=password&scope=openid&username=${process.env.KEYCLOAK_ADMIN_USERNAME}&password=${process.env.KEYCLOAK_ADMIN_PASSWORD}`,
-          method: "POST",
-        }
-      );
-      const { access_token } = await res.json();
+      adminAccessToken = getAdminToken();
       res = await fetch(
         "https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users",
         {
           headers: {
-            Authorization: `Bearer ${access_token}`,
+            Authorization: `Bearer ${adminAccessToken}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
@@ -81,7 +57,7 @@ export async function index(event) {
         const userCreationResponse = await res.json();
         throw new Error(userCreationResponse.errorMessage);
       }
-      logoutAdmin(access_token);
+      logoutAdmin(adminAccessToken);
       return {
         statusCode: 201,
         body: JSON.stringify({
@@ -97,6 +73,8 @@ export async function index(event) {
           message: e.message,
         }),
       };
+    } finally {
+      adminAccessToken && logoutAdmin(adminAccessToken);
     }
   } catch (e) {
     console.log("error", e);
