@@ -36,6 +36,11 @@ export async function index(event) {
     logoutAdmin(adminAccessToken);
     return {
       statusCode: 201,
+      headers: {
+        "access-control-allow-headers": event.headers.origin,
+        "access-control-allow-methods": "OPTIONS, POST",
+        "access-control-allow-origin": "*",
+      },
       body: JSON.stringify(data),
     };
   } catch (e) {
