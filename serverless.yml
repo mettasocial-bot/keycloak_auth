@@ -66,6 +66,10 @@ functions:
       - http:
           path: getUserDetailsById
           method: post
+          cors:
+            origin: "*"
+            headers:
+              - "*"
   logout:
     handler: serverless-functions/logout.index
     events:
