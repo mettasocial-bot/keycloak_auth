@@ -89,9 +89,9 @@ export async function index(event) {
   return response;
 }
 
-function getToken({ authorization_code, APP_ENV, redirect_path }) {
+function getToken({ authorization_code, APP_ENV }) {
   return new Promise((resolve, reject) => {
-    const data = `code=${authorization_code}&grant_type=authorization_code&client_id=${APP_ENV}mettasocial&redirect_uri=https://authz.mettasocial.com/authorize${redirect_path}`;
+    const data = `code=${authorization_code}&grant_type=authorization_code&client_id=${APP_ENV}mettasocial&redirect_uri=https://authz.mettasocial.com/authorize?client_id=${APP_ENV}mettasocial`;
     console.log(data);
     const options = {
       hostname: `auth.mettasocial.com`,
