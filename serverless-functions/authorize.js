@@ -64,6 +64,7 @@ export async function index(event) {
       APP_ENV,
       redirect_path,
     });
+    console.log("Got response from token api", JSON.stringify(token_data));
     if (token_data.access_token) {
       const USER_TYPE = jwt_decode(token_data.access_token).user_type;
       response = {
@@ -113,6 +114,7 @@ function getToken({ authorization_code, APP_ENV, redirect_path }) {
         });
       })
       .on("error", (err) => {
+        console.log("error on token api call", err, JSON.stringify(err));
         reject(err);
       });
 
