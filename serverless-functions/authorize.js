@@ -64,13 +64,17 @@ export async function index(event) {
       APP_ENV,
       redirect_path,
     });
-    const USER_TYPE = jwt_decode(token_data.access_token).user_type;
-    response = {
-      statusCode: 302,
-      headers: {
-        location: `${getRedirectBaseUrl(APP_ENV, USER_TYPE)}${redirect_path}`,
-      },
-    };
+    if (token_data.access_token) {
+      const USER_TYPE = jwt_decode(token_data.access_token).user_type;
+      response = {
+        statusCode: 302,
+        headers: {
+          location: `${getRedirectBaseUrl(APP_ENV, USER_TYPE)}${redirect_path}`,
+        },
+      };
+    } else {
+      throw new Error(JSON.stringify(token_data));
+    }
   } catch (e) {
     console.log("error", JSON.stringify(e));
     console.log("error", event);
@@ -87,6 +91,7 @@ export async function index(event) {
 function getToken({ authorization_code, APP_ENV, redirect_path }) {
   return new Promise((resolve, reject) => {
     const data = `code=${authorization_code}&grant_type=authorization_code&client_id=${APP_ENV}mettasocial&redirect_uri=https://authz.mettasocial.com/authorize${redirect_path}`;
+    console.log(data);
     const options = {
       hostname: `auth.mettasocial.com`,
       port: 443,
