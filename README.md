@@ -2,8 +2,12 @@
 
 Table of Contents
 
-1. [To run serverless functions on local machine](#to-run-serverless-functions-on-local-machine)
-1. [Docker sanitization Best practices](#docker-sanitization-best-practices)
+- [This is a graphql project that uses Hasura and [serverless](https://www.serverless.com)](#this-is-a-graphql-project-that-uses-hasura-and-serverless)
+  - [To run serverless functions on local machine](#to-run-serverless-functions-on-local-machine)
+      - [Requirements](#requirements)
+      - [How to run](#how-to-run)
+  - [Docker sanitization Best practices](#docker-sanitization-best-practices)
+    - [Running keycloak locally](#running-keycloak-locally)
 
 ## To run serverless functions on local machine
 
@@ -27,7 +31,6 @@ Run following command once in a while
 ```
 docker stop $(docker ps -a -q)
 docker rmi -f $(docker images --filter "dangling=true" -a -q)
-docker container prune -f
 docker volume prune
 ```
 
