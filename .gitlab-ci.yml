@@ -13,7 +13,7 @@ serverless:
   image: node:lts
   before_script:
     - cd serverless-functions
-    - . ./ci-scripts/do_npm_install.sh
+    - . ../ci-scripts/do_npm_install.sh
   stage: deploy
   script:
     - npx serverless deploy
@@ -30,7 +30,7 @@ on failure:
   before_script:
     - echo "Sending message on slack"
   script:
-    - . ./ci-scripts/slack_alert.sh production 0
+    - . ../ci-scripts/slack_alert.sh production 0
   only:
     refs:
       - /^production-.*$/
@@ -50,7 +50,7 @@ on success:
   before_script:
     - echo "Sending message on slack"
   script:
-    - . ./ci-scripts/slack_alert.sh production 1
+    - . ../ci-scripts/slack_alert.sh production 1
   only:
     refs:
       - /^production-.*$/
