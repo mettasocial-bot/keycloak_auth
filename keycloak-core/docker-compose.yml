@@ -20,7 +20,7 @@ services:
     depends_on:
       - "postgres"
     volumes:
-      - ./keycloak-custom-theme/meraklis:/opt/jboss/keycloak/themes/meraklis
+      - ./keycloak-brand-theme/:/opt/jboss/keycloak/themes/meraklis
     restart: always
     environment:
       DB_URL: postgres://mettasocial:mettasocial@postgres:5432/mettasocial

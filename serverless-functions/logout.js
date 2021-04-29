@@ -1,6 +1,6 @@
 import jwt_decode from "jwt-decode";
 import fetch from "node-fetch";
-import { getAdminToken, logoutAdmin } from "../utils/admin";
+import { getAdminToken, logoutAdmin } from "./utils/admin";
 
 export async function index(event) {
   if (!event.headers.Authorization) {

@@ -1,27 +1,27 @@
 image: ruby:latest
 
 before_script:
-    - gem install dpl
+  - gem install dpl
 
 stages:
-    - deploy
-    - alert
+  - deploy
+  - alert
 
 # TODO automate AWS ECS deployment
 
 serverless:
   image: node:lts
   before_script:
+    - cd serverless-functions
     - . ./ci-scripts/do_npm_install.sh
   stage: deploy
   script:
-      - npx serverless deploy
+    - npx serverless deploy
   only:
     refs:
       - /^production-.*$/
     changes:
       - serverless-functions/**/*
-      - serverless.yml
       - .gitlab-ci.yml
       - ci-scripts/**/*
 
@@ -32,7 +32,7 @@ on failure:
   script:
     - . ./ci-scripts/slack_alert.sh production 0
   only:
-    refs: 
+    refs:
       - /^production-.*$/
     changes:
       - serverless-functions/**/*
@@ -43,8 +43,7 @@ on failure:
       - heroku.yml
       - .gitlab-ci.yml
       - ci-scripts/**/*
-  when: 
-    on_failure
+  when: on_failure
 
 on success:
   stage: alert
@@ -64,5 +63,4 @@ on success:
       - heroku.yml
       - .gitlab-ci.yml
       - ci-scripts/**/*
-  when: 
-    on_success
+  when: on_success

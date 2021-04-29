@@ -49,19 +49,19 @@ package:
 
 functions:
   signup:
-    handler: serverless-functions/signup.index
+    handler: ./signup.index
     events:
       - http:
           path: signup
           method: post
   signupwithtype:
-    handler: serverless-functions/signupWithType.index
+    handler: ./signupWithType.index
     events:
       - http:
           path: signupwithtype
           method: post
   getUserDetailsById:
-    handler: serverless-functions/getUserDetailsById.index
+    handler: ./getUserDetailsById.index
     events:
       - http:
           path: getUserDetailsById
@@ -71,13 +71,13 @@ functions:
             headers:
               - "*"
   logout:
-    handler: serverless-functions/logout.index
+    handler: ./logout.index
     events:
       - http:
           path: logout
           method: get
   authorize:
-    handler: serverless-functions/authorize.index
+    handler: ./authorize.index
     events:
       - http:
           path: authorize
