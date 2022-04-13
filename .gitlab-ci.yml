@@ -10,7 +10,7 @@ stages:
 # TODO automate AWS ECS deployment
 
 serverless:
-  image: node:lts
+  image: node:14.17.3
   before_script:
     - cd serverless-functions
     - . ../ci-scripts/do_npm_install.sh
