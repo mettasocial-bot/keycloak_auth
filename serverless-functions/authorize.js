@@ -6,12 +6,14 @@ const USER_TYPE_ENUM_TO_APP_URL_NAME = {
   1: "admin",
   2: "npo",
   4: "corp",
+  16: "hni",
 };
 
 const USER_TYPE_ENUM_TO_LOCAL_PORT = {
   1: 3002,
   2: 3000,
   4: 3001,
+  16: 3003,
 };
 
 function getRedirectBaseUrl(APP_ENV, USER_TYPE) {

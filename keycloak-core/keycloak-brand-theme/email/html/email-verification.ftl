@@ -408,7 +408,7 @@
                                                 <td width="30" style="width:30px;" align="center" valign="middle">
                                                     <a href="https://u19096362.ct.sendgrid.net/ls/click?upn=InGYzj13EGuRolFvGD16jIplRzJBwdzHMyqchTbkS9A5djEfH9wsT0zQudN1pf9tinFuDVfkX1XEh7PBYcOj0Q-3D-3DVXgF_a8lJUKqesz2lsocAvo4nwjkhyEngCDkSIIOjbM3lH-2F6pTEIxnnI8JgLXy8hDty3Wizlti7dKWcdJAyhoW64I6uBxUKu5E-2B06hXmjaspE-2FwwWc58n2kMzBehl0nG-2FcHdu9WVfWdFzBrZNscaTyGr64ywPAy0bK-2BEgIk2rC0BWIenivGXoMDwbTf55bshFTvgIm-2FApxotyufcUPkyhiY8U-2B0mdJk8bVawchcC-2BvqTPvvI-3D"
                                                         target="_blank" style="text-decoration:none;">
-                                                        <img src="https://image.flaticon.com/icons/png/128/1051/1051309.png"
+                                                           <img src="https://res.cloudinary.com/mettasocial/image/upload/v1648218294/mettasocialstatic/logos/005-facebook-1_yqgvr9.png"
                                                             width="30" height="30"
                                                             alt="Facebook Metta Social Connect page URL" border="0"
                                                             style="display:block; font-family:Roboto, sans-serif; font-size:18px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;" />
@@ -418,7 +418,7 @@
                                                 <td width="30" style="width:30px;" align="center" valign="middle">
                                                     <a href="https://u19096362.ct.sendgrid.net/ls/click?upn=InGYzj13EGuRolFvGD16jOsLo-2ByOq-2BgyAa9yYHgrlISSuSQPEoOzJjIvrAnFCb0HStRO_a8lJUKqesz2lsocAvo4nwjkhyEngCDkSIIOjbM3lH-2F6pTEIxnnI8JgLXy8hDty3Wizlti7dKWcdJAyhoW64I6vfzsIls0ohEbqqi-2BBtXl8-2FrXnPks1zulovnB1TSXt8iWqBgy0MsYlERq-2B6g8HDislNPUv4R9Gyo50cKWKkMVdrN62cqcAQRJ5-2BLp5mZnFymgE-2BLlyJin3J1P-2BGYwW-2FAqX4KGbOjtyxGBq1MWtKHvYI-3D"
                                                         target="_blank" style="text-decoration:none;"><img
-                                                            src="https://image.flaticon.com/icons/png/128/733/733635.png"
+                                                        src="https://res.cloudinary.com/mettasocial/image/upload/v1648128327/mettasocialstatic/logos/twitter_yebbp4.png"
                                                             width="30" height="30"
                                                             alt="Twitter Metta Social Connect page URL" border="0"
                                                             style="display:block; font-family:Roboto, sans-serif; font-size:14px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;" />
@@ -428,7 +428,7 @@
                                                 <td width="30" style="width:30px;" align="center" valign="middle">
                                                     <a href="https://u19096362.ct.sendgrid.net/ls/click?upn=InGYzj13EGuRolFvGD16jA0L4RjR8-2Fd5e-2BnsEEwZvsiDbKr15pMYhhAiRlHLLuWTUPtVzU3H-2F6nne0pKNlWgWw-3D-3DZKwO_a8lJUKqesz2lsocAvo4nwjkhyEngCDkSIIOjbM3lH-2F6pTEIxnnI8JgLXy8hDty3Wizlti7dKWcdJAyhoW64I6vRUaNKbc3eEGzZp-2FfjhzuLeBHNP7lKlvEAjJ4kk-2FNAzU-2Bzls7mBmdiDw2exjqu6yNjDE6nba0oJoSXabor-2ByzTNg1lXFs0Yy0SGSmDPcrgN2oPqvmS8nN06odEYC6fCc6IxF0UbY-2FpOLlAxsNzBYUU-3D"
                                                         target="_blank" style="text-decoration:none;"><img
-                                                            src="https://image.flaticon.com/icons/png/128/733/733614.png"
+                                                           src="https://res.cloudinary.com/mettasocial/image/upload/v1648128327/mettasocialstatic/logos/003-instagram_wwapop.png"
                                                             width="30" height="30"
                                                             alt="instagram Metta Social Connect page URL" border="0"
                                                             style="display:block; font-family:Roboto, sans-serif; font-size:14px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;" />
@@ -438,7 +438,7 @@
                                                 <td width="30" style="width:30px;" align="center" valign="middle">
                                                     <a href="https://u19096362.ct.sendgrid.net/ls/click?upn=InGYzj13EGuRolFvGD16jBJlmXVZvbQAZpVWiC8Cd8jdh8Z26GWgEzg4w5dg-2BzBs8vfyDVjSU5S2R5njvLFVKQ-3D-3D3Kpf_a8lJUKqesz2lsocAvo4nwjkhyEngCDkSIIOjbM3lH-2F6pTEIxnnI8JgLXy8hDty3Wizlti7dKWcdJAyhoW64I6jn83uPDgHPLdY0gBcmTst6cxvnba62v2zMTJLr85-2BFGH2VIpcV8lTnakoH9CrqTvymxMDwORQovCTRprT5n-2BAJRjGoMJPRj6DRjOiqEAR3DXmrmKunkmY5-2FtBcFSUOfaSJ04ONGuWypRQdvDS4CD50-3D"
                                                         target="_blank" style="text-decoration:none;"><img
-                                                            src="https://image.flaticon.com/icons/png/512/733/733617.png"
+                                                          src="https://res.cloudinary.com/mettasocial/image/upload/v1648128327/mettasocialstatic/logos/linkedin_vpjvgh.png"
                                                             width="30" height="30"
                                                             alt="linkedin Metta Social Connect page URL" border="0"
                                                             style="display:block; font-family:Roboto, sans-serif; font-size:14px; line-height:25px; text-align:center; color:#000000; font-weight:bold; max-width:30px;" />

@@ -60,12 +60,15 @@
                             <option value="2">NGO</option>
                             <option value="4">Corporate</option>
                             <option value="8">Citizen</option>
+                            <option value="16">HNI</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo")>
                             <option value="2" selected>NGO</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "mettasocial-corp")>
                             <option value="4" selected>Corporate</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen" || client.clientId = "android-mettasocial")>
                             <option value="8" selected>Citizen</option>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-hni" || client.clientId = "staging-mettasocial-hni" || client.clientId = "mettasocial-hni")>
+                            <option value="16" selected>HNI</option>
                         </#if>
                    </select>
                </div>
