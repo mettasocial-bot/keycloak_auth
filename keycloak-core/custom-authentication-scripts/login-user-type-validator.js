@@ -40,7 +40,7 @@ function authenticate(context) {
         +userType === 8
     ) {
         authShouldFail = false;
-    } else if (+userType === 1) {} else if (
+    } else if (
         client.match(/(dev-|staging-)?mettasocial-hni/) &&
         +userType === 16
     ) {
