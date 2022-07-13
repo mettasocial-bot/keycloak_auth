@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:10.4
     restart: always
     ports:
       - "5432:5432"
@@ -21,11 +21,12 @@ services:
       - "postgres"
     volumes:
       - ./keycloak-brand-theme/:/opt/jboss/keycloak/themes/meraklis
+      - ./docker-entrypoint.sh:/opt/jboss/tools/docker-entrypoint.sh
     restart: always
     environment:
       DB_URL: postgres://mettasocial:mettasocial@postgres:5432/mettasocial
       PORT: 8080
-      KEYCLOAK_PASSWORD: demo
+      KEYCLOAK_PASSWORD: demo 
       KEYCLOAK_USER: demo
 volumes:
   db_data:
