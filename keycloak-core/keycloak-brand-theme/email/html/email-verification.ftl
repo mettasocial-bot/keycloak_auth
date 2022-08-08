@@ -312,7 +312,7 @@
                                 <tr>
                                     <td class="em_grey" align="left" valign="top"
                                         style="font-family: 'Lato', sans-serif;font-size: 15px;line-height: 26px;padding-left: 40px;padding-right: 58px;letter-spacing: normal;color: #6A6F75;">
-                                        Glad to have you on Mettasocial.com. We need to verify that its you. Please
+                                        Glad to have you on Mettasocial. We need to verify that its you. Please
                                         click on the button below to verify.
                                     </td>
                                 </tr>
