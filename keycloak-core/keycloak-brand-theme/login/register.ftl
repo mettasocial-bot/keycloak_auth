@@ -4,25 +4,34 @@
         Sign Up
     <#elseif section = "form">
         <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
-            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
-                <div class="${properties.kcLabelWrapperClass!}">
+         
+            <div class = "${properties.kcContentWrapperClass!}">
+
+                <div class= "${properties.kcRegistrationWrapperClass!}">
+                    <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
+                        <div class="${properties.kcLabelWrapperClass!}">
                     <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
-                </div>
-                <div class="${properties.kcInputWrapperClass!}">
+                        </div>
+                        <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" />
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
-                <div class="${properties.kcLabelWrapperClass!}">
+                <div class= "${properties.kcRegistrationWrapperClass!}">
+                    <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
+                        <div class="${properties.kcLabelWrapperClass!}">
                     <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
-                </div>
-                <div class="${properties.kcInputWrapperClass!}">
+                        </div>
+                        <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
+          
+
+            <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
                 </div>
@@ -32,7 +41,7 @@
             </div>
 
           <#if !realm.registrationEmailAsUsername>
-            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
+            <div class="${properties.kcFormGroupClass!}  ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="username" class="${properties.kcLabelClass!}">${msg("username")}</label>
                 </div>
@@ -43,7 +52,7 @@
           </#if>
 
             <#if passwordRequired??>
-            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
+            <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                 </div>
@@ -52,7 +61,7 @@
                 </div>
             </div>
 
-            <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
+            <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
                     <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
                 </div>
@@ -62,7 +71,7 @@
             </div>
             </#if>
 
-            <div class="form-group">
+            <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
                    <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact number</label>
                </div>
@@ -80,16 +89,12 @@
                             <option value="2">NGO</option>
                             <option value="4">Corporate</option>
                             <option value="8">Citizen</option>
-                            <option value="16">HNI</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo")>
                             <option value="2" selected>NGO</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "mettasocial-corp")>
                             <option value="4" selected>Corporate</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen" || client.clientId = "android-mettasocial")>
                             <option value="8" selected>Citizen</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-hni" || client.clientId = "staging-mettasocial-hni" || client.clientId = "mettasocial-hni")>
-                            <option value="16" selected>HNI</option>
-                       
                         </#if>
                    </select>
                </div>
@@ -104,7 +109,7 @@
             </div>
             </#if>
 
-            <div class="${properties.kcFormGroupClass!}">
+            <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
                 <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
                     <div class="${properties.kcFormOptionsWrapperClass!}">
                         <span><a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
