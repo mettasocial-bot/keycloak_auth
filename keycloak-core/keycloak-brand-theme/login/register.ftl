@@ -7,7 +7,7 @@
          
             <div class = "${properties.kcContentWrapperClass!}">
 
-                <div class= "${properties.kcRegistrationWrapperClass!}">
+                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                         <div class="${properties.kcLabelWrapperClass!}">
                     <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 </div>
-                <div class= "${properties.kcRegistrationWrapperClass!}">
+                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
                         <div class="${properties.kcLabelWrapperClass!}">
                     <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
@@ -52,23 +52,38 @@
           </#if>
 
             <#if passwordRequired??>
-            <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
-                <div class="${properties.kcLabelWrapperClass!}">
+
+            <div class = "${properties.kcContentWrapperClass!}">
+
+                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="${properties.kcFormGroupClass!}  ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
+                        <div class="${properties.kcLabelWrapperClass!}">
                     <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
-                </div>
-                <div class="${properties.kcInputWrapperClass!}">
+                        </div>
+                        <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password"/>
+                        </div>
+                    </div>
+                </div>
+                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
+                            <div class="${properties.kcLabelWrapperClass!}">
+                    <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
+                            </div>
+                        <div class="${properties.kcInputWrapperClass!}">
+                    <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
-                <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
-                </div>
-                <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" />
-                </div>
-            </div>
+
+
+
+
+           
+
+          
             </#if>
 
             <div class="form-group ${properties.kcContentWrapperClass!}">
