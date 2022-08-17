@@ -7,8 +7,6 @@ jspm_packages
 
 README.md
 heroku.yml
-Dockerfile
-docker-entrypoint.sh
 .gitlab-ci.yml
 .gitignore
 .webpack
@@ -20,7 +18,6 @@ docker-entrypoint.sh
 .env
 
 # End of https://www.toptal.com/developers/gitignore/api/dotenv
-
 
 # Created by https://www.toptal.com/developers/gitignore/api/maven
 # Edit at https://www.toptal.com/developers/gitignore?templates=maven
@@ -40,4 +37,3 @@ buildNumber.properties
 .flattened-pom.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/maven
-

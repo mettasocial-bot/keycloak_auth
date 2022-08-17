@@ -3,7 +3,9 @@
     <#if section = "header">
         ${msg("emailVerifyTitle")}
     <#elseif section = "form">
-       <p class="instruction">If you don’t see an email from us within a few minutes, a few things could have happened:</p>
+   <h5 class="instruction">
+   We sent an email to you with a link to activate a new Metta Social account.</h5>
+   <p class="instruction">If you don’t see an email from us within a few minutes, a few things could have happened:</p>
     <p class="instruction">The email is in your spam folder.</p>
     <p class="instruction">The email address you entered had a mistake or typo.</p>
     <p class="instruction">You accidentally gave us the wrong email address.</p>
@@ -11,6 +13,5 @@
     <p class="instruction">
              <a href="${url.loginAction}">${msg("doClickHere")}</a>  to Re-enter your email and try again
      </p>
-
     </#if>
 </@layout.registrationLayout>
