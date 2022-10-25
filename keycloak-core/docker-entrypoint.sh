@@ -194,5 +194,5 @@ fi
 # Start Keycloak #
 ##################
 echo "_________________Starting keycloak_________________"
-exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT -Dkeycloak.profile=preview -Dkeycloak.profile.feature.upload_scripts=enabled
+exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT -Dkeycloak.profile=preview -Dkeycloak.profile.feature.upload_scripts=enabled -Dkeycloak.profile.feature.admin_fine_grained_authz=enabled -Dkeycloak.profile.feature.token_exchange=enabled
 exit $?
