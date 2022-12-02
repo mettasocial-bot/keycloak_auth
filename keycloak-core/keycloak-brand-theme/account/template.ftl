@@ -7,7 +7,7 @@
     <meta name="robots" content="noindex, nofollow">
 
     <title>${msg("accountManagementTitle")}</title>
-    <link rel="icon" href="//cdn.mettasocial.com/logos/favicon.ico" />
+    <link rel="icon" href="//cdn.mettasocial.com/logos/MS_logo_32x32.ico" />
     <#if properties.styles?has_content>
         <#list properties.styles?split(' ') as style>
             <link href="${url.resourcesPath}/${style}" rel="stylesheet" />
