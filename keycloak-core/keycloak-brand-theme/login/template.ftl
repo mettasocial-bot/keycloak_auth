@@ -35,9 +35,11 @@
   <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
-        <img src="//cdn.mettasocial.com/logos/640X180_with_name_white.png" />
+        <img src="https://cdn.mettasocial.com/logos/MS_logo_640x180.svg"
+         />
       </div>
     </div>
+    <section>
     <div class="${properties.kcFormCardClass!} <#if displayWide>${properties.kcFormCardAccountClass!}</#if>">
       <header class="${properties.kcFormHeaderClass!}">
         <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
@@ -141,8 +143,18 @@
           </#if> -->
         </div>
       </div>
-
     </div>
+    <div class = "copyright-card">
+    <span>
+    copyright
+    </span>
+    <span class = "float-right">
+    Privacy Policy
+    </span>
+   <span class = "float-right">
+    Terms and Conditions </span>
+    </div>
+</section>
   </div>
 </body>
 </html>

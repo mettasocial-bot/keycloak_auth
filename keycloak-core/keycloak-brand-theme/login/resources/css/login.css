@@ -8,8 +8,9 @@ body {
 }
 
 .login-pf body {
-    background: url("//cdn.mettasocial.com/meraklis-auth-bg-main.png"), linear-gradient(to bottom right, #155374 20%, #378173);
+    /* background: url("//cdn.mettasocial.com/meraklis-auth-bg-main.png"), linear-gradient(to bottom right, #155374 20%, #378173); */
     padding-bottom: 50px;
+   background:  #EFF6FD
 }
 
 .alert-error {
@@ -105,6 +106,7 @@ div.kc-logo-text span {
     color: #ededed;
     overflow: visible;
     white-space: nowrap;
+    margin-bottom: 174px !important;
 }
 
 #kc-header img {
@@ -116,8 +118,9 @@ div.kc-logo-text span {
     text-transform: uppercase;
     letter-spacing: 3px;
     line-height: 1.2em;
-    padding: 62px 10px 20px;
+
     white-space: normal;
+    float:left
 }
 
 #kc-content {
@@ -434,7 +437,11 @@ a.zocial {
 }
 
 #kc-form-buttons .btn {
-    border-radius: 99em;
+    width:100%;
+    /* border-radius: 99em; */
+}
+#kc-page-title {
+ font-weight:bold;
 }
 
 .login-pf-page .login-pf-brand {
@@ -558,4 +565,30 @@ form#kc-select-back-form div.login-pf-social-section {
 
 .btn-success:active {
     transform: scale(0.85);
+}
+
+.copyright-card { 
+    margin: 0 auto;
+
+    max-width: 500px;
+
+}
+.float-right{
+    float:right
+}
+
+.login-pf-page .card-pf {
+    padding: 20px 80px 30px 80px !important;
+}
+
+.login-pf-page .password-image{
+    width: 20px;
+}
+
+.login-pf-page .password-label{
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    bottom: 7px;
+    margin-bottom: 0;
 }

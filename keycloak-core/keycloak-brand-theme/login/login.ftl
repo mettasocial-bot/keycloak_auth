@@ -1,7 +1,33 @@
 <#import "template.ftl" as layout>
 <@layout.registrationLayout displayInfo=social.displayInfo displayWide=(realm.password && social.providers?? && client?? && client.clientId?? && (client.clientId = "local-mettasocial" || client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen")); section>
     <#if section = "header">
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
+        <link href="${url.resourcesPath}/img/favicon.png" rel="icon"/>
+        <script>
+            function togglePassword() {
+                var x = document.getElementById("password");
+                var v = document.getElementById("vi");
+                if (x.type === "password") {
+                    console.log("here")
+                    x.type = "text";
+                    v.src = "https://cdn.mettasocial.com/logos/eye-on.jpg";
+                } else {
+                    x.type = "password";
+                    v.src = "https://cdn.mettasocial.com/logos/eye-off.png";
+                }
+            }
+        </script>
+       
+    <#if client?? && client.clientId?? && ( client.clientId = "dev-mettasocial-npo"|| client.clientId = "demo-mettasocial-npo"  || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo")>
+    <span>NPO</span>
+    </#if>
+
+    <#if client?? && client.clientId?? && ( client.clientId = "dev-mettasocial-corp"|| client.clientId = "demo-mettasocial-corp"  || client.clientId = "staging-mettasocial-corp" || client.clientId = "mettasocial-corp")>
+    <span>Corporate</span>
+    </#if>
+
         ${msg("doLogIn")}
+        <h5 class = "text-center">Enter your details to login to your account</h5>
     <#elseif section = "form">
     <div id="kc-form" <#if realm.password && social.providers?? && client?? && client.clientId?? && (client.clientId = "local-mettasocial" || client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen")>class="${properties.kcContentWrapperClass!}"</#if>>
       <div id="kc-form-wrapper" <#if realm.password && social.providers?? && client?? && client.clientId?? && (client.clientId = "local-mettasocial" || client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen")>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
@@ -17,9 +43,11 @@
                     </#if>
                 </div>
 
-                <div class="${properties.kcFormGroupClass!}">
+                <div class="${properties.kcFormGroupClass!}" style= "position: relative;">
+            
                     <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                     <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off" placeholder= "********" />
+                    <label class="password-label" id="v" onclick="togglePassword()"><img id="vi" class= "password-image" src="https://cdn.mettasocial.com/logos/eye-off.png"></label>
                 </div>
 
                 <div class="${properties.kcFormGroupClass!} ${properties.kcFormSettingClass!}">
@@ -46,8 +74,13 @@
 
                   <div id="kc-form-buttons" class="${properties.kcFormGroupClass!} text-center">
                       <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                      <input tabindex="4" class="${properties.kcButtonClass!} btn-success ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                      <input tabindex="4" class="${properties.kcButtonClass!} btn-primary ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                   </div>
+
+                   <div class="${properties.kcFormGroupClass!}">
+                    <label class="text-center">Connect with thousands of NGO’s delivering sustainable impact at scale.</label>
+                     </div>
+                                  
             </form>
         </#if>
         </div>
