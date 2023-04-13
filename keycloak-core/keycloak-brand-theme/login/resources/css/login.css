@@ -102,11 +102,17 @@ div.kc-logo-text span {
     display: none;
 }
 
-#kc-header {
+/* #kc-header {
     color: #ededed;
     overflow: visible;
     white-space: nowrap;
     margin-bottom: 174px !important;
+} */
+.kc-header {
+    color: #ededed;
+    overflow: visible;
+    white-space: nowrap;
+    margin-bottom: 74px !important;
 }
 
 #kc-header img {
@@ -347,6 +353,7 @@ a.zocial {
         text-align: right;
         z-index: 9999;
     }
+   
 }
 
 @media (max-width: 767px) {
@@ -455,6 +462,15 @@ a.zocial {
     margin: 0 auto;
     padding: 0 20px;
     max-width: 500px;
+    border-top: 0;
+    box-shadow: 0 0 0;
+}
+.card-pf-npo {
+    background: #fff;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* max-width: 500px; */
+    max-width: 100%;
     border-top: 0;
     box-shadow: 0 0 0;
 }
@@ -591,4 +607,33 @@ form#kc-select-back-form div.login-pf-social-section {
     right: 10px;
     bottom: 7px;
     margin-bottom: 0;
+}
+
+.register-btn{
+    color: #ffffff;
+    opacity: 1;
+    background-color: #007bff;
+    border-radius: 3px;
+    /* width: 100%; */
+    margin-left: 2rem;
+}
+.cancel-btn{
+    color: #00000099;
+    opacity: 1;
+    background-color: #e0e1e2;
+    border-radius: 3px;
+    /* width: 54%; */
+    margin-left: 2rem;
+}
+
+.align-text-center{
+    text-align:center;
+}
+.left-margin{
+    margin-left: 2rem;
+}
+
+.btn-section{
+    display: flex;
+    justify-content: center;
 }

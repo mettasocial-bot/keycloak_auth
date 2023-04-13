@@ -4,15 +4,63 @@
         Sign Up
     <#elseif section = "form">
     <script>
-            function togglePassword() {
-               console.log("its inside function1");
+        let countryList = []
+window.addEventListener('load', () => {
+    fetch('https://restcountries.com/v3.1/all')
+        .then(response => response.json())
+        .then(data => {
+            countryList = data;
+            var selectOptions = '';
+            for (var i = 0; i < data.length; i++) {
+
+                selectOptions += '<option value="' + data[i].name.common + '">' + data[i].name.common + '</option>';
             }
+            document.getElementById('user.attributes.country').innerHTML = selectOptions;
+        })
+        .catch(error => {
+            console.error(error);
+        });
+});
+
+
+function populateDropdowns() {
+
+    var selectedValue = document.getElementById("user.attributes.country").value;
+
+    // Clear the other dropdowns
+
+    let country = countryList.find(x => x.name.common == selectedValue)
+
+    if (country) {
+        console.log(country)
+        let currencies = ""
+        let languages = ""
+        let timezones = ""
+        for (let key in country.currencies) {
+            console.log(key)
+            currencies += '<option value="' + key + '">' + key + '</option>';
+        }
+
+        for (let key in country.languages) {
+            console.log(country.languages[key])
+            languages += '<option value="' + country.languages[key] + '">' + country.languages[key] + '</option>';
+        }
+
+        for (let i = 0; i < country.timezones.length; i++) {
+            console.log(country.timezones[i])
+            timezones += '<option value="' + country.timezones[i] + '">' + country.timezones[i] + '</option>';
+        }
+
+        document.getElementById('user.attributes.language').innerHTML = languages;
+        document.getElementById('user.attributes.currency').innerHTML = currencies;
+        document.getElementById('user.attributes.timezone').innerHTML = timezones;
+    }
+}
         </script>
-    <form id="kc-register-form" class="${properties.kcFormClass!}" onsubmit= 
-    "togglePassword()" action="${url.registrationAction}" method="post">
+    <form id="kc-register-form" class="${properties.kcFormClass!}"  action="${url.registrationAction}" method="post">
 
          
-            <#if client?? && client.clientId?? && client.clientId = "staging-mettasocial-npo">
+            <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
               
              <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
@@ -30,7 +78,7 @@
 
 
 
-            <div class = "${properties.kcContentWrapperClass!}">
+            <div class = "form-group ${properties.kcContentWrapperClass!}">
 
                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
@@ -54,9 +102,9 @@
                 </div>
             </div>
 
-        <#if client?? && client.clientId?? && client.clientId = "staging-mettasocial-npo">
+        <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
 
-            <div class = "${properties.kcContentWrapperClass!}">
+            <div class = "form-group ${properties.kcContentWrapperClass!}">
 
                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
@@ -88,7 +136,7 @@
             </div>
 
 </#if>
-                <#if client?? && client.clientId?? && client.clientId = "staging-mettasocial-npo">
+                <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
               
              <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
@@ -133,9 +181,9 @@
 
             <#if passwordRequired??>
 
-            <div class = "${properties.kcContentWrapperClass!}">
+            <div class = "form-group ${properties.kcContentWrapperClass!}">
 
-                    <div class="${properties.kcFormGroupClass!}  ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
+                    <div class="  ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
                         <div class="${properties.kcLabelWrapperClass!}">
                     <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
                         </div>
@@ -146,10 +194,10 @@
                 </div>
                
             </div>        
-            <div class = "${properties.kcContentWrapperClass!}">
+            <div class = "form-group ${properties.kcContentWrapperClass!}">
 
              
-                    <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
+                    <div class=" ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
                             <div class="${properties.kcLabelWrapperClass!}">
                     <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
                             </div>
@@ -162,6 +210,83 @@
             </div>        
             </#if>
 
+               <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
+              
+             <div class = "form-group ${properties.kcContentWrapperClass!}">
+
+                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="${properties.kcFormGroupClass!}">
+                        <div class="${properties.kcLabelWrapperClass!}">
+                            <label for="country" class="${properties.kcLabelClass!}">Country</label>
+                        </div>
+                        <div class="${properties.kcInputWrapperClass!}">
+
+                            <select class="${properties.kcInputClass!}" id="user.attributes.country" name="user.attributes.country" onchange="populateDropdowns()" value="${(register.formData['user.attributes.country']!'')}">
+                                <option > Please Select </option>
+                         
+                        
+                            </select>
+                      </div>
+                    </div>
+                </div>
+                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="${properties.kcFormGroupClass!}">
+                        <div class="${properties.kcLabelWrapperClass!}">
+                    <label for="language" class="${properties.kcLabelClass!}">Language</label>
+                        </div>
+                        <div class="${properties.kcInputWrapperClass!}">
+
+                         <select class="${properties.kcInputClass!}" id="user.attributes.language" name="user.attributes.language" value="${(register.formData['user.attributes.language']!'')}">
+                            <option > Please Select </option>
+                         
+                        
+                   </select>
+                      </div>
+                    </div>
+                </div>
+            </div>
+             
+        </#if>
+
+
+
+
+     <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
+              
+             <div class = "form-group ${properties.kcContentWrapperClass!}">
+
+                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="${properties.kcFormGroupClass!}">
+                        <div class="${properties.kcLabelWrapperClass!}">
+                            <label for="currency" class="${properties.kcLabelClass!}">Currency</label>
+                        </div>
+                        <div class="${properties.kcInputWrapperClass!}">
+
+                            <select class="${properties.kcInputClass!}" id="user.attributes.currency" name="user.attributes.currency" value="${(register.formData['user.attributes.currency']!'')}">
+                                <option > Please Select </option>
+                         
+                        
+                            </select>
+                      </div>
+                    </div>
+                </div>
+                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="${properties.kcFormGroupClass!}">
+                        <div class="${properties.kcLabelWrapperClass!}">
+                    <label for="timezone" class="${properties.kcLabelClass!}">Timezone</label>
+                        </div>
+                        <div class="${properties.kcInputWrapperClass!}">
+                         <select class="${properties.kcInputClass!}" id="user.attributes.timezone" name="user.attributes.timezone" value="${(register.formData['user.attributes.language']!'')}">
+                            <option > Please Select </option>
+                         
+                        
+                   </select>
+                      </div>
+                    </div>
+                </div>
+            </div>
+             
+        </#if>
            
             <div <#if client?? && client.clientId?? && client.clientId = "local-mettasocial">class="form-group"<#else>class="form-group hidden-xs hidden-sm hidden-md hidden-lg"</#if>>
                <div class="${properties.kcLabelWrapperClass!}">
@@ -193,15 +318,26 @@
             </div>
             </#if>
 
-            <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
-                <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
-                    <div class="${properties.kcFormOptionsWrapperClass!}">
-                        <span><a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
-                    </div>
-                </div>
+             <div class = "form-group left-margin ${properties.kcContentWrapperClass!}">
+             
+             <input  type="checkbox" name="tnc_accepted" required="" id="tnc_agreed"  value="true" checked=""><label class="col-11 left-margin" for="tnc_agreed">Agree to <a href="https://www.mettasocial.com/terms-and-conditions" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank">Terms &amp; Conditions</a><span class="color-FF2300">*</span></label></div>
+            </div>
 
-                <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!} text-center">
-                    <input class="${properties.kcButtonClass!} btn-success ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
+            <div class="btn-section ${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
+                <div id="" class="left-margin">
+                    <input class="cancel-btn ${properties.kcButtonClass!}" type="submit" value="Cancel"/>
+                </div>             
+
+                <div id="" class="left-margin">
+                    <input class="register-btn ${properties.kcButtonClass!}" type="submit" value="Next"/>
+                </div>
+            </div>
+
+            <div>
+               <div id="kc-form-options">
+                    <div class="align-text-center">
+                        <span> Already have an account? <a href="${url.loginUrl}">Login</a></span>
+                    </div>
                 </div>
             </div>
         </form>  

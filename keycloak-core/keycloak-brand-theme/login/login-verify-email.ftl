@@ -4,7 +4,7 @@
         ${msg("emailVerifyTitle")}
     <#elseif section = "form">
    <h5 class="instruction">
-   We sent an email to you with a link to activate a new Metta Social account.</h5>
+     We have sent a verification email to your inbox, please follow the instructions in the mail and verify your email address.</h5>
    <p class="instruction">If you don’t see an email from us within a few minutes, a few things could have happened:</p>
     <p class="instruction">The email is in your spam folder.</p>
     <p class="instruction">The email address you entered had a mistake or typo.</p>
