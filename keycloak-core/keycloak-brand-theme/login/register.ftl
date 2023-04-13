@@ -3,8 +3,33 @@
     <#if section = "header">
         Sign Up
     <#elseif section = "form">
-        <form id="kc-register-form" class="${properties.kcFormClass!}" action="${url.registrationAction}" method="post">
+    <script>
+            function togglePassword() {
+               console.log("its inside function1");
+            }
+        </script>
+    <form id="kc-register-form" class="${properties.kcFormClass!}" onsubmit= 
+    "togglePassword()" action="${url.registrationAction}" method="post">
+
          
+            <#if client?? && client.clientId?? && client.clientId = "staging-mettasocial-npo">
+              
+             <div class="form-group ${properties.kcContentWrapperClass!}">
+               <div class="${properties.kcLabelWrapperClass!}">
+                   <label for="user.attributes.ngoName" class="${properties.kcLabelClass!}">Ngo Name</label>
+               </div>
+               <div class="${properties.kcInputWrapperClass!}">
+                   <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.ngoName" name="user.attributes.ngoName" value="${(register.formData['user.attributes.ngoName']!'')}"/>
+               </div>
+            </div>
+             
+        </#if>
+
+
+        
+
+
+
             <div class = "${properties.kcContentWrapperClass!}">
 
                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
@@ -29,7 +54,62 @@
                 </div>
             </div>
 
-          
+        <#if client?? && client.clientId?? && client.clientId = "staging-mettasocial-npo">
+
+            <div class = "${properties.kcContentWrapperClass!}">
+
+                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
+                        <div class="${properties.kcLabelWrapperClass!}">
+                    <label for="registrationType" class="${properties.kcLabelClass!}">Registration Type</label>
+                        </div>
+                        <div class="${properties.kcInputWrapperClass!}">
+
+                         <select class="${properties.kcInputClass!}" id="user.attributes.registrationType" name="user.attributes.registrationType" value="${(register.formData['user.attributes.registrationType']!'')}">
+                            <option > Please Select </option>
+                            <option value="1">Society Registration</option>
+                            <option value="2">Trust Registration</option>
+                            <option value="3">Company Registration</option>
+                        
+                   </select>
+                      </div>
+                    </div>
+                </div>
+                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="${properties.kcFormGroupClass!}">
+                           <div class="${properties.kcLabelWrapperClass!}">
+                   <label for="user.attributes.registrationDate" class="${properties.kcLabelClass!}">Registration Date</label>
+               </div>
+               <div class="${properties.kcInputWrapperClass!}">
+                   <input type="date" required  required class="${properties.kcInputClass!}" id="user.attributes.registrationDate" name="user.attributes.registrationDate" value="${(register.formData['user.attributes.registrationDate']!'')}"/>
+               </div>
+                    </div>
+                </div>
+            </div>
+
+</#if>
+                <#if client?? && client.clientId?? && client.clientId = "staging-mettasocial-npo">
+              
+             <div class="form-group ${properties.kcContentWrapperClass!}">
+               <div class="${properties.kcLabelWrapperClass!}">
+                   <label for="user.attributes.registrationNumber" class="${properties.kcLabelClass!}">registration Number</label>
+               </div>
+               <div class="${properties.kcInputWrapperClass!}">
+                   <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.registrationNumber" name="user.attributes.registrationNumber" value="${(register.formData['user.attributes.registrationNumber']!'')}"/>
+               </div>
+            </div>
+             
+        </#if>
+
+
+            <div class="form-group ${properties.kcContentWrapperClass!}">
+               <div class="${properties.kcLabelWrapperClass!}">
+                   <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact number</label>
+               </div>
+               <div class="${properties.kcInputWrapperClass!}">
+                   <input type="tel" required pattern="[0-9]{10}" required class="${properties.kcInputClass!}" id="user.attributes.contactNumber" name="user.attributes.contactNumber" value="${(register.formData['user.attributes.contactNumber']!'')}"/>
+               </div>
+            </div>
 
             <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
@@ -55,7 +135,6 @@
 
             <div class = "${properties.kcContentWrapperClass!}">
 
-                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!}  ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
                         <div class="${properties.kcLabelWrapperClass!}">
                     <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
@@ -63,9 +142,13 @@
                         <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password"/>
                         </div>
-                    </div>
+                  
                 </div>
-                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+               
+            </div>        
+            <div class = "${properties.kcContentWrapperClass!}">
+
+             
                     <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
                             <div class="${properties.kcLabelWrapperClass!}">
                     <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
@@ -74,26 +157,12 @@
                     <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" />
                         </div>
                     </div>
-                </div>
-            </div>
-
-
-
-
-
-           
-
-          
+               
+               
+            </div>        
             </#if>
 
-            <div class="form-group ${properties.kcContentWrapperClass!}">
-               <div class="${properties.kcLabelWrapperClass!}">
-                   <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact number</label>
-               </div>
-               <div class="${properties.kcInputWrapperClass!}">
-                   <input type="tel" required pattern="[0-9]{10}" required class="${properties.kcInputClass!}" id="user.attributes.contactNumber" name="user.attributes.contactNumber" value="${(register.formData['user.attributes.contactNumber']!'')}"/>
-               </div>
-            </div>
+           
             <div <#if client?? && client.clientId?? && client.clientId = "local-mettasocial">class="form-group"<#else>class="form-group hidden-xs hidden-sm hidden-md hidden-lg"</#if>>
                <div class="${properties.kcLabelWrapperClass!}">
                    <label for="user.attributes.type" class="${properties.kcLabelClass!}">I am a</label>
@@ -135,6 +204,6 @@
                     <input class="${properties.kcButtonClass!} btn-success ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
                 </div>
             </div>
-        </form>
+        </form>  
     </#if>
 </@layout.registrationLayout>
