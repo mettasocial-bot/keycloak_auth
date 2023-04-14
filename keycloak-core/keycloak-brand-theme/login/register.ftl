@@ -60,7 +60,10 @@ function populateDropdowns() {
     <form id="kc-register-form" class="${properties.kcFormClass!}"  action="${url.registrationAction}" method="post">
 
          
-            <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
+            <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" ||
+            client.clientId = "staging-mettasocial-npo" ||
+            client.clientId = "demo-mettasocial-npo" ||
+            client.clientId = "prod-mettasocial-npo")>
               
              <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
@@ -102,7 +105,10 @@ function populateDropdowns() {
                 </div>
             </div>
 
-        <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
+        <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" ||
+            client.clientId = "staging-mettasocial-npo" ||
+            client.clientId = "demo-mettasocial-npo" ||
+            client.clientId = "prod-mettasocial-npo")>
 
             <div class = "form-group ${properties.kcContentWrapperClass!}">
 
@@ -136,7 +142,10 @@ function populateDropdowns() {
             </div>
 
 </#if>
-                <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
+                <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" ||
+            client.clientId = "staging-mettasocial-npo" ||
+            client.clientId = "demo-mettasocial-npo" ||
+            client.clientId = "prod-mettasocial-npo")>
               
              <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
@@ -210,7 +219,10 @@ function populateDropdowns() {
             </div>        
             </#if>
 
-               <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
+               <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" ||
+            client.clientId = "staging-mettasocial-npo" ||
+            client.clientId = "demo-mettasocial-npo" ||
+            client.clientId = "prod-mettasocial-npo")>
               
              <div class = "form-group ${properties.kcContentWrapperClass!}">
 
@@ -251,7 +263,10 @@ function populateDropdowns() {
 
 
 
-     <#if client?? && client.clientId?? && client.clientId = "mettasocial-npo">
+     <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" ||
+            client.clientId = "staging-mettasocial-npo" ||
+            client.clientId = "demo-mettasocial-npo" ||
+            client.clientId = "prod-mettasocial-npo")>
               
              <div class = "form-group ${properties.kcContentWrapperClass!}">
 
@@ -298,11 +313,11 @@ function populateDropdowns() {
                             <option value="2">NGO</option>
                             <option value="4">Corporate</option>
                             <option value="8">Citizen</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "prod-mettasocial-npo")>
                             <option value="2" selected>NGO</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "mettasocial-corp")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "prod-mettasocial-corp")>
                             <option value="4" selected>Corporate</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen" || client.clientId = "android-mettasocial")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "prod-mettasocial-citizen" || client.clientId = "android-mettasocial")>
                             <option value="8" selected>Citizen</option>
                         </#if>
                    </select>
