@@ -64,7 +64,7 @@ function populateDropdowns() {
               
              <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
-                   <label for="user.attributes.ngoName" class="${properties.kcLabelClass!}">Ngo Name</label>
+                   <label for="user.attributes.ngoName" class="${properties.kcLabelClass!}">NGO Name</label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
                    <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.ngoName" name="user.attributes.ngoName" value="${(register.formData['user.attributes.ngoName']!'')}"/>
@@ -140,7 +140,7 @@ function populateDropdowns() {
               
              <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
-                   <label for="user.attributes.registrationNumber" class="${properties.kcLabelClass!}">registration Number</label>
+                   <label for="user.attributes.registrationNumber" class="${properties.kcLabelClass!}">Registration Number</label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
                    <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.registrationNumber" name="user.attributes.registrationNumber" value="${(register.formData['user.attributes.registrationNumber']!'')}"/>
@@ -152,7 +152,7 @@ function populateDropdowns() {
 
             <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
-                   <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact number</label>
+                   <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact Number</label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
                    <input type="tel" required pattern="[0-9]{10}" required class="${properties.kcInputClass!}" id="user.attributes.contactNumber" name="user.attributes.contactNumber" value="${(register.formData['user.attributes.contactNumber']!'')}"/>
@@ -161,7 +161,7 @@ function populateDropdowns() {
 
             <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="email" class="${properties.kcLabelClass!}">${msg("email")}</label>
+                    <label for="email" class="${properties.kcLabelClass!}">Email Address</label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
