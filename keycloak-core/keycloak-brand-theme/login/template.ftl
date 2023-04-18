@@ -33,7 +33,7 @@
 
 <body class="${properties.kcBodyClass!}">
   <div class="${properties.kcLoginClass!}">
-    <div id="kc-header" class="${properties.kcHeaderClass!} <#if client.clientId = "prod-mettasocial-npo">kc-header</#if>">
+    <div id="kc-header" class="${properties.kcHeaderClass!} <#if client.clientId = "mettasocial-npo">kc-header</#if>">
       <div id="kc-header-wrapper" class="${properties.kcHeaderWrapperClass!}">
         <img src="https://cdn.mettasocial.com/logos/MS_logo_640x180.svg"
          />
