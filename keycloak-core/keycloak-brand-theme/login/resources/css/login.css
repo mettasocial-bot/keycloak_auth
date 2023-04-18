@@ -630,7 +630,7 @@ form#kc-select-back-form div.login-pf-social-section {
     text-align:center;
 }
 .left-margin{
-    margin-left: 2rem;
+    margin-left: 2rem !important;
 }
 
 .btn-section{

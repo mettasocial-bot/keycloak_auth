@@ -6,6 +6,8 @@
     <script>
         let countryList = []
 window.addEventListener('load', () => {
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("user.attributes.registrationDate")[0].setAttribute('max', today);
     fetch('https://restcountries.com/v3.1/all')
         .then(response => response.json())
         .then(data => {
@@ -121,9 +123,9 @@ function populateDropdowns() {
 
                          <select class="${properties.kcInputClass!}" id="user.attributes.registrationType" name="user.attributes.registrationType" value="${(register.formData['user.attributes.registrationType']!'')}">
                             <option > Please Select </option>
-                            <option value="1">Society Registration</option>
-                            <option value="2">Trust Registration</option>
-                            <option value="3">Company Registration</option>
+                            <option value="Society Registration">Society Registration</option>
+                            <option value="Trust Registration">Trust Registration</option>
+                            <option value="Company Registration">Company Registration</option>
                         
                    </select>
                       </div>
@@ -135,7 +137,7 @@ function populateDropdowns() {
                    <label for="user.attributes.registrationDate" class="${properties.kcLabelClass!}">Registration Date</label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
-                   <input type="date" required  required class="${properties.kcInputClass!}" id="user.attributes.registrationDate" name="user.attributes.registrationDate" value="${(register.formData['user.attributes.registrationDate']!'')}"/>
+                   <input type="date" required class="${properties.kcInputClass!}" id="user.attributes.registrationDate" name="user.attributes.registrationDate"   value="${(register.formData['user.attributes.registrationDate']!'')}"/>
                </div>
                     </div>
                 </div>
