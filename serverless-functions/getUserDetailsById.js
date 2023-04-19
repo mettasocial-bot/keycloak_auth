@@ -17,7 +17,7 @@ export async function index(event) {
     const resData = await Promise.all(
       idsToFetchData.map((id) => {
         return fetch(
-          `https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users/${id}`,
+          `https://staging-auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users/${id}`,
           {
             headers: {
               Authorization: `Bearer ${adminAccessToken}`,
