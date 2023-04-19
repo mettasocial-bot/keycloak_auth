@@ -10,9 +10,7 @@
 			</div>
 		<div class="verification-instruction">Verification Email Sent</div>
 		<div class="verification-p">We have sent a verification email to your inbox, please follow the instructions in the mail and verify your email address.</div>
-		<div class="verification-email-h">We have sent an email to:</div>
- <#if user?has_content><p class="verification-email">  ${user.getEmail()},</p><#else> <p class="verification-email"> </p></#if>
-
+		
 		<p class="verification-note">Note: Please verify your email within 15 mins & check your spam inbox as well</p>
 		
 		<div class="mt-5rem">
