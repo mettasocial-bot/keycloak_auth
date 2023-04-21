@@ -78,7 +78,7 @@
                   </div>
 
                    <div class="${properties.kcFormGroupClass!}">
-                    <label class="text-center">Connect with thousands of NGO’s delivering sustainable impact at scale.</label>
+                    <label class="text-center">Connect with thousands of NGOs delivering sustainable impact at scale.</label>
                      </div>
                                   
             </form>

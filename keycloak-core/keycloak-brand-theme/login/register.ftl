@@ -12,6 +12,15 @@ window.addEventListener('load', () => {
         .then(response => response.json())
         .then(data => {
             countryList = data;
+             data.sort((a, b) => {
+                  if (a.name.common < b.name.common) {
+                   return -1;
+                      }
+                  if (a.name.common > b.name.common) {
+                  return 1;
+                      }
+                     return 0;
+                    });
             var selectOptions = '';
             for (var i = 0; i < data.length; i++) {
 
@@ -69,7 +78,7 @@ function populateDropdowns() {
               
              <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
-                   <label for="user.attributes.ngoName" class="${properties.kcLabelClass!}">NGO Name</label>
+                   <label for="user.attributes.ngoName" class="${properties.kcLabelClass!}">NGO Name <span class="color-FF2300">*</span></label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
                    <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.ngoName" name="user.attributes.ngoName" value="${(register.formData['user.attributes.ngoName']!'')}"/>
@@ -88,7 +97,7 @@ function populateDropdowns() {
                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                         <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="firstName" class="${properties.kcLabelClass!}">${msg("firstName")}</label>
+                    <label for="firstName" class="${properties.kcLabelClass!}">First Name <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" />
@@ -98,7 +107,7 @@ function populateDropdowns() {
                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('lastName',properties.kcFormGroupErrorClass!)}">
                         <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="lastName" class="${properties.kcLabelClass!}">${msg("lastName")}</label>
+                    <label for="lastName" class="${properties.kcLabelClass!}">Last Name <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" />
@@ -117,15 +126,15 @@ function populateDropdowns() {
                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                         <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="registrationType" class="${properties.kcLabelClass!}">Registration Type</label>
+                    <label for="registrationType" class="${properties.kcLabelClass!}">Registration Type <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
 
                          <select class="${properties.kcInputClass!}" id="user.attributes.registrationType" name="user.attributes.registrationType" value="${(register.formData['user.attributes.registrationType']!'')}">
                             <option > Please Select </option>
-                            <option value="Society Registration">Society Registration</option>
-                            <option value="Trust Registration">Trust Registration</option>
-                            <option value="Company Registration">Company Registration</option>
+                            <option value="1">Society Registration</option>
+                            <option value="2">Trust Registration</option>
+                            <option value="3">Company Registration</option>
                         
                    </select>
                       </div>
@@ -134,7 +143,7 @@ function populateDropdowns() {
                 <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!}">
                            <div class="${properties.kcLabelWrapperClass!}">
-                   <label for="user.attributes.registrationDate" class="${properties.kcLabelClass!}">Registration Date</label>
+                   <label for="user.attributes.registrationDate" class="${properties.kcLabelClass!}">Registration Date <span class="color-FF2300">*</span></label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
                    <input type="date" required class="${properties.kcInputClass!}" id="user.attributes.registrationDate" name="user.attributes.registrationDate"   value="${(register.formData['user.attributes.registrationDate']!'')}"/>
@@ -151,7 +160,7 @@ function populateDropdowns() {
               
              <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
-                   <label for="user.attributes.registrationNumber" class="${properties.kcLabelClass!}">Registration Number</label>
+                   <label for="user.attributes.registrationNumber" class="${properties.kcLabelClass!}">Registration Number <span class="color-FF2300">*</span></label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
                    <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.registrationNumber" name="user.attributes.registrationNumber" value="${(register.formData['user.attributes.registrationNumber']!'')}"/>
@@ -163,7 +172,7 @@ function populateDropdowns() {
 
             <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
-                   <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact Number</label>
+                   <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact Number <span class="color-FF2300">*</span></label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
                    <input type="tel" required pattern="[0-9]{10}" required class="${properties.kcInputClass!}" id="user.attributes.contactNumber" name="user.attributes.contactNumber" value="${(register.formData['user.attributes.contactNumber']!'')}"/>
@@ -172,7 +181,7 @@ function populateDropdowns() {
 
             <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="email" class="${properties.kcLabelClass!}">Email Address</label>
+                    <label for="email" class="${properties.kcLabelClass!}">Email Address <span class="color-FF2300">*</span></label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
@@ -196,7 +205,7 @@ function populateDropdowns() {
 
                     <div class="  ${messagesPerField.printIfExists('password',properties.kcFormGroupErrorClass!)}">
                         <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
+                    <label for="password" class="${properties.kcLabelClass!}">${msg("password")}  <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password"/>
@@ -210,7 +219,7 @@ function populateDropdowns() {
              
                     <div class=" ${messagesPerField.printIfExists('password-confirm',properties.kcFormGroupErrorClass!)}">
                             <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
+                    <label for="password-confirm" class="${properties.kcLabelClass!}">Confirm Password  <span class="color-FF2300">*</span></label>
                             </div>
                         <div class="${properties.kcInputWrapperClass!}">
                     <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" />
@@ -231,12 +240,12 @@ function populateDropdowns() {
                  <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!}">
                         <div class="${properties.kcLabelWrapperClass!}">
-                            <label for="country" class="${properties.kcLabelClass!}">Country</label>
+                            <label for="country" class="${properties.kcLabelClass!}">Country  <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
 
                             <select class="${properties.kcInputClass!}" id="user.attributes.country" name="user.attributes.country" onchange="populateDropdowns()" value="${(register.formData['user.attributes.country']!'')}">
-                                <option > Please Select </option>
+                                <option > India </option>
                          
                         
                             </select>
@@ -246,12 +255,12 @@ function populateDropdowns() {
                  <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!}">
                         <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="language" class="${properties.kcLabelClass!}">Language</label>
+                    <label for="language" class="${properties.kcLabelClass!}">Language  <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
 
                          <select class="${properties.kcInputClass!}" id="user.attributes.language" name="user.attributes.language" value="${(register.formData['user.attributes.language']!'')}">
-                            <option > Please Select </option>
+                            <option > English </option>
                          
                         
                    </select>
@@ -275,12 +284,12 @@ function populateDropdowns() {
                  <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!}">
                         <div class="${properties.kcLabelWrapperClass!}">
-                            <label for="currency" class="${properties.kcLabelClass!}">Currency</label>
+                            <label for="currency" class="${properties.kcLabelClass!}">Currency  <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
 
                             <select class="${properties.kcInputClass!}" id="user.attributes.currency" name="user.attributes.currency" value="${(register.formData['user.attributes.currency']!'')}">
-                                <option > Please Select </option>
+                                <option > INR </option>
                          
                         
                             </select>
@@ -290,11 +299,11 @@ function populateDropdowns() {
                  <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
                     <div class="${properties.kcFormGroupClass!}">
                         <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="timezone" class="${properties.kcLabelClass!}">Timezone</label>
+                    <label for="timezone" class="${properties.kcLabelClass!}">Timezone  <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
                          <select class="${properties.kcInputClass!}" id="user.attributes.timezone" name="user.attributes.timezone" value="${(register.formData['user.attributes.language']!'')}">
-                            <option > Please Select </option>
+                            <option >UTC+05:30</option>
                          
                         
                    </select>
@@ -337,7 +346,7 @@ function populateDropdowns() {
 
              <div class = "form-group left-margin ${properties.kcContentWrapperClass!}">
              
-             <input  type="checkbox" name="tnc_accepted" required="" id="tnc_agreed"  value="true" checked=""><label class="col-11 left-margin" for="tnc_agreed">Agree to <a href="https://www.mettasocial.com/terms-and-conditions" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank">Terms &amp; Conditions</a><span class="color-FF2300">*</span></label></div>
+             <input  type="checkbox" name="tnc_accepted" required="" id="tnc_agreed"  value="true" checked=""><label class="col-11 left-margin" for="tnc_agreed">Agree to <a href="https://www.mettasocial.com/terms-and-conditions" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank">Terms of Service and Privacy Policy</a><span class="color-FF2300">*</span></label></div>
             </div>
 
             <div class="btn-section ${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
@@ -346,7 +355,7 @@ function populateDropdowns() {
                 </div>             
 
                 <div id="" class="left-margin">
-                    <input class="register-btn ${properties.kcButtonClass!}" type="submit" value="Next"/>
+                    <input class="register-btn ${properties.kcButtonClass!}" type="submit" value="Verify Email"/>
                 </div>
             </div>
 
