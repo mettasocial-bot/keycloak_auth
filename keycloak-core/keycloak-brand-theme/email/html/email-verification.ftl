@@ -253,7 +253,7 @@
                                     <td align="center" valign="top">
                                         <a href="https://u19096362.ct.sendgrid.net/ls/click?upn=InGYzj13EGuRolFvGD16jAmIDHD8xq2wHPYYD7rLavvt2WIxz4B30VBJDuRiJjBN5dRz_a8lJUKqesz2lsocAvo4nwjkhyEngCDkSIIOjbM3lH-2F6pTEIxnnI8JgLXy8hDty3Wizlti7dKWcdJAyhoW64I6sil-2Bw3T8Sxug5jp2cpLWSJaUAo-2BmDNCAuhVgC0ksGvVFFdZrJP7ma8cbewd-2BXPb4CM6XtPud824cHcwiP6nmBOzq-2BS-2F-2BS9wA-2FCNNewXAjW2O2Uk6wLwVU54ai-2FECdWKCoypfMrQQ2B9dBFDfxO3ZtA-3D"
                                             target="_blank" style="text-decoration:none;">
-                                            <img src="https://cdn.mettasocial.com/logos/MS_logo_640x180.svg"
+                                            <img src="https://cdn.mettasocial.com/logos/MS_logo_206x75.png"
                                                 width="200" height="55" alt="" border="0"
                                                 style="display:block; font-family:Roboto, sans-serif; font-size:18px; line-height:25px; text-align:center; color:#1d4685; font-weight:bold; max-width:208px;"
                                                 class="em_w150" />

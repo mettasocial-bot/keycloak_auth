@@ -683,3 +683,8 @@ form#kc-select-back-form div.login-pf-social-section {
 a {
     color: #0085FF !important;
 }
+
+body {
+    /* font-family: DM; */
+    font-family: "DM Sans",sans-serif !important;
+}

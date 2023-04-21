@@ -11,7 +11,14 @@ window.addEventListener('load', () => {
     fetch('https://restcountries.com/v3.1/all')
         .then(response => response.json())
         .then(data => {
+            var selectOptions = '';
             countryList = data;
+            let countryArray = [];
+            let objIndex = data.findIndex(x=> x.name.common === "India") 
+            if(objIndex > -1){
+              selectOptions +=  '<option value="' + data[objIndex].name.common + '">' + data[objIndex].name.common + '</option>';
+              data.splice(objIndex, 1)
+            }
              data.sort((a, b) => {
                   if (a.name.common < b.name.common) {
                    return -1;
@@ -21,7 +28,7 @@ window.addEventListener('load', () => {
                       }
                      return 0;
                     });
-            var selectOptions = '';
+          
             for (var i = 0; i < data.length; i++) {
 
                 selectOptions += '<option value="' + data[i].name.common + '">' + data[i].name.common + '</option>';
@@ -67,6 +74,36 @@ function populateDropdowns() {
         document.getElementById('user.attributes.timezone').innerHTML = timezones;
     }
 }
+function validatePassword() {
+     var x = document.getElementById("password-confirm");
+     x.disabled = false;
+}
+
+ function togglePassword() {
+                var x = document.getElementById("password");
+                var v = document.getElementById("vi");
+                if (x.type === "password") {
+                    console.log("here")
+                    x.type = "text";
+                    v.src = "https://cdn.mettasocial.com/logos/eye-on.jpg";
+                } else {
+                    x.type = "password";
+                    v.src = "https://cdn.mettasocial.com/logos/eye-off.png";
+                }
+            }
+
+function toggleConfirmPassword() {
+                var x = document.getElementById("password-confirm");
+                var v = document.getElementById("confirmpasswordimg");
+                if (x.type === "password") {
+                    console.log("here")
+                    x.type = "text";
+                    v.src = "https://cdn.mettasocial.com/logos/eye-on.jpg";
+                } else {
+                    x.type = "password";
+                    v.src = "https://cdn.mettasocial.com/logos/eye-off.png";
+                }
+            }
         </script>
     <form id="kc-register-form" class="${properties.kcFormClass!}"  action="${url.registrationAction}" method="post">
 
@@ -81,7 +118,7 @@ function populateDropdowns() {
                    <label for="user.attributes.ngoName" class="${properties.kcLabelClass!}">NGO Name <span class="color-FF2300">*</span></label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
-                   <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.ngoName" name="user.attributes.ngoName" value="${(register.formData['user.attributes.ngoName']!'')}"/>
+                   <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.ngoName" name="user.attributes.ngoName" maxlength="100"  value="${(register.formData['user.attributes.ngoName']!'')}"/>
                </div>
             </div>
              
@@ -100,7 +137,7 @@ function populateDropdowns() {
                     <label for="firstName" class="${properties.kcLabelClass!}">First Name <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" value="${(register.formData.firstName!'')}" />
+                    <input type="text" id="firstName" class="${properties.kcInputClass!}" name="firstName" maxlength="50" value="${(register.formData.firstName!'')}" />
                         </div>
                     </div>
                 </div>
@@ -110,7 +147,7 @@ function populateDropdowns() {
                     <label for="lastName" class="${properties.kcLabelClass!}">Last Name <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" value="${(register.formData.lastName!'')}" />
+                    <input type="text" id="lastName" class="${properties.kcInputClass!}" name="lastName" maxlength="50" value="${(register.formData.lastName!'')}" />
                         </div>
                     </div>
                 </div>
@@ -123,7 +160,7 @@ function populateDropdowns() {
 
             <div class = "form-group ${properties.kcContentWrapperClass!}">
 
-                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <div class= "col-xs-6 col-sm-6 col-md-6 col-lg-6" style="padding-right: 1rem;">
                     <div class="${properties.kcFormGroupClass!} ${messagesPerField.printIfExists('firstName',properties.kcFormGroupErrorClass!)}">
                         <div class="${properties.kcLabelWrapperClass!}">
                     <label for="registrationType" class="${properties.kcLabelClass!}">Registration Type <span class="color-FF2300">*</span></label>
@@ -175,7 +212,7 @@ function populateDropdowns() {
                    <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact Number <span class="color-FF2300">*</span></label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
-                   <input type="tel" required pattern="[0-9]{10}" required class="${properties.kcInputClass!}" id="user.attributes.contactNumber" name="user.attributes.contactNumber" value="${(register.formData['user.attributes.contactNumber']!'')}"/>
+                   <input type="tel"  pattern="[0-9]{10}" required class="${properties.kcInputClass!}" placeholder = "9876543210" placeholder= "user@domain.com" id="user.attributes.contactNumber" maxlength="10" name="user.attributes.contactNumber" value="${(register.formData['user.attributes.contactNumber']!'')}"/>
                </div>
             </div>
 
@@ -184,7 +221,7 @@ function populateDropdowns() {
                     <label for="email" class="${properties.kcLabelClass!}">Email Address <span class="color-FF2300">*</span></label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
-                    <input type="text" id="email" class="${properties.kcInputClass!}" name="email" value="${(register.formData.email!'')}" autocomplete="email" />
+                    <input type="text" id="email" class="${properties.kcInputClass!}" name="email" placeholder= "user@domain.com" maxlength="50" value="${(register.formData.email!'')}" autocomplete="email" />
                 </div>
             </div>
 
@@ -208,7 +245,11 @@ function populateDropdowns() {
                     <label for="password" class="${properties.kcLabelClass!}">${msg("password")}  <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password" class="${properties.kcInputClass!}" name="password" autocomplete="new-password"/>
+                    <input type="password" id="password" class="${properties.kcInputClass!}" name="password" onchange= "validatePassword()" autocomplete="new-password"/>
+                        <label class="password-label" id="v" onclick="togglePassword()" style="
+    right: 28px;
+"><img id="vi" class= "password-image" src="https://cdn.mettasocial.com/logos/eye-off.png"></label>
+
                         </div>
                   
                 </div>
@@ -222,7 +263,11 @@ function populateDropdowns() {
                     <label for="password-confirm" class="${properties.kcLabelClass!}">Confirm Password  <span class="color-FF2300">*</span></label>
                             </div>
                         <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password-confirm" class="${properties.kcInputClass!}" name="password-confirm" />
+                    <input type="password" id="password-confirm" class="${properties.kcInputClass!}" disabled placeholder = "******" name="password-confirm" />
+                        <label class="password-label" id="v" onclick="toggleConfirmPassword()" style="
+    right: 28px;
+"><img id="confirmpasswordimg" class= "password-image" src="https://cdn.mettasocial.com/logos/eye-off.png"></label>
+
                         </div>
                     </div>
                
@@ -346,7 +391,7 @@ function populateDropdowns() {
 
              <div class = "form-group left-margin ${properties.kcContentWrapperClass!}">
              
-             <input  type="checkbox" name="tnc_accepted" required="" id="tnc_agreed"  value="true" checked=""><label class="col-11 left-margin" for="tnc_agreed">Agree to <a href="https://www.mettasocial.com/terms-and-conditions" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank">Terms of Service and Privacy Policy</a><span class="color-FF2300">*</span></label></div>
+             <input  type="checkbox" name="tnc_accepted" required id="tnc_agreed"  value="true" checked=""><label class="col-11 left-margin" for="tnc_agreed">Agree to <a href="https://www.mettasocial.com/terms-and-conditions" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank">Terms of Service and Privacy Policy</a><span class="color-FF2300">*</span></label></div>
             </div>
 
             <div class="btn-section ${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
