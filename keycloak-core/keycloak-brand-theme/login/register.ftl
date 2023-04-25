@@ -289,7 +289,7 @@ function toggleConfirmPassword() {
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
 
-                            <select class="${properties.kcInputClass!}" id="user.attributes.country" name="user.attributes.country" onchange="populateDropdowns()" value="${(register.formData['user.attributes.country']!'')}">
+                            <select class="${properties.kcInputClass!}" id="user.attributes.country" name="user.attributes.country" disabled onchange="populateDropdowns()" value="${(register.formData['user.attributes.country']!'')}">
                                 <option > India </option>
                          
                         
@@ -304,7 +304,7 @@ function toggleConfirmPassword() {
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
 
-                         <select class="${properties.kcInputClass!}" id="user.attributes.language" name="user.attributes.language" value="${(register.formData['user.attributes.language']!'')}">
+                         <select class="${properties.kcInputClass!}" id="user.attributes.language" name="user.attributes.language" disabled value="${(register.formData['user.attributes.language']!'')}">
                             <option > English </option>
                          
                         
@@ -333,7 +333,7 @@ function toggleConfirmPassword() {
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
 
-                            <select class="${properties.kcInputClass!}" id="user.attributes.currency" name="user.attributes.currency" value="${(register.formData['user.attributes.currency']!'')}">
+                            <select class="${properties.kcInputClass!}" id="user.attributes.currency" name="user.attributes.currency" disabled value="${(register.formData['user.attributes.currency']!'')}">
                                 <option > INR </option>
                          
                         
@@ -347,7 +347,7 @@ function toggleConfirmPassword() {
                     <label for="timezone" class="${properties.kcLabelClass!}">Timezone  <span class="color-FF2300">*</span></label>
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
-                         <select class="${properties.kcInputClass!}" id="user.attributes.timezone" name="user.attributes.timezone" value="${(register.formData['user.attributes.language']!'')}">
+                         <select class="${properties.kcInputClass!}" id="user.attributes.timezone" name="user.attributes.timezone"  disabled value="${(register.formData['user.attributes.language']!'')}">
                             <option >UTC+05:30</option>
                          
                         
@@ -391,15 +391,15 @@ function toggleConfirmPassword() {
 
              <div class = "form-group left-margin ${properties.kcContentWrapperClass!}">
              
-             <input  type="checkbox" name="tnc_accepted" required id="tnc_agreed"  value="true" checked=""><label class="col-11 left-margin" for="tnc_agreed">Agree to <a href="https://www.mettasocial.com/terms-and-conditions" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank">Terms of Service and Privacy Policy</a><span class="color-FF2300">*</span></label></div>
+             <input  type="checkbox" name="tnc_accepted" required id="tnc_agreed"  value="true" ><label class="col-11 left-margin" for="tnc_agreed">Agree to <a href="https://www.mettasocial.com/terms-and-conditions" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank">Terms of Service</a> and <a href="https://www.mettasocial.com/privacy-policy" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank"> Privacy Policy</a><span class="color-FF2300">*</span></label></div>
             </div>
 
             <div class="btn-section ${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
-                <div id="" class="left-margin">
-                    <input class="cancel-btn ${properties.kcButtonClass!}" type="submit" value="Cancel"/>
+                <div id="" class="">
+                    <input class="cancel-btn ${properties.kcButtonClass!}" type="cancel" value="Cancel" onclick = "window.open('https://www.mettasocial.com/', "_blank")"/>
                 </div>             
 
-                <div id="" class="left-margin">
+                <div id="" class="">
                     <input class="register-btn ${properties.kcButtonClass!}" type="submit" value="Verify Email"/>
                 </div>
             </div>
