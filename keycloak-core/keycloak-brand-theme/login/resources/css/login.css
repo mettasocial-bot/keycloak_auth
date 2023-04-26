@@ -622,8 +622,8 @@ form#kc-select-back-form div.login-pf-social-section {
     opacity: 1;
     background-color: #e0e1e2;
     border-radius: 3px;
-    /* width: 54%; */
-    margin-left: 2rem;
+    width: 54% !important;
+    margin-left: 9rem;
 }
 
 .align-text-center{
@@ -687,4 +687,11 @@ a {
 body {
     /* font-family: DM; */
     font-family: "DM Sans",sans-serif !important;
+}
+
+.padding-0{
+    padding: 0px;
+}
+.float-right{
+    float: right;
 }

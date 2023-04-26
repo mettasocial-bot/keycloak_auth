@@ -79,6 +79,11 @@ function validatePassword() {
      x.disabled = false;
 }
 
+function cancelRegistration(){
+     console.log("cancel Clicked");
+    window.open("https://mettasocial.com", "_blank");
+}
+
  function togglePassword() {
                 var x = document.getElementById("password");
                 var v = document.getElementById("vi");
@@ -294,6 +299,7 @@ function toggleConfirmPassword() {
                          
                         
                             </select>
+                            <input type="hidden" name="user.attributes.country" id="user.attributes.country" value = "India">
                       </div>
                     </div>
                 </div>
@@ -306,9 +312,10 @@ function toggleConfirmPassword() {
 
                          <select class="${properties.kcInputClass!}" id="user.attributes.language" name="user.attributes.language" disabled value="${(register.formData['user.attributes.language']!'')}">
                             <option > English </option>
-                         
-                        
+                             
                    </select>
+                    <input type="hidden" name="user.attributes.language" id="user.attributes.language" value = "English">
+                        
                       </div>
                     </div>
                 </div>
@@ -338,6 +345,8 @@ function toggleConfirmPassword() {
                          
                         
                             </select>
+                             <input type="hidden" name="user.attributes.currency" id="user.attributes.currency" value = "INR">
+                        
                       </div>
                     </div>
                 </div>
@@ -349,9 +358,8 @@ function toggleConfirmPassword() {
                         <div class="${properties.kcInputWrapperClass!}">
                          <select class="${properties.kcInputClass!}" id="user.attributes.timezone" name="user.attributes.timezone"  disabled value="${(register.formData['user.attributes.language']!'')}">
                             <option >UTC+05:30</option>
-                         
-                        
                    </select>
+                      <input type="hidden" name="user.attributes.timezone" id="user.attributes.currtimezoneency" value = "UTC+05:30">
                       </div>
                     </div>
                 </div>
@@ -395,11 +403,11 @@ function toggleConfirmPassword() {
             </div>
 
             <div class="btn-section ${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
-                <div id="" class="">
-                    <input class="cancel-btn ${properties.kcButtonClass!}" type="cancel" value="Cancel" onclick = "window.open('https://www.mettasocial.com/', "_blank")"/>
+                <div id="" class= "col-xs-6 col-sm-6 col-md-6 col-lg-6 padding-0">
+                    <input class="cancel-btn ${properties.kcButtonClass!}" type="cancel" value="Cancel" onclick = "cancelRegistration()"/>
                 </div>             
 
-                <div id="" class="">
+                <div id="" class= "col-xs-6 col-sm-6 col-md-6 col-lg-6 padding-0">
                     <input class="register-btn ${properties.kcButtonClass!}" type="submit" value="Verify Email"/>
                 </div>
             </div>

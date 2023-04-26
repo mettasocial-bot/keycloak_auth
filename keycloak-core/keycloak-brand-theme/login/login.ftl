@@ -80,6 +80,12 @@
                    <div class="${properties.kcFormGroupClass!}">
                     <label class="text-center">Connect with thousands of NGOs delivering sustainable impact at scale.</label>
                      </div>
+
+                      <#if realm.password && realm.registrationAllowed  && client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo")>
+            <div id="kc-registration" class = "align-text-center">
+                <span><a tabindex="6" href="${url.registrationUrl}">Join Now</a></span>
+            </div>
+        </#if>
                                   
             </form>
         </#if>
@@ -95,9 +101,9 @@
         </#if>
       </div>
     <#elseif section = "info" >
-        <#if realm.password && realm.registrationAllowed && !usernameEditDisabled?? && client?? && client.clientId?? && (client.clientId != "dev-mettasocial" && client.clientId != "staging-mettasocial" && client.clientId != "mettasocial" && client.clientId != "android-mettasocial")>
+        <#if realm.password && realm.registrationAllowed  && client?? && client.clientId?? && (client.clientId != "dev-mettasocial-npo" && client.clientId != "staging-mettasocial-npo" && client.clientId != "mettasocial-npo" && client.clientId != "android-mettasocial")>
             <div id="kc-registration">
-                <span>${msg("noAccount")} <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                <span>Join Now <a tabindex="6" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
             </div>
         </#if>
     </#if>
