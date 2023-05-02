@@ -172,8 +172,8 @@ function toggleConfirmPassword() {
                         </div>
                         <div class="${properties.kcInputWrapperClass!}">
 
-                         <select class="${properties.kcInputClass!}" id="user.attributes.registrationType" name="user.attributes.registrationType" value="${(register.formData['user.attributes.registrationType']!'')}">
-                            <option > Please Select </option>
+                         <select class="${properties.kcInputClass!}" id="user.attributes.registrationType" required name="user.attributes.registrationType" value="${(register.formData['user.attributes.registrationType']!'')}">
+                           <option value="">Please Select</option>
                             <option value="1">Society Registration</option>
                             <option value="2">Trust Registration</option>
                             <option value="3">Company Registration</option>
