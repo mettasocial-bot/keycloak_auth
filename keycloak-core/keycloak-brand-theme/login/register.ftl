@@ -423,13 +423,13 @@ window.onclick = function(event) {
 
             <div class="btn-section ${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
                 <div id="" class= "col-xs-6 col-sm-6 col-md-6 col-lg-6 padding-0">
-                    <input class="cancel-btn ${properties.kcButtonClass!}" type="cancel"id="myButton" value="Cancel" onclick = "cancelRegistration()" />
+                    <input class="cancel-btn ${properties.kcButtonClass!}" type="button" id="myButton" value="Cancel" onclick = "cancelRegistration()" />
                 </div>             
 
                 <div id="" class= "col-xs-6 col-sm-6 col-md-6 col-lg-6 padding-0">
                     <input class="register-btn ${properties.kcButtonClass!}" type="submit" value="Verify Email"/>
                 </div>
-            </div>
+            </div> 
 
             <div>
                <div id="kc-form-options">
@@ -442,7 +442,7 @@ window.onclick = function(event) {
 <!-- Trigger/Open The Modal -->
 <div id="myModal" class="modal" >
 <div class="modal-content">
-   <div class=""><div class="modal-header"><span class="modal-title fs-20">Cancel Registration ?</span><img  onclick = "closeModal()"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAADsAAAA7AF5KHG9AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAALlJREFUWIXtlssKgzAQRY/9FT/KriqIG/v/qxYfCyMEacV5xLjIXQky955EZxgoKrq56pweT+ADvA3hHfAFWmlhHQpnYAR6RXgfaufgJb6JLjKYkN3EvnaQhlsg3MI1EO7hEohk4WcgkocfQVwWvilur3H3rGlXleJTm07+cISqHL0OlfUT/PrhLBPTHP7vnTvEmVZLBiHpc3cIzZBxg7BMODPELRaShnUls8z2bSV7aQ2yLqVFRZdoAWfzgjFqNbBoAAAAAElFTkSuQmCC" alt="close" class="close cursor-pointer"></div><div class="modal-body" style="/* max-height: 80vh; *//* overflow-y: hidden; */"><section><div class=""><label class="mt-2">Are you sure you want to cancel registration</label><div class="d-flex justify-content-end align-items-center mt-5 pt-2" style="
+   <div class=""><div class="modal-header"><span class="modal-title fs-20">Cancel Registration ?</span><img  onclick = "closeModal()"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAADsAAAA7AF5KHG9AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAALlJREFUWIXtlssKgzAQRY/9FT/KriqIG/v/qxYfCyMEacV5xLjIXQky955EZxgoKrq56pweT+ADvA3hHfAFWmlhHQpnYAR6RXgfaufgJb6JLjKYkN3EvnaQhlsg3MI1EO7hEohk4WcgkocfQVwWvilur3H3rGlXleJTm07+cISqHL0OlfUT/PrhLBPTHP7vnTvEmVZLBiHpc3cIzZBxg7BMODPELRaShnUls8z2bSV7aQ2yLqVFRZdoAWfzgjFqNbBoAAAAAElFTkSuQmCC" alt="close" class="close cursor-pointer"></div><div class="modal-body" style="/* max-height: 80vh; *//* overflow-y: hidden; */"><section><div class=""><label class="mt-2">Are you sure you want to cancel registration ? </label><div class="d-flex justify-content-end align-items-center mt-5 pt-2" style="
     display: flex;
     justify-content: center;
     margin-top: 12px;
