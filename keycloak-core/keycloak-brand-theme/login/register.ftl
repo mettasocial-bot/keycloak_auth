@@ -80,8 +80,16 @@ function validatePassword() {
 }
 
 function cancelRegistration(){
-     console.log("cancel Clicked");
-    window.open("https://mettasocial.com", "_blank");
+    var modal = document.getElementById("myModal");
+        modal.style.display = "block";
+}
+function closeModal(){
+    var modal = document.getElementById("myModal");
+      modal.style.display = "none";
+}
+function confirmCancel(){
+
+    location.href = "https://mettasocial.com";
 }
 
  function togglePassword() {
@@ -109,6 +117,17 @@ function toggleConfirmPassword() {
                     v.src = "https://cdn.mettasocial.com/logos/eye-off.png";
                 }
             }
+
+ // Get the modal
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    var modal = document.getElementById("myModal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
         </script>
     <form id="kc-register-form" class="${properties.kcFormClass!}"  action="${url.registrationAction}" method="post">
 
@@ -404,7 +423,7 @@ function toggleConfirmPassword() {
 
             <div class="btn-section ${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
                 <div id="" class= "col-xs-6 col-sm-6 col-md-6 col-lg-6 padding-0">
-                    <input class="cancel-btn ${properties.kcButtonClass!}" type="cancel" value="Cancel" onclick = "cancelRegistration()"/>
+                    <input class="cancel-btn ${properties.kcButtonClass!}" type="cancel"id="myButton" value="Cancel" onclick = "cancelRegistration()" />
                 </div>             
 
                 <div id="" class= "col-xs-6 col-sm-6 col-md-6 col-lg-6 padding-0">
@@ -419,6 +438,25 @@ function toggleConfirmPassword() {
                     </div>
                 </div>
             </div>
+
+<!-- Trigger/Open The Modal -->
+<div id="myModal" class="modal" >
+<div class="modal-content">
+   <div class=""><div class="modal-header"><span class="modal-title fs-20">Cancel Registration ?</span><img  onclick = "closeModal()"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAADsAAAA7AF5KHG9AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAALlJREFUWIXtlssKgzAQRY/9FT/KriqIG/v/qxYfCyMEacV5xLjIXQky955EZxgoKrq56pweT+ADvA3hHfAFWmlhHQpnYAR6RXgfaufgJb6JLjKYkN3EvnaQhlsg3MI1EO7hEohk4WcgkocfQVwWvilur3H3rGlXleJTm07+cISqHL0OlfUT/PrhLBPTHP7vnTvEmVZLBiHpc3cIzZBxg7BMODPELRaShnUls8z2bSV7aQ2yLqVFRZdoAWfzgjFqNbBoAAAAAElFTkSuQmCC" alt="close" class="close cursor-pointer"></div><div class="modal-body" style="/* max-height: 80vh; *//* overflow-y: hidden; */"><section><div class=""><label class="mt-2">Are you sure you want to cancel registration</label><div class="d-flex justify-content-end align-items-center mt-5 pt-2" style="
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+"><button class="fs-13 mr-4 fs-14 dm-medium text-0085FF cursor-pointer p-2" id="confirmCancelbtn" type = "button" onclick = "confirmCancel()" type="button" style="
+    border: none;
+    width: 20%;
+">Yes</button><button type="button" class="btn btn-primary btn-lg mr-4 px-4 fs-14 dm-bold"  id="denyCancelbtn" type = "button" onclick = "closeModal()"  style="
+    margin-left: 20px;
+    border: none;
+    width: 20%;
+">No</button></div></div></section></div></div>
+  </div>
+
+</div>
         </form>  
     </#if>
 </@layout.registrationLayout>
