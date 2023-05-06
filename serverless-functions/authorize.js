@@ -96,7 +96,7 @@ function getToken({ authorization_code, APP_ENV }) {
     const data = `code=${authorization_code}&grant_type=authorization_code&client_id=${APP_ENV}mettasocial&redirect_uri=https://authz.mettasocial.com/authorize?client_id=${APP_ENV}mettasocial`;
     console.log(data);
     const options = {
-      hostname: `staging-auth.mettasocial.com`,
+      hostname: `auth.mettasocial.com`,
       port: 443,
       path: "/auth/realms/mettasocial-platform/protocol/openid-connect/token",
       method: "POST",

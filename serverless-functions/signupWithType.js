@@ -20,7 +20,7 @@ export async function index(event) {
     try {
       adminAccessToken = getAdminToken();
       res = await fetch(
-        "https://staging-auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users",
+        "https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users",
         {
           headers: {
             Authorization: `Bearer ${adminAccessToken}`,
