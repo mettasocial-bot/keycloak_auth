@@ -105,6 +105,7 @@ function getToken({ authorization_code, APP_ENV }) {
         "Content-Length": data.length,
       },
     };
+    console.log(options, "authorize");
     const req = https
       .request(options, (res) => {
         let data = "";

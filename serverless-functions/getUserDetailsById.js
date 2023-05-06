@@ -30,6 +30,7 @@ export async function index(event) {
     );
     const data = await Promise.all(
       resData.map((res) => {
+        console.log(res.json());
         return res.json();
       })
     );
