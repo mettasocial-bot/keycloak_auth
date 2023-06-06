@@ -1,4 +1,4 @@
-FROM jboss/keycloak:11.0.0
+FROM jboss/keycloak:latest
 USER root
 COPY keycloak-brand-theme/ /opt/jboss/keycloak/themes/meraklis
 COPY docker-entrypoint.sh /opt/jboss/tools

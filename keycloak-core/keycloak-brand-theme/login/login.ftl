@@ -81,7 +81,7 @@
                     <label class="text-center">Connect with thousands of NGOs delivering sustainable impact at scale.</label>
                      </div>
 
-                      <#if realm.password && realm.registrationAllowed  && client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo")>
+                      <#if realm.password && realm.registrationAllowed  && client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo" || client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace")>
             <div id="kc-registration" class = "align-text-center">
                 <span><a tabindex="6" href="${url.registrationUrl}">Join Now</a></span>
             </div>
