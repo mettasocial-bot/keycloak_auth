@@ -229,6 +229,21 @@ window.onclick = function(event) {
             </div>
              
         </#if>
+</#if>
+                <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
+            client.clientId = "staging-mettasocial-workplace" ||
+            client.clientId = "mettasocial-workplace")>
+              
+             <div class="form-group hidden-xs hidden-sm hidden-md hidden-lg ${properties.kcContentWrapperClass!} ">
+               <div class="${properties.kcLabelWrapperClass!}">
+                   <label for="user.attributes.group_id" class="${properties.kcLabelClass!}">Group Id <span class="color-FF2300">*</span></label>
+               </div>
+               <div class="${properties.kcInputWrapperClass!}">
+                   <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.group_id" name="user.attributes.group_id" value="44fa0199-8b05-4386-81de-8dce3f97167c"/>
+               </div>
+            </div>
+             
+        </#if>
 
 
             <div class="form-group ${properties.kcContentWrapperClass!}">
@@ -385,6 +400,9 @@ window.onclick = function(event) {
             </div>
              
         </#if>
+
+
+      
            
             <div <#if client?? && client.clientId?? && client.clientId = "local-mettasocial">class="form-group"<#else>class="form-group hidden-xs hidden-sm hidden-md hidden-lg"</#if>>
                <div class="${properties.kcLabelWrapperClass!}">
@@ -400,6 +418,8 @@ window.onclick = function(event) {
                             <option value="2" selected>NGO</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "mettasocial-corp")>
                             <option value="4" selected>Corporate</option>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace" || client.clientId = "mettasocial-workplace")>
+                            <option value="128" selected>workplace</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen" || client.clientId = "android-mettasocial")>
                             <option value="8" selected>Citizen</option>
                         </#if>
