@@ -232,7 +232,7 @@ window.onclick = function(event) {
 </#if>
                 <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
             client.clientId = "staging-mettasocial-workplace" ||
-            client.clientId = "mettasocial-workplace")>
+            client.clientId = "demo-mettasocial-workplace")>
               
              <div class="form-group hidden-xs hidden-sm hidden-md hidden-lg ${properties.kcContentWrapperClass!} ">
                <div class="${properties.kcLabelWrapperClass!}">

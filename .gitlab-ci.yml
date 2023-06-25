@@ -33,7 +33,7 @@ on failure:
     - . ./ci-scripts/slack_alert.sh production 0
   only:
     refs:
-      - /^production-.*$/
+      - staging-auth
     changes:
       - serverless-functions/**/*
       - serverless.yml
