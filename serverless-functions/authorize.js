@@ -47,7 +47,7 @@ export async function index(event) {
     if (searchString) {
       const queryString = searchString.replace("?", "");
       let clientId = querystringParser.parse(queryString).client_id;
-      if (!clientId.match(/^(local|dev|staging)?-?mettasocial$/)) {
+      if (!clientId.match(/^(local|dev|staging|demo)?-?mettasocial$/)) {
         return {
           statusCode: 400,
           body: JSON.stringify("Bad Request!"),
@@ -57,7 +57,7 @@ export async function index(event) {
     } else {
       if (origin.match(/^localhost/)) {
         APP_ENV = "local-";
-      } else if (origin.match(/^(dev|staging)?-?www.mettasocial.com$/)) {
+      } else if (origin.match(/^(dev|staging|demo)?-?www.mettasocial.com$/)) {
         APP_ENV = origin.replace("www.mettasocial.com", "");
       }
     }
