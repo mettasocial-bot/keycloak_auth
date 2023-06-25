@@ -242,7 +242,7 @@ window.onclick = function(event) {
                    <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.group_id" name="user.attributes.group_id" value="44fa0199-8b05-4386-81de-8dce3f97167c"/>
                </div>
             </div>
-             
+           
         </#if>
 
 
@@ -418,7 +418,7 @@ window.onclick = function(event) {
                             <option value="2" selected>NGO</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "mettasocial-corp")>
                             <option value="4" selected>Corporate</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace" || client.clientId = "mettasocial-workplace")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace" || client.clientId = "demo-mettasocial-workplace")>
                             <option value="128" selected>workplace</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen" || client.clientId = "android-mettasocial")>
                             <option value="8" selected>Citizen</option>
