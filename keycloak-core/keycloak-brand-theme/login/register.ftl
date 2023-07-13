@@ -38,8 +38,44 @@ window.addEventListener('load', () => {
         .catch(error => {
             console.error(error);
         });
+
+        populateCorporates()
 });
 
+
+
+function populateCorporates() {
+      var dropdown = document.getElementById("user.attributes.corporate");
+    console.log("populate", window.location.href)
+    var currentURL = window.location.href;
+var urlParams = new URLSearchParams(currentURL);
+var urlClientId = urlParams.get("client_id");
+      // Make an AJAX request to the REST API
+      var xhr = new XMLHttpRequest();
+      var url = "https://workplacestaging.mettasocial.com/workplace/corporate_list"
+    
+
+      xhr.open("GET", url, true);  // Replace with your API endpoint
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+           
+         var pleaseSelectOption = document.createElement("option");
+          pleaseSelectOption.value = "";
+          pleaseSelectOption.text = "Please Select";
+          dropdown.appendChild(pleaseSelectOption);
+
+          // Iterate over the API response and create remaining dropdown options
+          response.result.forEach(function(item) {
+            var option = document.createElement("option");
+            option.value = item.id;  // Replace with the appropriate property from the API response
+            option.text = item.companyName;    // Replace with the appropriate property from the API response
+            dropdown.appendChild(option);
+          });
+        }
+      };
+      xhr.send();
+    }
 
 function populateDropdowns() {
 
@@ -401,6 +437,33 @@ window.onclick = function(event) {
         </#if>
            
 
+
+
+
+
+<#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
+            client.clientId = "staging-mettasocial-workplace" ||
+            client.clientId = "demo-mettasocial-workplace" ||
+            client.clientId = "mettasocial-npo")>
+
+             <div class = "form-group ${properties.kcContentWrapperClass!}">
+
+                 <div class= "col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="${properties.kcFormGroupClass!}">
+                        <div class="${properties.kcLabelWrapperClass!}">
+                            <label for="corporate" class="${properties.kcLabelClass!}">Corporate  <span class="color-FF2300">*</span></label>
+                        </div>
+                        <div class="${properties.kcInputWrapperClass!}">
+
+                            <select class="${properties.kcInputClass!}" id="user.attributes.corporate" required name="user.attributes.corporate" value="${(register.formData['user.attributes.corporate']!'')}">
+                            </select>
+
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+        </#if>
       
            
             <div <#if client?? && client.clientId?? && client.clientId = "local-mettasocial">class="form-group"<#else>class="form-group hidden-xs hidden-sm hidden-md hidden-lg"</#if>>
