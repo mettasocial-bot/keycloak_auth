@@ -7,6 +7,7 @@
         let countryList = []
 window.addEventListener('load', () => {
     var today = new Date().toISOString().split('T')[0];
+    populateCorporates();
     document.getElementsByName("user.attributes.registrationDate")[0].setAttribute('max', today);
     fetch('https://restcountries.com/v3.1/all')
         .then(response => response.json())
@@ -39,7 +40,7 @@ window.addEventListener('load', () => {
             console.error(error);
         });
 
-        populateCorporates()
+        
 });
 
 
