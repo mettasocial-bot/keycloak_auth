@@ -45,7 +45,8 @@ function authenticate(context) {
         +userType === 16
     ) {
         authShouldFail = false;
-    } else if (+userType === 1) {
+    } else if (client.match(/(dev-|staging-|demo)?mettasocial-admin/) &&
+    +userType === 1) {
         authShouldFail = false;
     }
     if (authShouldFail) {
