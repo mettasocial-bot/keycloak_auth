@@ -48,14 +48,18 @@ window.addEventListener('load', () => {
 function populateCorporates() {
       var dropdown = document.getElementById("user.attributes.corporate");
     console.log("populate", window.location.href)
-    var currentURL = window.location.href;
+    var currentURL = window.location.search;
 var urlParams = new URLSearchParams(currentURL);
 var urlClientId = urlParams.get("client_id");
+    console.log(urlClientId);
       // Make an AJAX request to the REST API
       var xhr = new XMLHttpRequest();
       var url = "https://workplacestaging.mettasocial.com/workplace/corporate_list"
     
-
+        if(urlClientId == "demo-mettasocial-workplace"){
+            console.log("demo")
+            url = "https://workplacedemo.mettasocial.com/workplace/corporate_list"
+        }
       xhr.open("GET", url, true);  // Replace with your API endpoint
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -477,9 +481,9 @@ window.onclick = function(event) {
                             <option value="2">NGO</option>
                             <option value="4">Corporate</option>
                             <option value="8">Citizen</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo" || client.clientId = "demo-mettasocial-npo")>
                             <option value="2" selected>NGO</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "mettasocial-corp")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "demomettasocial-corp" || client.clientId = "mettasocial-corp")>
                             <option value="4" selected>Corporate</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace" || client.clientId = "demo-mettasocial-workplace")>
                             <option value="128" selected>workplace</option>
