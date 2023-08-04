@@ -54,13 +54,8 @@ var urlClientId = urlParams.get("client_id");
     console.log(urlClientId);
       // Make an AJAX request to the REST API
       var xhr = new XMLHttpRequest();
-      var url = "https://workplacestaging.mettasocial.com/workplace/corporate_list"
-    
-        if(urlClientId == "demo-mettasocial-workplace"){
-            console.log("demo")
-            url = "https://workplacedemo.mettasocial.com/workplace/corporate_list"
-        }
-      xhr.open("GET", url, true);  // Replace with your API endpoint
+      var url = "https://socioctrl-demo.mettasocial.com/tenants/tenant/"
+      xhr.open("GET", url, true);  
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           var response = JSON.parse(xhr.responseText);
@@ -71,10 +66,10 @@ var urlClientId = urlParams.get("client_id");
           dropdown.appendChild(pleaseSelectOption);
 
           // Iterate over the API response and create remaining dropdown options
-          response.result.forEach(function(item) {
+          response.forEach(function(item) {
             var option = document.createElement("option");
-            option.value = item.id;  // Replace with the appropriate property from the API response
-            option.text = item.companyName;    // Replace with the appropriate property from the API response
+            option.value = item.tenant_id;  // Replace with the appropriate property from the API response
+            option.text = item.corp_name;    // Replace with the appropriate property from the API response
             dropdown.appendChild(option);
           });
         }
