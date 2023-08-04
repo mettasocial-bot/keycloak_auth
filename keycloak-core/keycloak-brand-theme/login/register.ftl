@@ -483,7 +483,7 @@ window.onclick = function(event) {
                             <option value="8">Citizen</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "mettasocial-npo" || client.clientId = "demo-mettasocial-npo")>
                             <option value="2" selected>NGO</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "demomettasocial-corp" || client.clientId = "mettasocial-corp")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "demo-mettasocial-corp" || client.clientId = "mettasocial-corp")>
                             <option value="4" selected>Corporate</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace" || client.clientId = "demo-mettasocial-workplace")>
                             <option value="128" selected>workplace</option>
