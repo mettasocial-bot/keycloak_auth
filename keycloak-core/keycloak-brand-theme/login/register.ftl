@@ -337,7 +337,7 @@ window.onclick = function(event) {
                     <label for="password-confirm" class="${properties.kcLabelClass!}">Confirm Password  <span class="color-FF2300">*</span></label>
                             </div>
                         <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password-confirm" class="${properties.kcInputClass!}" disabled placeholder = "******" name="password-confirm" />
+                    <input type="password" id="password-confirm" class="${properties.kcInputClass!}"  placeholder = "******" name="password-confirm" />
                         <label class="password-label" id="v" onclick="toggleConfirmPassword()" style="
     right: 28px;
 "><img id="confirmpasswordimg" class= "password-image" src="https://cdn.mettasocial.com/logos/eye-off.png"></label>
