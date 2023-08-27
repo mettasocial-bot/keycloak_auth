@@ -280,7 +280,18 @@ window.onclick = function(event) {
            
         </#if>
 
-
+ <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
+            client.clientId = "staging-mettasocial-workplace" || 
+            client.clientId = "demo-mettasocial-workplace")>
+            <div class="form-group ${properties.kcContentWrapperClass!}">
+               <div class="${properties.kcLabelWrapperClass!}">
+                   <label for="user.attributes.employeeId" class="${properties.kcLabelClass!}">Employee Id <span class="color-FF2300">*</span></label>
+               </div>
+               <div class="${properties.kcInputWrapperClass!}">
+                   <input type="text"  pattern="[0-9]{10}" required class="${properties.kcInputClass!}"  id="user.attributes.employeeId"  name="user.attributes.employeeId" value="${(register.formData['user.attributes.employeeId']!'')}"/>
+               </div>
+            </div>
+</#if>
             <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
                    <label for="user.attributes.contactNumber" class="${properties.kcLabelClass!}">Contact Number <span class="color-FF2300">*</span></label>
@@ -292,13 +303,14 @@ window.onclick = function(event) {
 
             <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="email" class="${properties.kcLabelClass!}">Email Address <span class="color-FF2300">*</span></label>
+                    <!-- label for="email" class="${properties.kcLabelClass!}">Email Address <span class="color-FF2300">*</span></label -->
+                    <label for="email" class="${properties.kcLabelClass!}">Corporate Email Address <span class="color-FF2300">*</span></label>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="email" class="${properties.kcInputClass!}" name="email" placeholder= "user@domain.com" maxlength="50" value="${(register.formData.email!'')}" autocomplete="email" />
                 </div>
             </div>
-
+            
           <#if !realm.registrationEmailAsUsername>
             <div class="${properties.kcFormGroupClass!}  ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('username',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
@@ -465,6 +477,16 @@ window.onclick = function(event) {
 
         </#if>
       
+          <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
+
+                <div class="${properties.kcInputWrapperClass!}">
+                   <div id="kc-form-buttons" class="text-center kc-signup-button">
+                    <input type="hidden" id="id-hidden-input" name="credentialId">
+                    <input tabindex="7" class="btn btn-lg" name="signup" id="kc-login" type="submit" value="Sign Up">
+                  </div>
+                </div>
+            </div>
+
            
             <div <#if client?? && client.clientId?? && client.clientId = "local-mettasocial">class="form-group"<#else>class="form-group hidden-xs hidden-sm hidden-md hidden-lg"</#if>>
                <div class="${properties.kcLabelWrapperClass!}">
@@ -524,7 +546,8 @@ window.onclick = function(event) {
 <!-- Trigger/Open The Modal -->
 <div id="myModal" class="modal" >
 <div class="modal-content">
-   <div class=""><div class="modal-header"><span class="modal-title fs-20">Cancel Registration ?</span><img  onclick = "closeModal()"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAADsAAAA7AF5KHG9AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAALlJREFUWIXtlssKgzAQRY/9FT/KriqIG/v/qxYfCyMEacV5xLjIXQky955EZxgoKrq56pweT+ADvA3hHfAFWmlhHQpnYAR6RXgfaufgJb6JLjKYkN3EvnaQhlsg3MI1EO7hEohk4WcgkocfQVwWvilur3H3rGlXleJTm07+cISqHL0OlfUT/PrhLBPTHP7vnTvEmVZLBiHpc3cIzZBxg7BMODPELRaShnUls8z2bSV7aQ2yLqVFRZdoAWfzgjFqNbBoAAAAAElFTkSuQmCC" alt="close" class="close cursor-pointer"></div><div class="modal-body" style="/* max-height: 80vh; *//* overflow-y: hidden; */"><section><div class=""><label class="mt-2">Are you sure you want to cancel registration ?</label><div class="d-flex justify-content-end align-items-center mt-5 pt-2" style="
+   <div class=""><div class="modal-header"><span class="modal-title fs-20">Cancel Registration ?</span><img  onclick = "closeModal()"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAADsAAAA7AF5KHG9AAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAALlJREFUWIXtlssKgzAQRY/9FT/KriqIG/v/qxYfCyMEacV5xLjIXQky955EZxgoKrq56pweT+ADvA3hHfAFWmlhHQpnYAR6RXgfaufgJb6JLjKYkN3EvnaQhlsg3MI1EO7hEohk4WcgkocfQVwWvilur3H3rGlXleJTm07+cISqHL0OlfUT/PrhLBPTHP7vnTvEmVZLBiHpc3cIzZBxg7BMODPELRaShnUls8z2bSV7aQ2yLqVFRZdoAWfzgjFqNbBoAAAAAElFTkSuQmCC" alt="close" class="close cursor-pointer"></div><div class="modal-body" style="/* max-height: 80vh; *//* overflow-y: hidden; */">
+   <section><div class=""><label class="mt-2">Are you sure you want to cancel registration ?</label><div class="d-flex justify-content-end align-items-center mt-5 pt-2" style="
     display: flex;
     justify-content: center;
     margin-top: 12px;
