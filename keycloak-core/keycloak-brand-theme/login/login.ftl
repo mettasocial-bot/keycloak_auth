@@ -27,7 +27,9 @@
     </#if>
 
         ${msg("doLogIn")}
-        <h5 class = "text-center">Enter your details to login to your account</h5>
+        <!--h5 class = "text-center">Enter your details to login to your account</h5-->
+        <h5 class="text-center kc-page-subtitle">Login today, impact forever</h5>
+
     <#elseif section = "form">
     <div id="kc-form" <#if realm.password && social.providers?? && client?? && client.clientId?? && (client.clientId = "local-mettasocial" || client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen")>class="${properties.kcContentWrapperClass!}"</#if>>
       <div id="kc-form-wrapper" <#if realm.password && social.providers?? && client?? && client.clientId?? && (client.clientId = "local-mettasocial" || client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen")>class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}"</#if>>
@@ -74,17 +76,29 @@
 
                   <div id="kc-form-buttons" class="${properties.kcFormGroupClass!} text-center">
                       <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                      <input tabindex="4" class="${properties.kcButtonClass!} btn-primary ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                      <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
                   </div>
 
                    <div class="${properties.kcFormGroupClass!}">
-                    <label class="text-center">Connect with thousands of NGOs delivering sustainable impact at scale.</label>
+                   
+
+<#if  client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace"  || client.clientId = "demo-mettasocial-workplace"
+                      )>
+                       <center> <label class="text-center kc-page-subtitle-footer">SocioGiving . My Mission . My
+                        Way</label></center>
+                    <#else>
+                        <center> <label class="text-center kc-page-subtitle-footer">Connect with thousands of NGOs delivering sustainable impact at scale.</label></center>
+                    </#if>
+
+
+                      
                      </div>
 
                       <#if realm.password && realm.registrationAllowed  && client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "demo-mettasocial-npo" || client.clientId = "mettasocial-npo" || client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace"  || client.clientId = "demo-mettasocial-workplace"
                      || client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "demo-mettasocial-corp" )>
             <div id="kc-registration" class = "align-text-center">
-                <span><a tabindex="6" href="${url.registrationUrl}">Join Now</a></span>
+                <!--span><a tabindex="6" href="${url.registrationUrl}">Join Now</a></span-->
+                 <span><a tabindex="6" href="${url.registrationUrl}">Sign Up</a></span>
             </div>
         </#if>
                                   

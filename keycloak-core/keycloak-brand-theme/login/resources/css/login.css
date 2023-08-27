@@ -1,3 +1,6 @@
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,400;1,9..40,900&display=swap");
+
 .login-pf,
 body {
     min-height: 100%;
@@ -746,3 +749,92 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
+
+  /* done */
+.login-pf body {
+    background: #E5EDF5;
+}
+/* done */
+#kc-page-title {
+    font-weight: bold !important;
+    color: #1B1C1D !important;
+    font-size: 30px !important;
+}
+/* done */
+#kc-header-wrapper {  
+    float: unset;
+}
+/* done */
+#kc-register-form label,#kc-form-login label {
+    font-weight: 400 !important;
+    font-size: 14px !important;
+}
+/* done */
+#kc-login {
+    background-color: #89BB2A !important;
+    color: #FFFFFF !important;
+    font-size: 14px !important;
+    font-weight: 400;
+    height: 40px;
+}
+/* done */
+#kc-registration {
+    font-size: 14px !important;
+}
+/* done */
+.login-pf-page .card-pf {
+    margin-bottom: 1rem !important;
+}
+
+/********* new css ***************/
+.kc-page-subtitle {
+    color: #1B1C1D !important;
+    font-size: 16px !important;
+    margin-bottom: 4rem;
+    font-weight: 400;
+}
+
+.kc-page-subtitle-footer {
+    color: #666565 !important;
+    font-size: 14px !important;
+}
+
+.kc-footer-text {
+    max-width: 500px;
+    margin: 0 auto;
+    color: #666565;
+    font-size: 11px;
+}
+
+.kc-text-left {
+    float: left;
+}
+
+.kc-text-right {
+    float: right;
+}
+
+.kc-text-center {
+    font-size: 11px;
+    color: #666565;
+    text-align: center;
+}
+
+.kc-text-right a {
+    color: #666565 !important;
+}
+
+.kc-space {
+    padding: 1rem;
+}
+
+#powered-by {
+    margin-top: 5rem;
+}
+
+#powered-by img {
+    height: 40px;
+}
+.kc-signup-button{
+    margin-top: 0px !important;
+}
