@@ -303,8 +303,16 @@ window.onclick = function(event) {
 
             <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
                 <div class="${properties.kcLabelWrapperClass!}">
-                    <!-- label for="email" class="${properties.kcLabelClass!}">Email Address <span class="color-FF2300">*</span></label -->
+                    
+                    <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
+            client.clientId = "staging-mettasocial-workplace" ||
+            client.clientId = "demo-mettasocial-workplace" )>
                     <label for="email" class="${properties.kcLabelClass!}">Corporate Email Address <span class="color-FF2300">*</span></label>
+
+                     <#else>
+                     <label for="email" class="${properties.kcLabelClass!}">Email Address <span class="color-FF2300">*</span></label>
+
+                     </#if>
                 </div>
                 <div class="${properties.kcInputWrapperClass!}">
                     <input type="text" id="email" class="${properties.kcInputClass!}" name="email" placeholder= "user@domain.com" maxlength="50" value="${(register.formData.email!'')}" autocomplete="email" />
@@ -455,8 +463,7 @@ window.onclick = function(event) {
 
 <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
             client.clientId = "staging-mettasocial-workplace" ||
-            client.clientId = "demo-mettasocial-workplace" ||
-            client.clientId = "mettasocial-npo")>
+            client.clientId = "demo-mettasocial-workplace" )>
 
              <div class = "form-group ${properties.kcContentWrapperClass!}">
 
@@ -476,16 +483,6 @@ window.onclick = function(event) {
             </div>
 
         </#if>
-      
-          <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
-
-                <div class="${properties.kcInputWrapperClass!}">
-                   <div id="kc-form-buttons" class="text-center kc-signup-button">
-                    <input type="hidden" id="id-hidden-input" name="credentialId">
-                    <input tabindex="7" class="btn btn-lg" name="signup" id="kc-login" type="submit" value="Sign Up">
-                  </div>
-                </div>
-            </div>
 
            
             <div <#if client?? && client.clientId?? && client.clientId = "local-mettasocial">class="form-group"<#else>class="form-group hidden-xs hidden-sm hidden-md hidden-lg"</#if>>
@@ -525,6 +522,23 @@ window.onclick = function(event) {
              <input  type="checkbox" name="tnc_accepted" required id="tnc_agreed"  value="true" ><label class="col-11 left-margin" for="tnc_agreed">Agree to <a href="https://www.mettasocial.com/terms-and-conditions" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank">Terms of Service</a> and <a href="https://www.mettasocial.com/privacy-policy" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank"> Privacy Policy</a><span class="color-FF2300">*</span></label></div>
             </div>
 
+      <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
+            client.clientId = "staging-mettasocial-workplace" ||
+            client.clientId = "demo-mettasocial-workplace" )>
+          <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
+
+                <div class="${properties.kcInputWrapperClass!}">
+                   <div id="kc-form-buttons" class="text-center kc-signup-button">
+                    <input type="hidden" id="id-hidden-input" name="credentialId">
+                    <input tabindex="7" class="btn btn-lg" name="signup" id="kc-login" type="submit" value="Sign Up">
+                  </div>
+                </div>
+            </div>
+
+
+ <#else>
+
+
             <div class="btn-section ${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!}">
                 <div id="" class= "col-xs-6 col-sm-6 col-md-6 col-lg-6 padding-0">
                     <input class="cancel-btn ${properties.kcButtonClass!}" type="button" id="myButton" value="Cancel" onclick = "cancelRegistration()" />
@@ -534,6 +548,10 @@ window.onclick = function(event) {
                     <input class="register-btn ${properties.kcButtonClass!}" type="submit" value="Verify Email"/>
                 </div>
             </div> 
+
+
+</#if>
+
 
             <div>
                <div id="kc-form-options">

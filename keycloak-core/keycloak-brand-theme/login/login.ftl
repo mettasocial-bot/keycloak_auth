@@ -76,7 +76,7 @@
 
                   <div id="kc-form-buttons" class="${properties.kcFormGroupClass!} text-center">
                       <input type="hidden" id="id-hidden-input" name="credentialId" <#if auth.selectedCredential?has_content>value="${auth.selectedCredential}"</#if>/>
-                      <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="${msg("doLogIn")}"/>
+                      <input tabindex="4" class="${properties.kcButtonClass!} ${properties.kcButtonLargeClass!}" name="login" id="kc-login" type="submit" value="Log In"/>
                   </div>
 
                    <div class="${properties.kcFormGroupClass!}">
