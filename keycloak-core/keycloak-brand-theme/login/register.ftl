@@ -274,7 +274,7 @@ window.onclick = function(event) {
                    <label for="user.attributes.group_id" class="${properties.kcLabelClass!}">Group Id <span class="color-FF2300">*</span></label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
-                   <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.group_id" name="user.attributes.group_id" value="44fa0199-8b05-4386-81de-8dce3f97167c"/>
+                   <input type="text" required  required class="${properties.kcInputClass!}" id="user.attributes.group_id" name="user.attributes.group_id" value="13e5f862-c773-40d7-998e-8470f5b3b6a7"/>
                </div>
             </div>
            
