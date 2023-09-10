@@ -288,7 +288,7 @@ window.onclick = function(event) {
                    <label for="user.attributes.employeeId" class="${properties.kcLabelClass!}">Employee Id <span class="color-FF2300">*</span></label>
                </div>
                <div class="${properties.kcInputWrapperClass!}">
-                   <input type="text"  pattern="[0-9]{10}" required class="${properties.kcInputClass!}"  id="user.attributes.employeeId"  name="user.attributes.employeeId" value="${(register.formData['user.attributes.employeeId']!'')}"/>
+                   <input type="text" required class="${properties.kcInputClass!}"  id="user.attributes.employeeId"  name="user.attributes.employeeId" value="${(register.formData['user.attributes.employeeId']!'')}"/>
                </div>
             </div>
 </#if>
