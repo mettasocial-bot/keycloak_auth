@@ -54,7 +54,7 @@ var urlClientId = urlParams.get("client_id");
     console.log(urlClientId);
       // Make an AJAX request to the REST API
       var xhr = new XMLHttpRequest();
-      var url = "https://socioctrl-demo.mettasocial.com/tenants/tenant/"
+      var url = "https://socioctrl.mettasocial.com/tenants/tenant/"
       xhr.open("GET", url, true);  
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -266,7 +266,7 @@ window.onclick = function(event) {
              
         </#if>
                 <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
-            client.clientId = "staging-mettasocial-workplace" ||
+            client.clientId = "staging-mettasocial-workplace" || client.clientId = "mettasocial-workplace" ||
             client.clientId = "demo-mettasocial-workplace")>
               
              <div class="form-group hidden-xs hidden-sm hidden-md hidden-lg ${properties.kcContentWrapperClass!} ">
@@ -281,7 +281,7 @@ window.onclick = function(event) {
         </#if>
 
  <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
-            client.clientId = "staging-mettasocial-workplace" || 
+            client.clientId = "staging-mettasocial-workplace" || client.clientId = "mettasocial-workplace" ||
             client.clientId = "demo-mettasocial-workplace")>
             <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
@@ -305,7 +305,7 @@ window.onclick = function(event) {
                 <div class="${properties.kcLabelWrapperClass!}">
                     
                     <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
-            client.clientId = "staging-mettasocial-workplace" ||
+            client.clientId = "staging-mettasocial-workplace" || client.clientId = "mettasocial-workplace" ||
             client.clientId = "demo-mettasocial-workplace" )>
                     <label for="email" class="${properties.kcLabelClass!}">Corporate Email Address <span class="color-FF2300">*</span></label>
 
@@ -462,7 +462,7 @@ window.onclick = function(event) {
 
 
 <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
-            client.clientId = "staging-mettasocial-workplace" ||
+            client.clientId = "staging-mettasocial-workplace" || client.clientId = "mettasocial-workplace" ||
             client.clientId = "demo-mettasocial-workplace" )>
 
              <div class = "form-group ${properties.kcContentWrapperClass!}">
@@ -499,7 +499,7 @@ window.onclick = function(event) {
                             <option value="2" selected>NGO</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "demo-mettasocial-corp" || client.clientId = "mettasocial-corp")>
                             <option value="4" selected>Corporate</option>
-                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace" || client.clientId = "demo-mettasocial-workplace")>
+                        <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace" || client.clientId = "demo-mettasocial-workplace" || client.clientId = "mettasocial-workplace")>
                             <option value="128" selected>workplace</option>
                         <#elseif client?? && client.clientId?? && (client.clientId = "dev-mettasocial-citizen" || client.clientId = "staging-mettasocial-citizen" || client.clientId = "mettasocial-citizen" || client.clientId = "android-mettasocial")>
                             <option value="8" selected>Citizen</option>
@@ -523,7 +523,7 @@ window.onclick = function(event) {
             </div>
 
       <#if client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" ||
-            client.clientId = "staging-mettasocial-workplace" ||
+            client.clientId = "staging-mettasocial-workplace" || client.clientId = "mettasocial-workplace" ||
             client.clientId = "demo-mettasocial-workplace" )>
           <div class="${properties.kcFormGroupClass!} ${properties.kcContentWrapperClass!} ${messagesPerField.printIfExists('email',properties.kcFormGroupErrorClass!)}">
 

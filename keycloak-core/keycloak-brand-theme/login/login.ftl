@@ -82,7 +82,7 @@
                    <div class="${properties.kcFormGroupClass!}">
                    
 
-<#if  client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace"  || client.clientId = "demo-mettasocial-workplace"
+<#if  client?? && client.clientId?? && (client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace"  || client.clientId = "demo-mettasocial-workplace" || client.clientId = "mettasocial-workplace" 
                       )>
                        <center> <label class="text-center kc-page-subtitle-footer">SocioGiving . My Mission . My
                         Way</label></center>
@@ -94,7 +94,7 @@
                       
                      </div>
 
-                      <#if realm.password && realm.registrationAllowed  && client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "demo-mettasocial-npo" || client.clientId = "mettasocial-npo" || client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace"  || client.clientId = "demo-mettasocial-workplace"
+                      <#if realm.password && realm.registrationAllowed  && client?? && client.clientId?? && (client.clientId = "dev-mettasocial-npo" || client.clientId = "staging-mettasocial-npo" || client.clientId = "demo-mettasocial-npo" || client.clientId = "mettasocial-npo" || client.clientId = "dev-mettasocial-workplace" || client.clientId = "staging-mettasocial-workplace"  || client.clientId = "demo-mettasocial-workplace" || client.clientId = "mettasocial-workplace"
                      || client.clientId = "dev-mettasocial-corp" || client.clientId = "staging-mettasocial-corp" || client.clientId = "demo-mettasocial-corp" )>
             <div id="kc-registration" class = "align-text-center">
                 <!--span><a tabindex="6" href="${url.registrationUrl}">Join Now</a></span-->
