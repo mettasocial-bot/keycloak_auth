@@ -16,7 +16,7 @@ export async function index(event) {
     const userId = jwt_decode(event.headers.Authorization).sub;
     adminAccessToken = await getAdminToken();
     const res = await fetch(
-      `https://staging-auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users/${userId}/logout`,
+      `https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users/${userId}/logout`,
       {
         headers: {
           Authorization: `Bearer ${adminAccessToken}`,

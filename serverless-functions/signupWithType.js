@@ -4,8 +4,14 @@ import { getAdminToken, logoutAdmin } from "./utils/admin";
 export async function index(event) {
   try {
     const requestData = JSON.parse(event.body);
-    const { firstName, lastName, contactNumber, password, email, type } =
-      requestData;
+    const {
+      firstName,
+      lastName,
+      contactNumber,
+      password,
+      email,
+      type,
+    } = requestData;
     if (!email || !password || !contactNumber || !lastName || !firstName) {
       throw new Error("Bad request data");
     }
@@ -20,7 +26,7 @@ export async function index(event) {
     try {
       adminAccessToken = getAdminToken();
       res = await fetch(
-        "https://staging-auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users",
+        "https://auth.mettasocial.com/auth/admin/realms/mettasocial-platform/users",
         {
           headers: {
             Authorization: `Bearer ${adminAccessToken}`,
