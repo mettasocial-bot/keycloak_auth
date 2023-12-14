@@ -285,8 +285,8 @@ window.onclick = function(event) {
             client.clientId = "demo-mettasocial-workplace")>
             <div class="form-group ${properties.kcContentWrapperClass!}">
                <div class="${properties.kcLabelWrapperClass!}">
-                   <label for="user.attributes.employeeId" class="${properties.kcLabelClass!}">Employee Id <span class="color-FF2300">*</span></label>
-               </div>
+                   <label for="user.attributes.employeeId" class="${properties.kcLabelClass!}">Employee ID <span class="color-FF2300">*</span></label>
+               </div>`
                <div class="${properties.kcInputWrapperClass!}">
                    <input type="text" required class="${properties.kcInputClass!}"  id="user.attributes.employeeId"  name="user.attributes.employeeId" value="${(register.formData['user.attributes.employeeId']!'')}"/>
                </div>
@@ -517,7 +517,7 @@ window.onclick = function(event) {
             </div>
             </#if>
 
-             <div class = "form-group left-margin ${properties.kcContentWrapperClass!}">
+             <div class = "form-group left-margin-chkbox ${properties.kcContentWrapperClass!}">
              
              <input  type="checkbox" name="tnc_accepted" required id="tnc_agreed"  value="true" ><label class="col-11 left-margin" for="tnc_agreed">Agree to <a href="https://www.mettasocial.com/terms-and-conditions" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank">Terms of Service</a> and <a href="https://www.mettasocial.com/privacy-policy" class="color-1FA4FA text-underline cursor-pointer" rel="noreferrer noopener" target="_blank"> Privacy Policy</a><span class="color-FF2300">*</span></label></div>
             </div>
